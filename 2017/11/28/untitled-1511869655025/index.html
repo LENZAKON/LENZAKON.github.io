@@ -81,7 +81,7 @@
 
 <meta name="description" content="window 和 document 的关系 window 是指整个窗口（包括上面的菜单栏），document 是window 的一部分，浏览器的html文档 成为 document 对象 window.location === document.location。 window / document对象的locatio">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js&#x2F;jQuery 中的宽高">
+<meta property="og:title" content="js中的宽高">
 <meta property="og:url" content="http://yoursite.com/2017/11/28/untitled-1511869655025/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="window 和 document 的关系 window 是指整个窗口（包括上面的菜单栏），document 是window 的一部分，浏览器的html文档 成为 document 对象 window.location === document.location。 window / document对象的location 引用的是Location 对象，表示该窗口中当前显示文档的URL。   与w">
@@ -89,9 +89,13 @@
 <meta property="og:image" content="http://yoursite.com/images/1511871604740.png">
 <meta property="og:image" content="http://yoursite.com/images/1511871863159.png">
 <meta property="og:image" content="http://yoursite.com/images/1511871916579.png">
-<meta property="og:updated_time" content="2017-11-28T15:53:55.533Z">
+<meta property="og:image" content="http://yoursite.com/images/1511934743321.png">
+<meta property="og:image" content="http://yoursite.com/images/1511934774425.png">
+<meta property="og:image" content="http://yoursite.com/images/1511935273498.png">
+<meta property="og:image" content="http://yoursite.com/images/1511936832108.png">
+<meta property="og:updated_time" content="2017-11-29T07:57:28.503Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js&#x2F;jQuery 中的宽高">
+<meta name="twitter:title" content="js中的宽高">
 <meta name="twitter:description" content="window 和 document 的关系 window 是指整个窗口（包括上面的菜单栏），document 是window 的一部分，浏览器的html文档 成为 document 对象 window.location === document.location。 window / document对象的location 引用的是Location 对象，表示该窗口中当前显示文档的URL。   与w">
 <meta name="twitter:image" content="http://yoursite.com/images/1511871538262.png">
 
@@ -129,7 +133,7 @@
 
 
 
-  <title>js/jQuery 中的宽高 | Hexo</title>
+  <title>js中的宽高 | Hexo</title>
   
 
 
@@ -253,7 +257,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js/jQuery 中的宽高</h1>
+          <h1 class="post-title" itemprop="name headline">js中的宽高</h1>
         
 
         <div class="post-meta">
@@ -386,16 +390,44 @@
 <li>document.body.scrollTop</li>
 <li>document.getElementById(‘offest’).scrollWidth</li>
 </ul>
-<h4 id="document-body的scrollWidth和scrollHeight与div的是有区别的"><a href="#document-body的scrollWidth和scrollHeight与div的是有区别的" class="headerlink" title="document.body的scrollWidth和scrollHeight与div的是有区别的"></a>document.body的scrollWidth和scrollHeight与div的是有区别的</h4><h5 id="document-body的scrollWidth和scrollHeight"><a href="#document-body的scrollWidth和scrollHeight" class="headerlink" title="document.body的scrollWidth和scrollHeight"></a>document.body的scrollWidth和scrollHeight</h5><ol>
-<li><p>给定宽高小于浏览器窗口<br>scrollHeight，scrollWidth 是浏览器窗口的宽度和高度</p>
+<h4 id="document-body的scrollWidth和scrollHeight与div的是有区别的"><a href="#document-body的scrollWidth和scrollHeight与div的是有区别的" class="headerlink" title="document.body的scrollWidth和scrollHeight与div的是有区别的"></a>document.body的scrollWidth和scrollHeight与div的是有区别的</h4><h5 id="document-body的scrollWidth和scrollHeight（谷歌浏览器）"><a href="#document-body的scrollWidth和scrollHeight（谷歌浏览器）" class="headerlink" title="document.body的scrollWidth和scrollHeight（谷歌浏览器）"></a>document.body的scrollWidth和scrollHeight（谷歌浏览器）</h5><ol>
+<li><p>给定宽高小于浏览器窗口<br>scrollHeight，scrollWidth 通常是浏览器窗口的宽度和高度</p>
 </li>
 <li><p>给定宽高大于浏览器窗口，且内容小于给定宽高<br>scrollHeight = 给定高 + 所有padding, margin, border (padding*2+margin*2+border*2)<br>scrollWeight = 给定宽 + 所有padding, margin, border</p>
 </li>
-<li><p>给定宽高大于浏览器窗口，且内容大于给定宽高<br>scrollHeight = 给定高 + 所有padding, margin, border (padding+margin+border)<br>scrollWeight = 给定宽 + 所有padding, margin, border</p>
+<li><p>给定宽高大于浏览器窗口，且内容大于给定宽高<br>scrollHeight = 内容高 + 所有padding, margin, border (padding+margin+border)<br>scrollWeight = 内容宽 + 所有padding, margin, border</p>
 </li>
 </ol>
-<h5 id="div的scrollWidth和scrollHeight"><a href="#div的scrollWidth和scrollHeight" class="headerlink" title="div的scrollWidth和scrollHeight"></a>div的scrollWidth和scrollHeight</h5><p>1. </p>
-
+<h5 id="div的scrollWidth和scrollHeight：（所有浏览器一致）"><a href="#div的scrollWidth和scrollHeight：（所有浏览器一致）" class="headerlink" title="div的scrollWidth和scrollHeight：（所有浏览器一致）"></a>div的scrollWidth和scrollHeight：（所有浏览器一致）</h5><p> <img src="/images/1511934743321.png" alt="image"><br><img src="/images/1511934774425.png" alt="image"></p>
+<ul>
+<li><p>无滚动轴时<br>scrollWidth == clientWidth = style.width + style.padding * 2</p>
+</li>
+<li><p>有滚动轴时<br>scrollWidth == 实际内容的宽度 + style.padding <em> 2<br>scrollHeight == 实际内容的高度 + style.padding </em> 2</p>
+</li>
+</ul>
+<h4 id="scrollLeft-和-scrollTop"><a href="#scrollLeft-和-scrollTop" class="headerlink" title="scrollLeft 和 scrollTop"></a>scrollLeft 和 scrollTop</h4><blockquote>
+<p>这对属性是可读写的，指当属性其中的内容超出其宽高的时候，元素被卷起的高度和宽度</p>
+</blockquote>
+<p><img src="/images/1511935273498.png" alt="image"></p>
+<h3 id="documentElement-和-body"><a href="#documentElement-和-body" class="headerlink" title="documentElement 和 body"></a>documentElement 和 body</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>)     <span class="comment">// document对象</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.documentElement)    <span class="comment">// html对象　</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.childNodes[<span class="number">2</span>] === <span class="built_in">document</span>.body</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.body)    <span class="comment">//  body对象</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/1511936832108.png" alt="image"></p>
+<h5 id="浏览器窗口可视区域大小兼容写法："><a href="#浏览器窗口可视区域大小兼容写法：" class="headerlink" title="浏览器窗口可视区域大小兼容写法："></a>浏览器窗口可视区域大小兼容写法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var w = document.documentElement.clientWidth || document.body.clientWidth</span><br></pre></td></tr></table></figure>
+<h3 id="document相关宽高兼容"><a href="#document相关宽高兼容" class="headerlink" title="document相关宽高兼容"></a>document相关宽高兼容</h3><h5 id="client相关宽高，各浏览器一致"><a href="#client相关宽高，各浏览器一致" class="headerlink" title="client相关宽高，各浏览器一致"></a>client相关宽高，各浏览器一致</h5><h5 id="offsetTop-offsetLeft-参考前文"><a href="#offsetTop-offsetLeft-参考前文" class="headerlink" title="offsetTop, offsetLeft 参考前文"></a>offsetTop, offsetLeft 参考前文</h5><h5 id="offsetHeight-offsetHeight-各浏览器解析一致"><a href="#offsetHeight-offsetHeight-各浏览器解析一致" class="headerlink" title="offsetHeight, offsetHeight 各浏览器解析一致"></a>offsetHeight, offsetHeight 各浏览器解析一致</h5><h2 id="Event的五种坐标"><a href="#Event的五种坐标" class="headerlink" title="Event的五种坐标"></a>Event的五种坐标</h2><h4 id="1-clientX-clientY"><a href="#1-clientX-clientY" class="headerlink" title="1. clientX, clientY"></a>1. clientX, clientY</h4><blockquote>
+<p>相对于浏览器（可视区左上角0,0）的坐标</p>
+</blockquote>
+<h4 id="2-screenX-cscreenY"><a href="#2-screenX-cscreenY" class="headerlink" title="2. screenX, cscreenY"></a>2. screenX, cscreenY</h4><blockquote>
+<p>相对于设备屏幕左上角（０,0）的坐标</p>
+</blockquote>
+<h4 id="3-offsetX-offsetY"><a href="#3-offsetX-offsetY" class="headerlink" title="3. offsetX, offsetY"></a>3. offsetX, offsetY</h4><blockquote>
+<p>相对于事件源（比如某个div）左上角的坐标</p>
+</blockquote>
+<h4 id="4-pageX-pageY"><a href="#4-pageX-pageY" class="headerlink" title="4. pageX, pageY"></a>4. pageX, pageY</h4><blockquote>
+<p>相对于整个网页左上角（0, 0）的坐标</p>
+</blockquote>
+<h4 id="5-X-Y"><a href="#5-X-Y" class="headerlink" title="5. X, Y"></a>5. X, Y</h4><blockquote>
+<p>本来是IE属性，相对于用CSS动态定位的最内层包容元素（在chrom中和clientX，clientY一直是一样的。在IE中，设置了position的就和offsetX, offsetY是相等的，没有则是和clientX，clientY是一样的）</p>
+</blockquote>
+<h5 id="window-screenX-window-screenLeft"><a href="#window-screenX-window-screenLeft" class="headerlink" title="window.screenX === window.screenLeft"></a>window.screenX === window.screenLeft</h5><h5 id="window-screenY-window-screenTop"><a href="#window-screenY-window-screenTop" class="headerlink" title="window.screenY === window.screenTop"></a>window.screenY === window.screenTop</h5>
       
     </div>
     
@@ -543,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#window-和-document-的关系"><span class="nav-number">1.</span> <span class="nav-text">window 和 document 的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#与window-相关的宽高："><span class="nav-number">1.1.</span> <span class="nav-text">与window 相关的宽高：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#window-screen"><span class="nav-number">1.1.1.</span> <span class="nav-text">window.screen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#innerHeight，innerWidth-IE9以下兼容："><span class="nav-number">1.1.2.</span> <span class="nav-text">innerHeight，innerWidth IE9以下兼容：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与document-相关的宽，高"><span class="nav-number">1.2.</span> <span class="nav-text">与document 相关的宽，高</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#client"><span class="nav-number">1.2.1.</span> <span class="nav-text">client:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#clientWidth-和-clientWidth小结："><span class="nav-number">1.2.1.1.</span> <span class="nav-text">clientWidth 和 clientWidth小结：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#clientLeft-和-clientTop小结："><span class="nav-number">1.2.1.2.</span> <span class="nav-text">clientLeft 和 clientTop小结：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#offest"><span class="nav-number">1.2.2.</span> <span class="nav-text">offest:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#offsetWidth-和-offsetHeight小结："><span class="nav-number">1.2.2.1.</span> <span class="nav-text">offsetWidth 和 offsetHeight小结：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#offsetLeft-和-offsetTop"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">offsetLeft 和 offsetTop</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scroll"><span class="nav-number">1.2.3.</span> <span class="nav-text">scroll:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#document-body的scrollWidth和scrollHeight与div的是有区别的"><span class="nav-number">1.2.4.</span> <span class="nav-text">document.body的scrollWidth和scrollHeight与div的是有区别的</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#document-body的scrollWidth和scrollHeight"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">document.body的scrollWidth和scrollHeight</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#div的scrollWidth和scrollHeight"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">div的scrollWidth和scrollHeight</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#window-和-document-的关系"><span class="nav-number">1.</span> <span class="nav-text">window 和 document 的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#与window-相关的宽高："><span class="nav-number">1.1.</span> <span class="nav-text">与window 相关的宽高：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#window-screen"><span class="nav-number">1.1.1.</span> <span class="nav-text">window.screen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#innerHeight，innerWidth-IE9以下兼容："><span class="nav-number">1.1.2.</span> <span class="nav-text">innerHeight，innerWidth IE9以下兼容：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与document-相关的宽，高"><span class="nav-number">1.2.</span> <span class="nav-text">与document 相关的宽，高</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#client"><span class="nav-number">1.2.1.</span> <span class="nav-text">client:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#clientWidth-和-clientWidth小结："><span class="nav-number">1.2.1.1.</span> <span class="nav-text">clientWidth 和 clientWidth小结：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#clientLeft-和-clientTop小结："><span class="nav-number">1.2.1.2.</span> <span class="nav-text">clientLeft 和 clientTop小结：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#offest"><span class="nav-number">1.2.2.</span> <span class="nav-text">offest:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#offsetWidth-和-offsetHeight小结："><span class="nav-number">1.2.2.1.</span> <span class="nav-text">offsetWidth 和 offsetHeight小结：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#offsetLeft-和-offsetTop"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">offsetLeft 和 offsetTop</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scroll"><span class="nav-number">1.2.3.</span> <span class="nav-text">scroll:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#document-body的scrollWidth和scrollHeight与div的是有区别的"><span class="nav-number">1.2.4.</span> <span class="nav-text">document.body的scrollWidth和scrollHeight与div的是有区别的</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#document-body的scrollWidth和scrollHeight（谷歌浏览器）"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">document.body的scrollWidth和scrollHeight（谷歌浏览器）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#div的scrollWidth和scrollHeight：（所有浏览器一致）"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">div的scrollWidth和scrollHeight：（所有浏览器一致）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scrollLeft-和-scrollTop"><span class="nav-number">1.2.5.</span> <span class="nav-text">scrollLeft 和 scrollTop</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#documentElement-和-body"><span class="nav-number">1.3.</span> <span class="nav-text">documentElement 和 body</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器窗口可视区域大小兼容写法："><span class="nav-number">1.3.0.1.</span> <span class="nav-text">浏览器窗口可视区域大小兼容写法：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#document相关宽高兼容"><span class="nav-number">1.4.</span> <span class="nav-text">document相关宽高兼容</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#client相关宽高，各浏览器一致"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">client相关宽高，各浏览器一致</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#offsetTop-offsetLeft-参考前文"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">offsetTop, offsetLeft 参考前文</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#offsetHeight-offsetHeight-各浏览器解析一致"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">offsetHeight, offsetHeight 各浏览器解析一致</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event的五种坐标"><span class="nav-number">2.</span> <span class="nav-text">Event的五种坐标</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-clientX-clientY"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. clientX, clientY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-screenX-cscreenY"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. screenX, cscreenY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-offsetX-offsetY"><span class="nav-number">2.0.3.</span> <span class="nav-text">3. offsetX, offsetY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-pageX-pageY"><span class="nav-number">2.0.4.</span> <span class="nav-text">4. pageX, pageY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-X-Y"><span class="nav-number">2.0.5.</span> <span class="nav-text">5. X, Y</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#window-screenX-window-screenLeft"><span class="nav-number">2.0.5.1.</span> <span class="nav-text">window.screenX === window.screenLeft</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#window-screenY-window-screenTop"><span class="nav-number">2.0.5.2.</span> <span class="nav-text">window.screenY === window.screenTop</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -247,7 +247,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/28/untitled-1511869655025/" itemprop="url">js/jQuery 中的宽高</a></h1>
+                <a class="post-title-link" href="/2017/11/28/untitled-1511869655025/" itemprop="url">js中的宽高</a></h1>
         
 
         <div class="post-meta">
@@ -382,16 +382,44 @@
 <li>document.body.scrollTop</li>
 <li>document.getElementById(‘offest’).scrollWidth</li>
 </ul>
-<h4 id="document-body的scrollWidth和scrollHeight与div的是有区别的"><a href="#document-body的scrollWidth和scrollHeight与div的是有区别的" class="headerlink" title="document.body的scrollWidth和scrollHeight与div的是有区别的"></a>document.body的scrollWidth和scrollHeight与div的是有区别的</h4><h5 id="document-body的scrollWidth和scrollHeight"><a href="#document-body的scrollWidth和scrollHeight" class="headerlink" title="document.body的scrollWidth和scrollHeight"></a>document.body的scrollWidth和scrollHeight</h5><ol>
-<li><p>给定宽高小于浏览器窗口<br>scrollHeight，scrollWidth 是浏览器窗口的宽度和高度</p>
+<h4 id="document-body的scrollWidth和scrollHeight与div的是有区别的"><a href="#document-body的scrollWidth和scrollHeight与div的是有区别的" class="headerlink" title="document.body的scrollWidth和scrollHeight与div的是有区别的"></a>document.body的scrollWidth和scrollHeight与div的是有区别的</h4><h5 id="document-body的scrollWidth和scrollHeight（谷歌浏览器）"><a href="#document-body的scrollWidth和scrollHeight（谷歌浏览器）" class="headerlink" title="document.body的scrollWidth和scrollHeight（谷歌浏览器）"></a>document.body的scrollWidth和scrollHeight（谷歌浏览器）</h5><ol>
+<li><p>给定宽高小于浏览器窗口<br>scrollHeight，scrollWidth 通常是浏览器窗口的宽度和高度</p>
 </li>
 <li><p>给定宽高大于浏览器窗口，且内容小于给定宽高<br>scrollHeight = 给定高 + 所有padding, margin, border (padding*2+margin*2+border*2)<br>scrollWeight = 给定宽 + 所有padding, margin, border</p>
 </li>
-<li><p>给定宽高大于浏览器窗口，且内容大于给定宽高<br>scrollHeight = 给定高 + 所有padding, margin, border (padding+margin+border)<br>scrollWeight = 给定宽 + 所有padding, margin, border</p>
+<li><p>给定宽高大于浏览器窗口，且内容大于给定宽高<br>scrollHeight = 内容高 + 所有padding, margin, border (padding+margin+border)<br>scrollWeight = 内容宽 + 所有padding, margin, border</p>
 </li>
 </ol>
-<h5 id="div的scrollWidth和scrollHeight"><a href="#div的scrollWidth和scrollHeight" class="headerlink" title="div的scrollWidth和scrollHeight"></a>div的scrollWidth和scrollHeight</h5><p>1. </p>
-
+<h5 id="div的scrollWidth和scrollHeight：（所有浏览器一致）"><a href="#div的scrollWidth和scrollHeight：（所有浏览器一致）" class="headerlink" title="div的scrollWidth和scrollHeight：（所有浏览器一致）"></a>div的scrollWidth和scrollHeight：（所有浏览器一致）</h5><p> <img src="/images/1511934743321.png" alt="image"><br><img src="/images/1511934774425.png" alt="image"></p>
+<ul>
+<li><p>无滚动轴时<br>scrollWidth == clientWidth = style.width + style.padding * 2</p>
+</li>
+<li><p>有滚动轴时<br>scrollWidth == 实际内容的宽度 + style.padding <em> 2<br>scrollHeight == 实际内容的高度 + style.padding </em> 2</p>
+</li>
+</ul>
+<h4 id="scrollLeft-和-scrollTop"><a href="#scrollLeft-和-scrollTop" class="headerlink" title="scrollLeft 和 scrollTop"></a>scrollLeft 和 scrollTop</h4><blockquote>
+<p>这对属性是可读写的，指当属性其中的内容超出其宽高的时候，元素被卷起的高度和宽度</p>
+</blockquote>
+<p><img src="/images/1511935273498.png" alt="image"></p>
+<h3 id="documentElement-和-body"><a href="#documentElement-和-body" class="headerlink" title="documentElement 和 body"></a>documentElement 和 body</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>)     <span class="comment">// document对象</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.documentElement)    <span class="comment">// html对象　</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.childNodes[<span class="number">2</span>] === <span class="built_in">document</span>.body</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.body)    <span class="comment">//  body对象</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/1511936832108.png" alt="image"></p>
+<h5 id="浏览器窗口可视区域大小兼容写法："><a href="#浏览器窗口可视区域大小兼容写法：" class="headerlink" title="浏览器窗口可视区域大小兼容写法："></a>浏览器窗口可视区域大小兼容写法：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var w = document.documentElement.clientWidth || document.body.clientWidth</span><br></pre></td></tr></table></figure>
+<h3 id="document相关宽高兼容"><a href="#document相关宽高兼容" class="headerlink" title="document相关宽高兼容"></a>document相关宽高兼容</h3><h5 id="client相关宽高，各浏览器一致"><a href="#client相关宽高，各浏览器一致" class="headerlink" title="client相关宽高，各浏览器一致"></a>client相关宽高，各浏览器一致</h5><h5 id="offsetTop-offsetLeft-参考前文"><a href="#offsetTop-offsetLeft-参考前文" class="headerlink" title="offsetTop, offsetLeft 参考前文"></a>offsetTop, offsetLeft 参考前文</h5><h5 id="offsetHeight-offsetHeight-各浏览器解析一致"><a href="#offsetHeight-offsetHeight-各浏览器解析一致" class="headerlink" title="offsetHeight, offsetHeight 各浏览器解析一致"></a>offsetHeight, offsetHeight 各浏览器解析一致</h5><h2 id="Event的五种坐标"><a href="#Event的五种坐标" class="headerlink" title="Event的五种坐标"></a>Event的五种坐标</h2><h4 id="1-clientX-clientY"><a href="#1-clientX-clientY" class="headerlink" title="1. clientX, clientY"></a>1. clientX, clientY</h4><blockquote>
+<p>相对于浏览器（可视区左上角0,0）的坐标</p>
+</blockquote>
+<h4 id="2-screenX-cscreenY"><a href="#2-screenX-cscreenY" class="headerlink" title="2. screenX, cscreenY"></a>2. screenX, cscreenY</h4><blockquote>
+<p>相对于设备屏幕左上角（０,0）的坐标</p>
+</blockquote>
+<h4 id="3-offsetX-offsetY"><a href="#3-offsetX-offsetY" class="headerlink" title="3. offsetX, offsetY"></a>3. offsetX, offsetY</h4><blockquote>
+<p>相对于事件源（比如某个div）左上角的坐标</p>
+</blockquote>
+<h4 id="4-pageX-pageY"><a href="#4-pageX-pageY" class="headerlink" title="4. pageX, pageY"></a>4. pageX, pageY</h4><blockquote>
+<p>相对于整个网页左上角（0, 0）的坐标</p>
+</blockquote>
+<h4 id="5-X-Y"><a href="#5-X-Y" class="headerlink" title="5. X, Y"></a>5. X, Y</h4><blockquote>
+<p>本来是IE属性，相对于用CSS动态定位的最内层包容元素（在chrom中和clientX，clientY一直是一样的。在IE中，设置了position的就和offsetX, offsetY是相等的，没有则是和clientX，clientY是一样的）</p>
+</blockquote>
+<h5 id="window-screenX-window-screenLeft"><a href="#window-screenX-window-screenLeft" class="headerlink" title="window.screenX === window.screenLeft"></a>window.screenX === window.screenLeft</h5><h5 id="window-screenY-window-screenTop"><a href="#window-screenY-window-screenTop" class="headerlink" title="window.screenY === window.screenTop"></a>window.screenY === window.screenTop</h5>
           
         
       
