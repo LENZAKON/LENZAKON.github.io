@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="标志： i 忽略大小写  g 匹配全部出现的，默认只是匹配第一个出现的结果  m 允许匹配多行，比如可以匹配文本去元素textarea中的值   当目标字符串含有\n，而且正则表达式中含有^或$的时候，/m修饰符才有作用 如果 multiline 为 false，那么“^”与字符串的开始位置相匹配，而“$”与字符串的结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="http://yoursite.com/2017/12/04/untitled-1512385544357/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="标志： i 忽略大小写  g 匹配全部出现的，默认只是匹配第一个出现的结果  m 允许匹配多行，比如可以匹配文本去元素textarea中的值   当目标字符串含有\n，而且正则表达式中含有^或$的时候，/m修饰符才有作用 如果 multiline 为 false，那么“^”与字符串的开始位置相匹配，而“$”与字符串的结束位置相匹配。 如果 multiline 为 true，那么“^”与字符串开始位">
+<meta property="og:image" content="http://yoursite.com/images/1512387375204.png">
+<meta property="og:image" content="http://yoursite.com/images/1512388333204.png">
+<meta property="og:updated_time" content="2017-12-04T14:46:18.838Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="正则表达式">
+<meta name="twitter:description" content="标志： i 忽略大小写  g 匹配全部出现的，默认只是匹配第一个出现的结果  m 允许匹配多行，比如可以匹配文本去元素textarea中的值   当目标字符串含有\n，而且正则表达式中含有^或$的时候，/m修饰符才有作用 如果 multiline 为 false，那么“^”与字符串的开始位置相匹配，而“$”与字符串的结束位置相匹配。 如果 multiline 为 true，那么“^”与字符串开始位">
+<meta name="twitter:image" content="http://yoursite.com/images/1512387375204.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/04/untitled-1512385544357/"/>
+
+
+
+
+
+  <title>正则表达式 | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-主页"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-归档页"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/04/untitled-1512385544357/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">正则表达式</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-04T19:05:44+08:00">
+                2017-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="标志："><a href="#标志：" class="headerlink" title="标志："></a>标志：</h3><ul>
+<li><p>i 忽略大小写</p>
+</li>
+<li><p>g 匹配全部出现的，默认只是匹配第一个出现的结果</p>
+</li>
+<li><p>m 允许匹配多行，比如可以匹配文本去元素textarea中的值</p>
+</li>
+</ul>
+<p><strong>当目标字符串含有\n，而且正则表达式中含有^或$的时候，/m修饰符才有作用</strong></p>
+<p>如果 multiline 为 false，那么“^”与字符串的开始位置相匹配，而“$”与字符串的结束位置相匹配。 如果 multiline 为 true，那么“^”与字符串开始位置以及“\n”或“\r”之后的位置相匹配，而“$”与字符串结束位置以及“\n”或“\r”之前的位置相匹配</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var mutiline = /^abc/m;</span><br><span class="line">var singleline = /^abc/;</span><br><span class="line">var target = &quot;ef\r\nabcd&quot;;</span><br><span class="line">alert(mutiline.test(target));//true</span><br><span class="line">alert(singleline.test(target));//false</span><br></pre></td></tr></table></figure>
+<p>\r\n在windows下代表换行，如果只有1个\n也是一样的效果。由于target不是以abc开头的字符串，所以匹配singleline的结果是false；由于target是多行字符串(含有\n)，而第2行是以abc开头，所以匹配multiline结果是true。</p>
+<h3 id="术语和操作符："><a href="#术语和操作符：" class="headerlink" title="术语和操作符："></a>术语和操作符：</h3><h4 id="精准匹配："><a href="#精准匹配：" class="headerlink" title="精准匹配："></a>精准匹配：</h4><ul>
+<li>/test/   这些字符必须在一个字符串中出现</li>
+</ul>
+<h4 id="匹配一类字符："><a href="#匹配一类字符：" class="headerlink" title="匹配一类字符："></a>匹配一类字符：</h4><ul>
+<li><p>/[abc]/    匹配某个字符即可</p>
+</li>
+<li><p>/[^abc]/   匹配有限字符集以外的字符</p>
+</li>
+<li><p>[a-m]    匹配a到m的任一字符</p>
+<h4 id="转义："><a href="#转义：" class="headerlink" title="转义："></a>转义：</h4></li>
+<li><p>\</p>
+<h4 id="匹配开始和匹配结束："><a href="#匹配开始和匹配结束：" class="headerlink" title="匹配开始和匹配结束："></a>匹配开始和匹配结束：</h4></li>
+<li><p>/^test/  匹配以test开头的字符串</p>
+</li>
+<li><p>/test$/  匹配以test结尾的字符串</p>
+<h4 id="重复出现："><a href="#重复出现：" class="headerlink" title="重复出现："></a>重复出现：</h4></li>
+<li><p>? 出现一次或不出现　/t?est/ 匹配”test”或”est”</p>
+</li>
+<li><p>+ 出现一次或多次        /t+est/ 匹配”test”或”ttest”等，但不匹配”est”</p>
+</li>
+<li><p>*  出现零次或一次或多次</p>
+</li>
+<li><p>{n} 连续出现n次　　/a{4}/ 匹配含有连续四个”a”的字符串 </p>
+</li>
+<li><p>{n, m} 连续出现n到m次</p>
+</li>
+<li><p>{n, } 连续出现n次或n次以上</p>
+<h6 id="重复出现可以是贪婪或是非贪婪的，默认情况下是贪婪的，在操作符后面加-即可变为非贪婪"><a href="#重复出现可以是贪婪或是非贪婪的，默认情况下是贪婪的，在操作符后面加-即可变为非贪婪" class="headerlink" title="重复出现可以是贪婪或是非贪婪的，默认情况下是贪婪的，在操作符后面加?即可变为非贪婪"></a>重复出现可以是贪婪或是非贪婪的，默认情况下是贪婪的，在操作符后面加?即可变为非贪婪</h6></li>
+<li><p>对”aaa”进行匹配：/a+/匹配所有的三个字符，/a+?/匹配一个a字符，因为一个a字符就可以满足a+术语．</p>
+</li>
+</ul>
+<h4 id="预定义字符类"><a href="#预定义字符类" class="headerlink" title="预定义字符类"></a>预定义字符类</h4><p> <img src="/images/1512387375204.png" alt="image"></p>
+<h4 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h4><ul>
+<li><p>/(ab)+/ 匹配一个或多个连续出现的字符串”ab”</p>
+<h6 id="同时，-也创建了捕获"><a href="#同时，-也创建了捕获" class="headerlink" title="同时，()也创建了捕获"></a>同时，()也创建了捕获</h6><h4 id="或操作符"><a href="#或操作符" class="headerlink" title="或操作符"></a>或操作符</h4></li>
+</ul>
+<ul>
+<li>|  /(ab)+|(cd)+/  匹配出现一次或多次的”ab”或”cd”</li>
+</ul>
+<h4 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a>反向引用</h4><ul>
+<li>在反斜杠后面加一个要引用的捕获数量，该数字从1开始，如\1, \2<br>/^([dnt])a\1/: 可以任意一个”d” “t”或“n” 开头，且后面跟着一个a字符，再在后面跟着和第一个捕获相同字符的字符串。<br>匹配XML类型标记时非常有用：<br>/&lt;(\w+)&gt;(.+)&lt;\/\1&gt;/  匹配<br><img src="/images/1512388333204.png" alt="image"></li>
+</ul>
+<h5 id=""><a href="#" class="headerlink" title="\\"></a>\\</h5><p>在字符串中，需要使用\\来表示在非字符串中只需要用\表示的意思<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new RegExp( &quot;(^|\\s)&quot; + className + &quot;(\\s|$)&quot;)   // 动态创建的字符串构建和编译一个正则表达式</span><br></pre></td></tr></table></figure></p>
+<p>表示匹配的字符串要以样式名称或空格再加样式名称开始，….。创建带有反斜杠的字面量正则表达式时，只需提供一个反斜杠即可。但在字符串(“”)中写反斜杠，要用双反斜杠进行转义。</p>
+<h3 id="正则表达式的编译："><a href="#正则表达式的编译：" class="headerlink" title="正则表达式的编译："></a>正则表达式的编译：</h3><blockquote>
+<p>正则表达式的两个重要阶段是编译和执行，可以使我们优化js代码</p>
+</blockquote>
+<ul>
+<li>编译：发生在第一次创建的时候</li>
+<li>执行：发生在进行字符串匹配的时候</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var re1 = /test/i</span><br><span class="line"></span><br><span class="line">re1.xxxxxx</span><br></pre></td></tr></table></figure>
+<p>用一个变量保存第一次创建编译后的状态，以供以后使用，能优化js</p>
+<h3 id="捕获匹配的片段："><a href="#捕获匹配的片段：" class="headerlink" title="捕获匹配的片段："></a>捕获匹配的片段：</h3><h4 id="局部正则表达式（没有-g）和match-方法："><a href="#局部正则表达式（没有-g）和match-方法：" class="headerlink" title="局部正则表达式（没有/g）和match()方法："></a>局部正则表达式（没有/g）和match()方法：</h4><ul>
+<li>String.match(\ \)<br>第0个索引是完整的匹配值，即能够匹配上的完整字符串，接下来的索引值就是捕获到的分组。</li>
+</ul>
+<h4 id="全局正则表达式匹配"><a href="#全局正则表达式匹配" class="headerlink" title="全局正则表达式匹配"></a>全局正则表达式匹配</h4><ul>
+<li>String.match(\ \g)<br>返回的是全部匹配结果，没有各个结果的捕获。</li>
+</ul>
+<h4 id="全局匹配并捕获exec"><a href="#全局匹配并捕获exec" class="headerlink" title="全局匹配并捕获exec()"></a>全局匹配并捕获exec()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var html = &apos;&lt;div class=&quot;test&quot;&gt;&lt;b&gt;hello&lt;/b&gt;&lt;i&gt; word&lt;/i&gt;&lt;/div&gt;&apos;</span><br><span class="line">var tag = /&lt;(\/?)(\w+)([^&gt;]*?)&gt;/g, match;</span><br><span class="line">var num = 0;</span><br><span class="line">while ((match = tag.exec(html)) != null)&#123;</span><br><span class="line">    console.log(match[0])																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																				</span><br><span class="line">    console.log(match[3])   //&apos; class=&quot;test&quot;&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="捕获的引用"><a href="#捕获的引用" class="headerlink" title="捕获的引用"></a>捕获的引用</h4><ul>
+<li>在正则表达式中：/1 /2….</li>
+<li>在外部：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;fontFamily&quot;.replace(/([A-Z])/g, &quot;-$1&quot;).toLowerCase());     // font-family 中间加了-</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="没有捕获的分组"><a href="#没有捕获的分组" class="headerlink" title="没有捕获的分组"></a>没有捕获的分组</h4><ul>
+<li>要让一组括号不被捕获，要在开始括号后加一个?:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var parttern = /((?:ninja-)+)sword/;</span><br><span class="line">var ninjas = &apos;ninja-ninja-ninja-ninja-sword&apos;.match(parttern);</span><br><span class="line">console.log(ninjas);    // [0]:ninja-ninja-ninja-ninja-sword [1]: ninja-ninja-ninja-ninja-</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/03/untitled-1512268973571/" rel="next" title="函数缓存">
+                <i class="fa fa-chevron-left"></i> 函数缓存
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#标志："><span class="nav-number">1.</span> <span class="nav-text">标志：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#术语和操作符："><span class="nav-number">2.</span> <span class="nav-text">术语和操作符：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#精准匹配："><span class="nav-number">2.1.</span> <span class="nav-text">精准匹配：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配一类字符："><span class="nav-number">2.2.</span> <span class="nav-text">匹配一类字符：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转义："><span class="nav-number">2.3.</span> <span class="nav-text">转义：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#匹配开始和匹配结束："><span class="nav-number">2.4.</span> <span class="nav-text">匹配开始和匹配结束：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重复出现："><span class="nav-number">2.5.</span> <span class="nav-text">重复出现：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#重复出现可以是贪婪或是非贪婪的，默认情况下是贪婪的，在操作符后面加-即可变为非贪婪"><span class="nav-number">2.5.0.1.</span> <span class="nav-text">重复出现可以是贪婪或是非贪婪的，默认情况下是贪婪的，在操作符后面加?即可变为非贪婪</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预定义字符类"><span class="nav-number">2.6.</span> <span class="nav-text">预定义字符类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分组"><span class="nav-number">2.7.</span> <span class="nav-text">分组</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#同时，-也创建了捕获"><span class="nav-number">2.7.0.1.</span> <span class="nav-text">同时，()也创建了捕获</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#或操作符"><span class="nav-number">2.8.</span> <span class="nav-text">或操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反向引用"><span class="nav-number">2.9.</span> <span class="nav-text">反向引用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">2.9.1.</span> <span class="nav-text">\\</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式的编译："><span class="nav-number">3.</span> <span class="nav-text">正则表达式的编译：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#捕获匹配的片段："><span class="nav-number">4.</span> <span class="nav-text">捕获匹配的片段：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#局部正则表达式（没有-g）和match-方法："><span class="nav-number">4.1.</span> <span class="nav-text">局部正则表达式（没有/g）和match()方法：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局正则表达式匹配"><span class="nav-number">4.2.</span> <span class="nav-text">全局正则表达式匹配</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全局匹配并捕获exec"><span class="nav-number">4.3.</span> <span class="nav-text">全局匹配并捕获exec()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#捕获的引用"><span class="nav-number">4.4.</span> <span class="nav-text">捕获的引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#没有捕获的分组"><span class="nav-number">4.5.</span> <span class="nav-text">没有捕获的分组</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
