@@ -381,6 +381,19 @@
 <li>要让一组括号不被捕获，要在开始括号后加一个?:</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var parttern = /((?:ninja-)+)sword/;</span><br><span class="line">var ninjas = &apos;ninja-ninja-ninja-ninja-sword&apos;.match(parttern);</span><br><span class="line">console.log(ninjas);    // [0]:ninja-ninja-ninja-ninja-sword [1]: ninja-ninja-ninja-ninja-</span><br></pre></td></tr></table></figure>
+<h4 id="replace"><a href="#replace" class="headerlink" title="replace()"></a>replace()</h4><p>replace()的第二个参数（替换值）可以是一个函数，每一个匹配都会执行一次函数。</p>
+<p>函数参数：</p>
+<ul>
+<li>匹配的完整文本</li>
+<li>匹配的捕获，一个捕获对应一个参数</li>
+<li>匹配字符在源字符串中的索引</li>
+<li>源字符串</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function upper(all, letter) &#123;</span><br><span class="line">        console.log(arguments)	// </span><br><span class="line">        return letter.toUpperCase();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">console.log(&apos;boder-bottom-width&apos;.replace(/-(\w)/g, upper));</span><br></pre></td></tr></table></figure>
+<p> <img src="/images/1512538590179.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function copress(source) &#123;</span><br><span class="line">       var keys = &#123;&#125;</span><br><span class="line"></span><br><span class="line">       source.replace(/([^=&amp;]+)=([^&amp;]*)/g, function (full, key, value) &#123;</span><br><span class="line">           console.log(arguments)</span><br><span class="line">           keys[key] = (keys[key] ? keys[key] + &apos;,&apos; : &apos;&apos;) + value;</span><br><span class="line">           return &apos;&apos;;</span><br><span class="line">       &#125;)</span><br><span class="line"></span><br><span class="line">       var res = []</span><br><span class="line">       for (key in keys)&#123;</span><br><span class="line">           res.push(key+&apos;=&apos;+keys[key]);</span><br><span class="line">       &#125;</span><br><span class="line">       return res.join(&apos;&amp;&apos;);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   console.log(copress(&apos;foo=1&amp;foo=2&amp;blah=a&amp;blah=b&amp;foo=3&apos;));</span><br></pre></td></tr></table></figure>
+<p><img src="/images/1512540572092.png" alt="image"></p>
+<p>arguments[0],arguments[1] 都是匹配的捕获</p>
 
           
         
