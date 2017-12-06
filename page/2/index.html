@@ -229,6 +229,192 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/untitled-1511842000370/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/28/untitled-1511842000370/" itemprop="url">vue 生命周期</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T12:06:40+08:00">
+                2017-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="vue生命周期"><a href="#vue生命周期" class="headerlink" title="vue生命周期"></a>vue生命周期</h4><ul>
+<li><p>js执行到new Vue() 后，即进入vue的beforeCreate状态。</p>
+</li>
+<li><p>接着观察data下的数据，紧接着create。</p>
+</li>
+<li><p>create之后，就会检测是否含有el属性，如果有，就直接检测是否含有模板属性； 如果没有，就当vm.$mount()调用之后再检测，vm.$mount()的作用就是将Vue实例挂载到某一个DOM元素上。</p>
+</li>
+<li><p>如果有template，那么我们就编译模板到render函数中，作用就是为了将模板中的元素渲染进去；如果没有template，我们就把el所在的HTML作为模板编译。</p>
+</li>
+<li><p>这样就进入了 beforeMount 状态。</p>
+</li>
+<li><p>在mounted 之前，就会创建一个 vm.$el 用来替代 实例中的el， ok！ 这样就可以mouted了。</p>
+</li>
+<li><p>接着，如果data发生了变化，就会有beforeUpdata，在替换了之后，就是updated的状态啦！ 这是一个循环的过程，因为updated是可以一直更新的嘛！</p>
+</li>
+<li><p>最后如果我们调用了 vm.$destroy() 就会进入 beforeDestory, 然后解除 watchers、child components 以及 listeners，最后就destroyed了， 那么他的生命也就结束了。</p>
+</li>
+</ul>
+<hr>
+<h5 id="添加："><a href="#添加：" class="headerlink" title="添加："></a>添加：</h5><ul>
+<li>vue2中还添加了 activated 和 deactivated 钩子函数，当渲染的组件启用了 keep-alive 时，那么进入一个路由指定的组件时，就会调用 activated 钩子函数，如果一个组件没有设定 keep-alive ，那么就不会调用 activated 钩子函数， 而是调用 deactivated 钩子函数。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;app&quot;&gt;</span><br><span class="line">     &lt;keep-alive&gt;</span><br><span class="line">       &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">     &lt;/keep-alive&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>这里的 router-view 是所有的页面都会在这里渲染的，而 keep-alive 又包裹在这之外，所以说这个app中的所有路由在切换时都会调用 activated 钩子函数。</p>
+<ul>
+<li><p>beforeCreate 是在创建data之前的钩子，即这时刚刚创建完Vue实例，然后el，data这些还都没有，但是因为这是单文件组件，所以，document.title是可以访问到的，这点值得注意。并且由于这时候是没有data和method可以使用的，所以不能使用method下的方法。</p>
+</li>
+<li><p>接着在created之后，el仍然是没有挂载的，但是data已经初始化完成了，并且一些方法(methods)也已经可以使用了，没有挂载，所以访问不到单组件中的html元素。</p>
+</li>
+<li><p>boforeMount 这时仍然没有挂载，只是开始调用了render函数，同样，没有挂载，也是访问不到vue单组件中的html元素的。</p>
+</li>
+<li><p>在mounted之后， 这时已经将vue和组件联系起来，挂载完成，所以就可以得到其中的html元素了。</p>
+</li>
+</ul>
+<blockquote>
+<p>常用的钩子<br>　　可以看出，我们可以在beforeCreate中使用一些操作document的方法。 在created中可以使用大部分的方法。 在 mounted中可以使用与挂载元素相关的一些方法，如操作dom。<br>补充：       当然，因为localStorage这种东西都是一直存在的，所以在任何生命周期下都是可以正常访问 localStorage 和 sessionStorage的。</p>
+</blockquote>
+<h4 id="使用："><a href="#使用：" class="headerlink" title="使用："></a>使用：</h4><ul>
+<li><p>beforecreate : 可以在这加个loading事件，在加载实例时触发 </p>
+</li>
+<li><p>created : 初始化完成时的事件写在这里，如在这结束loading事件，异步请求也适宜在这里调用</p>
+</li>
+<li><p>mounted : 挂载元素，获取到DOM节点</p>
+</li>
+<li><p>updated : 如果对数据统一处理，在这里写上相应函数</p>
+</li>
+<li><p>beforeDestroy : 可以做一个确认停止事件的确认框</p>
+</li>
+<li><p>nextTick : 更新数据后立即操作dom</p>
+</li>
+</ul>
+<h4 id="vue-nextTick"><a href="#vue-nextTick" class="headerlink" title="vue.nextTick"></a>vue.nextTick</h4><ul>
+<li><p>在下次 DOM 更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DOM</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.nextTick(function () &#123;</span><br><span class="line">   // DOM 更新了</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>官方还提供了一种写法，vm.$nextTick，用 this 自动绑定到调用它的实例上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">created() &#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">          this.number = 100</span><br><span class="line">          this.$nextTick(() =&gt; &#123;</span><br><span class="line">            console.log(&apos;nextTick&apos;, document.getElementsByTagName(&apos;p&apos;)[0])</span><br><span class="line">          &#125;)</span><br><span class="line">    &#125;,100)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="使用vue-enxtTick-的时机："><a href="#使用vue-enxtTick-的时机：" class="headerlink" title="使用vue.enxtTick()的时机："></a>使用vue.enxtTick()的时机：</h5><ol>
+<li><p>在 Vue 生命周期的 created() 钩子函数进行的 DOM 操作一定要放在 Vue.nextTick() 的回调函数中。原因是什么呢，原因是在 created() 钩子函数执行的时候 DOM 其实并未进行任何渲染，而此时进行 DOM 操作无异于徒劳，所以此处一定要将 DOM 操作的 js 代码放进 Vue.nextTick() 的回调函数中。与之对应的就是 mounted 钩子函数，因为该钩子函数执行时所有的 DOM 挂载和渲染都已完成，此时在该钩子函数中进行任何DOM操作都不会有问题 。</p>
+</li>
+<li><p>在数据变化后要执行的某个操作，而这个操作需要使用随数据改变而改变的 DOM 结构的时候，这个操作都应该放进 Vue.nextTick() 的回调函数中。</p>
+</li>
+</ol>
+<h5 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h5><p><a href="https://segmentfault.com/a/1190000008771768" target="_blank" rel="noopener">https://segmentfault.com/a/1190000008771768</a></p>
+<p><a href="http://www.cnblogs.com/zhuzhenwei918/p/6903158.html" target="_blank" rel="noopener">http://www.cnblogs.com/zhuzhenwei918/p/6903158.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/27/jsonp原理及实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -414,7 +600,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
