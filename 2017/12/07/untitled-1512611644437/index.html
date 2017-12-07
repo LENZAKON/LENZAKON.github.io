@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="1234567891011121314151617181920var outerValue = &amp;apos;nnja&amp;apos;;    var later;    function outerFunction() &amp;#123;        var innerValue = &amp;apos">
+<meta name="description" content="XSS攻击：分类： 反射型：url参数直接注入 存储型：存储到DB读取时注入  XSS注入攻击点： HTML节点内容：内容是根据用户输入生成的  1234567&amp;lt;div&amp;gt;#&amp;#123;content&amp;#125;&amp;lt;/div&amp;gt;&amp;lt;div&a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="闭包（一）">
-<meta property="og:url" content="http://yoursite.com/2017/12/02/untitled-1512209488900/index.html">
+<meta property="og:title" content="web安全">
+<meta property="og:url" content="http://yoursite.com/2017/12/07/untitled-1512611644437/index.html">
 <meta property="og:site_name" content="LENZAKON">
-<meta property="og:description" content="1234567891011121314151617181920var outerValue = &amp;apos;nnja&amp;apos;;    var later;    function outerFunction() &amp;#123;        var innerValue = &amp;apos;samuai&amp;apos;;        function innerFunction(paramValue)">
+<meta property="og:description" content="XSS攻击：分类： 反射型：url参数直接注入 存储型：存储到DB读取时注入  XSS注入攻击点： HTML节点内容：内容是根据用户输入生成的  1234567&amp;lt;div&amp;gt;#&amp;#123;content&amp;#125;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;/div&amp;gt;  HTML节点属性：节点属性是根据用户输入生成的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-02T15:38:22.543Z">
+<meta property="og:updated_time" content="2017-12-07T03:00:37.456Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="闭包（一）">
-<meta name="twitter:description" content="1234567891011121314151617181920var outerValue = &amp;apos;nnja&amp;apos;;    var later;    function outerFunction() &amp;#123;        var innerValue = &amp;apos;samuai&amp;apos;;        function innerFunction(paramValue)">
+<meta name="twitter:title" content="web安全">
+<meta name="twitter:description" content="XSS攻击：分类： 反射型：url参数直接注入 存储型：存储到DB读取时注入  XSS注入攻击点： HTML节点内容：内容是根据用户输入生成的  1234567&amp;lt;div&amp;gt;#&amp;#123;content&amp;#125;&amp;lt;/div&amp;gt;&amp;lt;div&amp;gt;&amp;lt;script&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;/div&amp;gt;  HTML节点属性：节点属性是根据用户输入生成的">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/02/untitled-1512209488900/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/07/untitled-1512611644437/"/>
 
 
 
 
 
-  <title>闭包（一） | LENZAKON</title>
+  <title>web安全 | LENZAKON</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/untitled-1512209488900/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/untitled-1512611644437/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LENZAKON">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">闭包（一）</h1>
+          <h1 class="post-title" itemprop="name headline">web安全</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T18:11:28+08:00">
-                2017-12-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-07T09:54:04+08:00">
+                2017-12-07
               </time>
             
 
@@ -299,13 +299,44 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var outerValue = &apos;nnja&apos;;</span><br><span class="line">    var later;</span><br><span class="line"></span><br><span class="line">    function outerFunction() &#123;</span><br><span class="line">        var innerValue = &apos;samuai&apos;;</span><br><span class="line"></span><br><span class="line">        function innerFunction(paramValue) &#123;</span><br><span class="line">            console.log(&apos;outerValue: &apos; + outerValue);   // nnja</span><br><span class="line">            console.log(&apos;innerValue: &apos; + innerValue);   // samuai</span><br><span class="line">            console.log(&apos;paramValue: &apos; + paramValue);   // wakizashi</span><br><span class="line">            console.log(&apos;toolLate: &apos; + toolLate);       // ronin</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        later = innerFunction;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;outer toolLate: &apos; + toolLate);     //undefined</span><br><span class="line"></span><br><span class="line">	outerFunction();</span><br><span class="line">    var toolLate = &apos;ronin&apos;;</span><br><span class="line">    later(&apos;wakizashi&apos;);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>内部函数的参数是包含在闭包内的。</li>
-<li>作用域之外的所有变量，即使是函数声明之后的那些变量，也包含在闭包中。（变量的声明是在调用闭包之前）</li>
-<li>相同的作用域内，尚未声明的变量不能提前引用。</li>
+        <h3 id="XSS攻击："><a href="#XSS攻击：" class="headerlink" title="XSS攻击："></a>XSS攻击：</h3><h4 id="分类："><a href="#分类：" class="headerlink" title="分类："></a>分类：</h4><ul>
+<li>反射型：url参数直接注入</li>
+<li>存储型：存储到DB读取时注入</li>
 </ul>
-<h3 id="利用闭包实现函数curry化："><a href="#利用闭包实现函数curry化：" class="headerlink" title="利用闭包实现函数curry化："></a>利用闭包实现函数curry化：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.partial = function () &#123;</span><br><span class="line">    var fn = this,</span><br><span class="line">        args = Array.prototype.slice.call(arguments);</span><br><span class="line">    console.log(arguments)  // undefind,10</span><br><span class="line">    console.log(this)   // setTimeout</span><br><span class="line">    return function () &#123;</span><br><span class="line">        var arg = 0;</span><br><span class="line">        console.log(arguments)  // f, 就是delay()里面的function</span><br><span class="line">        for (var i = 0; i &lt; args.length &amp;&amp; arg &lt; arguments.length; i++) &#123;</span><br><span class="line">            if (args[i] === undefined) &#123;</span><br><span class="line">                args[i] = arguments[arg++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(this)   // window，因为delay是一个全局函数</span><br><span class="line">        return fn.apply(this, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//　可以把undefined理解为一个占位的，把消灭delay中的参数取代undefined</span><br><span class="line">var delay = setTimeout.partial(undefined, 10);</span><br><span class="line">delay(function () &#123;</span><br><span class="line">    console.log(&apos;10ms&apos;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="XSS注入攻击点："><a href="#XSS注入攻击点：" class="headerlink" title="XSS注入攻击点："></a>XSS注入攻击点：</h4><ul>
+<li>HTML节点内容：内容是根据用户输入生成的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">#&#123;content&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div&gt;</span><br><span class="line">&lt;script&gt;&lt;/script&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>HTML节点属性：节点属性是根据用户输入生成的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;image src=&quot;#&#123;image&#125;&quot;&gt;</span><br><span class="line">&lt;image src=&quot;1&quot; onerror=&quot;alert(1)&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>输入内容是<code>1&quot; onerror=&quot;alert(1)</code>，提前关闭src属性的值。</p>
+<ul>
+<li>javascript代码：js代码中存在由后台注入的变量或用户输入的信息，用户输入的信息改变js代码逻辑</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var data = &quot;#&#123;data&#125;&quot;</span><br><span class="line">var data = &quot;hello&quot;;alert(1);&quot;&quot;;</span><br></pre></td></tr></table></figure>
+<p>输入内容是<code>hello&quot;;alert(1);&quot;</code>，提前将变量关闭</p>
+<ul>
+<li>富文本</li>
+</ul>
+<h4 id="浏览器自带防御方案"><a href="#浏览器自带防御方案" class="headerlink" title="浏览器自带防御方案"></a>浏览器自带防御方案</h4><p>可在header中设置<code>X-XSS-Protection</code></p>
+<ul>
+<li>0：关闭</li>
+<li>1：开启（默认）</li>
+<li>1＋指定的url，当遭到攻击时向url发通知</li>
+</ul>
+<p>缺点：只能防御反射型攻击，只防御出现在html内容和属性的攻击</p>
+<h4 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h4><ul>
+<li><p>节点内容<br>对<code>&lt;和&gt;</code>进行替换，替换时机：在存入数据库之前或在显示时进行html字符实体转义 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var escapeHtml = function (src) &#123;</span><br><span class="line">    src = src.replace(/&lt;/g, &apos;&amp;lt;&apos;);</span><br><span class="line">    src = src.replace(/&gt;/g, &apos;&amp;gt;&apos;);</span><br><span class="line">    return src;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>节点属性<br>对<code>&quot;，’，</code>进行转义，不让属性提前关闭</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var escapeHtmlProperty = function (src) &#123;</span><br><span class="line">        if (!src) return &apos;&apos;;</span><br><span class="line">        src = src.replace(/&quot;/g, &apos;&amp;quto;&apos;);</span><br><span class="line">        src = src.replace(/&apos;/g, &apos;&amp;#39;&apos;);</span><br><span class="line">        src = src.replace(/ /g, &apos;&amp;#32;&apos;);   // 属性可以不用引号</span><br><span class="line">        return src;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p> 两个函数可合并<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">     var escapeHtml = function (src) &#123;</span><br><span class="line">        if (!src) return &apos;&apos;;</span><br><span class="line">        src = src.replace(/&amp;/g, &apos;&amp;amp;&apos;);   // 可转可不转，放到最前</span><br><span class="line">        src = src.replace(/&lt;/g, &apos;&amp;lt;&apos;);</span><br><span class="line">        src = src.replace(/&gt;/g, &apos;&amp;gt;&apos;);</span><br><span class="line">        src = src.replace(/&quot;/g, &apos;&amp;quto;&apos;);</span><br><span class="line">        src = src.replace(/&apos;/g, &apos;&amp;#39;&apos;);</span><br><span class="line">        // 属性可以不用引号，但会造成页面多个空格只显示一个，所以属性一般要加空格</span><br><span class="line">//        src = src.replace(/ /g, &apos;&amp;#32;&apos;);   </span><br><span class="line">        return src;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -329,8 +360,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/02/untitled-1512197869207/" rel="next" title="js函数重载">
-                <i class="fa fa-chevron-left"></i> js函数重载
+              <a href="/2017/12/06/untitled-1512557810189/" rel="next" title="定时器和线程">
+                <i class="fa fa-chevron-left"></i> 定时器和线程
               </a>
             
           </div>
@@ -338,10 +369,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/02/untitled-1512229104155/" rel="prev" title="闭包（二）">
-                闭包（二） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -457,7 +484,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#利用闭包实现函数curry化："><span class="nav-number">1.</span> <span class="nav-text">利用闭包实现函数curry化：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#XSS攻击："><span class="nav-number">1.</span> <span class="nav-text">XSS攻击：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分类："><span class="nav-number">1.1.</span> <span class="nav-text">分类：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#XSS注入攻击点："><span class="nav-number">1.2.</span> <span class="nav-text">XSS注入攻击点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览器自带防御方案"><span class="nav-number">1.3.</span> <span class="nav-text">浏览器自带防御方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#防御"><span class="nav-number">1.4.</span> <span class="nav-text">防御</span></a></li></ol></li></ol></div>
             
 
           </div>
