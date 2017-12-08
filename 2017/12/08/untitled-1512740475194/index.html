@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="方法一：123456789101112131415161718function getScrollBar() &amp;#123;        var el = document.createElement(&amp;apos;p&amp;apos;),            styles = &amp;#123; ">
+<meta name="description" content="结构赋值数组结构赋值 只要某种数据结构具有Iterator接口，就可以采用数组形式的解构赋值  默认值 如果一个数组成员不严格等于undefined，默认值是不会生效的  12345var [x = 1] = [undefined];x // 1var [x = 1] = [null];x // null  如果默认值">
 <meta property="og:type" content="article">
-<meta property="og:title" content="获取滚动轴宽度">
-<meta property="og:url" content="http://yoursite.com/2017/11/29/untitled-1511961025312/index.html">
+<meta property="og:title" content="ES6 结构赋值">
+<meta property="og:url" content="http://yoursite.com/2017/12/08/untitled-1512740475194/index.html">
 <meta property="og:site_name" content="LENZAKON">
-<meta property="og:description" content="方法一：123456789101112131415161718function getScrollBar() &amp;#123;        var el = document.createElement(&amp;apos;p&amp;apos;),            styles = &amp;#123;                width: &amp;apos;100px&amp;apos;,">
+<meta property="og:description" content="结构赋值数组结构赋值 只要某种数据结构具有Iterator接口，就可以采用数组形式的解构赋值  默认值 如果一个数组成员不严格等于undefined，默认值是不会生效的  12345var [x = 1] = [undefined];x // 1var [x = 1] = [null];x // null  如果默认值是一个表达式，该表达式是惰性求值的  1234function f() &amp;#12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-29T13:11:21.768Z">
+<meta property="og:updated_time" content="2017-12-08T14:45:00.633Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="获取滚动轴宽度">
-<meta name="twitter:description" content="方法一：123456789101112131415161718function getScrollBar() &amp;#123;        var el = document.createElement(&amp;apos;p&amp;apos;),            styles = &amp;#123;                width: &amp;apos;100px&amp;apos;,">
+<meta name="twitter:title" content="ES6 结构赋值">
+<meta name="twitter:description" content="结构赋值数组结构赋值 只要某种数据结构具有Iterator接口，就可以采用数组形式的解构赋值  默认值 如果一个数组成员不严格等于undefined，默认值是不会生效的  12345var [x = 1] = [undefined];x // 1var [x = 1] = [null];x // null  如果默认值是一个表达式，该表达式是惰性求值的  1234function f() &amp;#12">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/29/untitled-1511961025312/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/08/untitled-1512740475194/"/>
 
 
 
 
 
-  <title>获取滚动轴宽度 | LENZAKON</title>
+  <title>ES6 结构赋值 | LENZAKON</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/29/untitled-1511961025312/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/08/untitled-1512740475194/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LENZAKON">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">获取滚动轴宽度</h1>
+          <h1 class="post-title" itemprop="name headline">ES6 结构赋值</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-29T21:10:25+08:00">
-                2017-11-29
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-08T21:41:15+08:00">
+                2017-12-08
               </time>
             
 
@@ -299,8 +299,23 @@
       
 
       
-        <h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function getScrollBar() &#123;</span><br><span class="line">        var el = document.createElement(&apos;p&apos;),</span><br><span class="line">            styles = &#123;</span><br><span class="line">                width: &apos;100px&apos;,</span><br><span class="line">                height: &apos;100px&apos;,</span><br><span class="line">                overflowY: &apos;scroll&apos;</span><br><span class="line">            &#125;,</span><br><span class="line">            i,</span><br><span class="line">            scrollWidth;</span><br><span class="line">        for (i in styles) &#123;</span><br><span class="line">            el.style[i] = styles[i];</span><br><span class="line">        &#125;</span><br><span class="line">        document.body.appendChild(el);</span><br><span class="line">        var scrollBarWidth = el.offsetWidth - el.clientWidth</span><br><span class="line">        el.remove()</span><br><span class="line">        return scrollBarWidth</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(getScrollBar())</span><br></pre></td></tr></table></figure>
-<h2 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function getScrollBar2() &#123;</span><br><span class="line">    var el = document.createElement(&apos;p&apos;),</span><br><span class="line">        styles = &#123;</span><br><span class="line">            width: &apos;100px&apos;,</span><br><span class="line">            height: &apos;100px&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">        i,</span><br><span class="line">        clientWidth1,</span><br><span class="line">        clientWidth2,</span><br><span class="line">        scrollWidth;</span><br><span class="line">    for (i in styles) &#123;</span><br><span class="line">        el.style[i] = styles[i];</span><br><span class="line">    &#125;</span><br><span class="line">    document.body.appendChild(el);</span><br><span class="line">    clientWidth1 = el.clientWidth</span><br><span class="line">    el.style.overflowY = &apos;scroll&apos;</span><br><span class="line">    clientWidth2 = el.clientWidth</span><br><span class="line">    var scrollBarWidth = clientWidth1 - clientWidth2</span><br><span class="line">    el.remove()</span><br><span class="line">    return scrollBarWidth</span><br><span class="line">&#125;</span><br><span class="line">console.log(getScrollBar2())</span><br></pre></td></tr></table></figure>
+        <h2 id="结构赋值"><a href="#结构赋值" class="headerlink" title="结构赋值"></a>结构赋值</h2><h3 id="数组结构赋值"><a href="#数组结构赋值" class="headerlink" title="数组结构赋值"></a>数组结构赋值</h3><blockquote>
+<p>只要某种数据结构具有Iterator接口，就可以采用数组形式的解构赋值</p>
+</blockquote>
+<h4 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h4><ul>
+<li>如果一个数组成员不严格等于<code>undefined</code>，默认值是不会生效的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var [x = 1] = [undefined];</span><br><span class="line">x // 1</span><br><span class="line"></span><br><span class="line">var [x = 1] = [null];</span><br><span class="line">x // null</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果默认值是一个表达式，该表达式是惰性求值的</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function f() &#123;</span><br><span class="line">    console.log(&apos;aaa&apos;);</span><br><span class="line">&#125;</span><br><span class="line">let [x = f()] = [1];</span><br></pre></td></tr></table></figure>
+<p>由于<code>x</code>能取到值，故<code>f()</code>是不会执行的</p>
+<h3 id="对象解构赋值"><a href="#对象解构赋值" class="headerlink" title="对象解构赋值"></a>对象解构赋值</h3><p>下面的简写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var &#123; foo: foo, bar: bar &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var &#123; foo: baz &#125; = &#123; foo: &quot;aaa&quot;, bar: &quot;bbb&quot; &#125;;</span><br><span class="line">baz // &quot;aaa&quot;</span><br><span class="line">foo // error: foo is not defined，foo是模式（冒号前的都是模式，不会被赋值）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let foo;</span><br><span class="line">(&#123;foo&#125; = &#123;foo: 1&#125;); // 成功</span><br><span class="line">let baz;</span><br><span class="line">(&#123;bar: baz&#125; = &#123;bar: 1&#125;); // 成功</span><br></pre></td></tr></table></figure>
+<p>必须有()，否则会报错。解析器会将起首的大括号理解成一个代码块，不是赋值语句。</p>
+
       
     </div>
     
@@ -324,8 +339,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/29/untitled-1511954690357/" rel="next" title="滚动到底部/顶部加载">
-                <i class="fa fa-chevron-left"></i> 滚动到底部/顶部加载
+              <a href="/2017/12/08/untitled-1512736399927/" rel="next" title="ES6：let，const">
+                <i class="fa fa-chevron-left"></i> ES6：let，const
               </a>
             
           </div>
@@ -333,10 +348,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/02/untitled-1512197869207/" rel="prev" title="js函数重载">
-                js函数重载 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -452,7 +463,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一："><span class="nav-number">1.</span> <span class="nav-text">方法一：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二："><span class="nav-number">2.</span> <span class="nav-text">方法二：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构赋值"><span class="nav-number">1.</span> <span class="nav-text">结构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数组结构赋值"><span class="nav-number">1.1.</span> <span class="nav-text">数组结构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#默认值"><span class="nav-number">1.1.1.</span> <span class="nav-text">默认值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象解构赋值"><span class="nav-number">1.2.</span> <span class="nav-text">对象解构赋值</span></a></li></ol></li></ol></div>
             
 
           </div>
