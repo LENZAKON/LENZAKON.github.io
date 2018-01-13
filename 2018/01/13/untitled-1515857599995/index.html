@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="let，constlet： let 声明的只在代码块{　}中有效1234567var a = [];for (let i = 0; i &amp;lt; 10; i++) &amp;#123;    a[i] = function () &amp;#123;	    console.log(i);    &amp;#125;;&amp;#125;a[6](); // 6　　var i=0 输出的是10   var是全局变量，每次循环新值">
+<meta name="description" content="元素嵌套问题： 块级元素可以包含行内元素  块级元素不一定能包含块级元素，如p中不能包含div  行内元素一般不能包含块级元素例外的是a标签：在a中可以包含块级元素查看方式：在w3c官方文档中可以查看：  分类 Categories 内容模型（决定嵌套关系） Content model  比如a的Content model为Transparent，表示a在计算嵌套合法性的时候a是不存在的，所以在&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6：let，const">
-<meta property="og:url" content="http://yoursite.com/2017/12/08/untitled-1512736399927/index.html">
+<meta property="og:title" content="HTML">
+<meta property="og:url" content="http://yoursite.com/2018/01/13/untitled-1515857599995/index.html">
 <meta property="og:site_name" content="LENZAKON">
-<meta property="og:description" content="let，constlet： let 声明的只在代码块{　}中有效1234567var a = [];for (let i = 0; i &amp;lt; 10; i++) &amp;#123;    a[i] = function () &amp;#123;	    console.log(i);    &amp;#125;;&amp;#125;a[6](); // 6　　var i=0 输出的是10   var是全局变量，每次循环新值">
+<meta property="og:description" content="元素嵌套问题： 块级元素可以包含行内元素  块级元素不一定能包含块级元素，如p中不能包含div  行内元素一般不能包含块级元素例外的是a标签：在a中可以包含块级元素查看方式：在w3c官方文档中可以查看：  分类 Categories 内容模型（决定嵌套关系） Content model  比如a的Content model为Transparent，表示a在计算嵌套合法性的时候a是不存在的，所以在&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-08T12:58:27.355Z">
+<meta property="og:updated_time" content="2018-01-13T16:19:53.308Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6：let，const">
-<meta name="twitter:description" content="let，constlet： let 声明的只在代码块{　}中有效1234567var a = [];for (let i = 0; i &amp;lt; 10; i++) &amp;#123;    a[i] = function () &amp;#123;	    console.log(i);    &amp;#125;;&amp;#125;a[6](); // 6　　var i=0 输出的是10   var是全局变量，每次循环新值">
+<meta name="twitter:title" content="HTML">
+<meta name="twitter:description" content="元素嵌套问题： 块级元素可以包含行内元素  块级元素不一定能包含块级元素，如p中不能包含div  行内元素一般不能包含块级元素例外的是a标签：在a中可以包含块级元素查看方式：在w3c官方文档中可以查看：  分类 Categories 内容模型（决定嵌套关系） Content model  比如a的Content model为Transparent，表示a在计算嵌套合法性的时候a是不存在的，所以在&amp;">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/08/untitled-1512736399927/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/13/untitled-1515857599995/"/>
 
 
 
 
 
-  <title>ES6：let，const | LENZAKON</title>
+  <title>HTML | LENZAKON</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/08/untitled-1512736399927/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/13/untitled-1515857599995/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LENZAKON">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ES6：let，const</h1>
+          <h1 class="post-title" itemprop="name headline">HTML</h1>
         
 
         <div class="post-meta">
@@ -261,8 +261,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-08T20:33:19+08:00">
-                2017-12-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-13T23:33:19+08:00">
+                2018-01-13
               </time>
             
 
@@ -299,33 +299,34 @@
       
 
       
-        <h2 id="let，const"><a href="#let，const" class="headerlink" title="let，const"></a>let，const</h2><h3 id="let："><a href="#let：" class="headerlink" title="let："></a>let：</h3><ul>
-<li>let 声明的只在代码块{　}中有效<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var a = [];</span><br><span class="line">for (let i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">    a[i] = function () &#123;</span><br><span class="line">	    console.log(i);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">a[6](); // 6　　var i=0 输出的是10</span><br></pre></td></tr></table></figure>
+        <h3 id="元素嵌套问题："><a href="#元素嵌套问题：" class="headerlink" title="元素嵌套问题："></a>元素嵌套问题：</h3><ul>
+<li><p>块级元素可以包含行内元素</p>
 </li>
-</ul>
-<p><code>var</code>是全局变量，每次循环新值都覆盖旧值，最后输出的就是10。<br><code>let</code>只在本次循环有效，每次循环i都是一个新的变量，最后输出是6</p>
+<li><p>块级元素不一定能包含块级元素，如<code>p</code>中不能包含<code>div</code></p>
+</li>
+<li><p>行内元素一般不能包含块级元素<br>例外的是<code>a</code>标签：在<code>a</code>中可以包含块级元素<br>查看方式：<br>在<a href="https://www.w3.org/TR/html5/textlevel-semantics.html#the-a-element" target="_blank" rel="noopener">w3c官方文档</a>中可以查看：</p>
 <ul>
-<li><p>没有变量提升</p>
-</li>
-<li><p>暂时性死区</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">if (true) &#123;</span><br><span class="line">    // TDZ 开始</span><br><span class="line">    tmp = &apos;abc&apos;; // ReferenceError</span><br><span class="line">    console.log(tmp); // ReferenceError</span><br><span class="line">    </span><br><span class="line">    let tmp; // TDZ 结束</span><br><span class="line">    console.log(tmp); // undefined</span><br><span class="line">    </span><br><span class="line">    tmp = 123;</span><br><span class="line">    console.log(tmp); // 123</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>不允许重复声明</p>
+<li>分类 Categories</li>
+<li>内容模型（决定嵌套关系） Content model</li>
+</ul>
+<p>比如<code>a</code>的Content model为Transparent，表示<code>a</code>在计算嵌套合法性的时候<code>a</code>是不存在的，所以在<code>&lt;a&gt;&lt;div&gt;&lt;/div&gt;&lt;/a&gt;</code>中，由于忽略了<code>a</code>，所以是合法的。</p>
+<p>再比如在<code>&lt;p&gt;&lt;div&gt;&lt;/div&gt;&lt;/p&gt;</code>中<code>p</code>的Content model为Transparent为Phrasing content.其中不包含<code>div</code>，故为不合法的。</p>
 </li>
 </ul>
-<h4 id="块级作用域："><a href="#块级作用域：" class="headerlink" title="块级作用域："></a>块级作用域：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function f1() &#123;</span><br><span class="line">    let n = 5;</span><br><span class="line">    if (true) &#123;</span><br><span class="line">        let n = 10;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(n); // 5</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="元素分类："><a href="#元素分类：" class="headerlink" title="元素分类："></a>元素分类：</h3><ul>
+<li><p>按默认样式分类：</p>
 <ul>
-<li>使用块级作用域不必再使用立即执行函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// IIFE 写法</span><br><span class="line">(function () &#123;</span><br><span class="line">    var tmp = ...;</span><br><span class="line">    ...</span><br><span class="line">&#125;());</span><br><span class="line">// 块级作用域写法</span><br><span class="line">&#123;</span><br><span class="line">    let tmp = ...;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>block</p>
+</li>
+<li><p>inline(文本元素)<br> inline的形状有时是不规则的，根据空间情况而定，当inline元素空间不够时会分行，其x形状则是上面部分长方形和下面部分长方形。不可以设置宽高</p>
+</li>
+<li><p>inline-block (表单元素)<br>表单标签<code>select</code>等，对外表现和inline元素一样，对内是一个规则方形的元素，宽度不够时也不会把元素变成两半，一半在上一半在下，还也可设置宽高</p>
 </li>
 </ul>
-<blockquote>
-<p>ES6可以在块级作用域中声明函数，但由于浏览器差异，应尽量避免，如果需要，应写成函数表达式</p>
-</blockquote>
-<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p><code>const</code>命令只保证变量名指向的<strong>地址</strong>不变，并不保证该地址的数据不变</p>
-<p>使用<code>Object.freeze()</code>解冻，添加的新属性不起作用</p>
-<p>彻底解冻函数：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var constantize = (obj) =&gt; &#123;</span><br><span class="line">    Object.freeze(obj);</span><br><span class="line">    Object.keys(obj).forEach( (key, value) =&gt; &#123;</span><br><span class="line">        if ( typeof obj[key] === &apos;object&apos; ) &#123;</span><br><span class="line">            constantize( obj[key] );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="全局对象属性"><a href="#全局对象属性" class="headerlink" title="全局对象属性"></a>全局对象属性</h3><p>使用<code>let</code>，<code>const</code>定义的属性在<code>window</code>或<code>global</code>中是访问不到的</p>
+</li>
+<li><p>按内容分类：<br><a href="https://www.w3.org/TR/html5/dom.html#content-models" target="_blank" rel="noopener">w3c分类</a></p>
+</li>
+</ul>
 
       
     </div>
@@ -350,8 +351,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/07/untitled-1512650263710/" rel="next" title="Web安全（CSRF）">
-                <i class="fa fa-chevron-left"></i> Web安全（CSRF）
+              <a href="/2017/12/08/untitled-1512740475194/" rel="next" title="ES6 结构赋值">
+                <i class="fa fa-chevron-left"></i> ES6 结构赋值
               </a>
             
           </div>
@@ -359,10 +360,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/08/untitled-1512740475194/" rel="prev" title="ES6 结构赋值">
-                ES6 结构赋值 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -478,7 +475,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#let，const"><span class="nav-number">1.</span> <span class="nav-text">let，const</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#let："><span class="nav-number">1.1.</span> <span class="nav-text">let：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#块级作用域："><span class="nav-number">1.1.1.</span> <span class="nav-text">块级作用域：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#const"><span class="nav-number">1.2.</span> <span class="nav-text">const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局对象属性"><span class="nav-number">1.3.</span> <span class="nav-text">全局对象属性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#元素嵌套问题："><span class="nav-number">1.</span> <span class="nav-text">元素嵌套问题：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素分类："><span class="nav-number">2.</span> <span class="nav-text">元素分类：</span></a></li></ol></div>
             
 
           </div>
