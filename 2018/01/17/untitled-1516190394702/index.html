@@ -79,17 +79,22 @@
 
 
 
-<meta name="description" content="计时器和线程的工作 javascript引擎是单线程执行，异步事件必须要排队等待才能执行。 如果无法立即执行定时器，该定时器会被推迟到下一个可用的执行时间点上（可能更长，但不会比指定的延迟时间更少） 如果一直被延迟，到最后，Interval间隔计时器可能会无延迟执行，并且同一个Interval处理程序的多个实例不能同事进行排队 setTimeout()和setInterval()在触发周期的定义上">
+<meta name="description" content="box-shadow浏览器实现阴影效果原理： 上图从左至右依次是浏览器的4步动作。首先根据指定的color克隆一个和原始元素同样尺寸的元素。然后根据指定的x-offset / y-offset将克隆出来的元素进行偏移。第三步根据指定的blur-radius模糊半径10px，依据高斯算法进行模糊处理。本质上是在阴影边缘将阴影色和纯透明色之间的颜色过渡，长度近似于blur-radius模糊半径的两倍，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="定时器和线程">
-<meta property="og:url" content="http://yoursite.com/2017/12/06/untitled-1512557810189/index.html">
+<meta property="og:title" content="box-shadow">
+<meta property="og:url" content="http://yoursite.com/2018/01/17/untitled-1516190394702/index.html">
 <meta property="og:site_name" content="LENZAKON">
-<meta property="og:description" content="计时器和线程的工作 javascript引擎是单线程执行，异步事件必须要排队等待才能执行。 如果无法立即执行定时器，该定时器会被推迟到下一个可用的执行时间点上（可能更长，但不会比指定的延迟时间更少） 如果一直被延迟，到最后，Interval间隔计时器可能会无延迟执行，并且同一个Interval处理程序的多个实例不能同事进行排队 setTimeout()和setInterval()在触发周期的定义上">
+<meta property="og:description" content="box-shadow浏览器实现阴影效果原理： 上图从左至右依次是浏览器的4步动作。首先根据指定的color克隆一个和原始元素同样尺寸的元素。然后根据指定的x-offset / y-offset将克隆出来的元素进行偏移。第三步根据指定的blur-radius模糊半径10px，依据高斯算法进行模糊处理。本质上是在阴影边缘将阴影色和纯透明色之间的颜色过渡，长度近似于blur-radius模糊半径的两倍，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-06T13:48:32.697Z">
+<meta property="og:image" content="http://yoursite.com/images/1516192277559.png">
+<meta property="og:image" content="http://yoursite.com/images/1516191369929.png">
+<meta property="og:image" content="http://yoursite.com/images/1516191997342.png">
+<meta property="og:image" content="http://yoursite.com/images/1516193078437.png">
+<meta property="og:updated_time" content="2018-01-17T12:51:30.738Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="定时器和线程">
-<meta name="twitter:description" content="计时器和线程的工作 javascript引擎是单线程执行，异步事件必须要排队等待才能执行。 如果无法立即执行定时器，该定时器会被推迟到下一个可用的执行时间点上（可能更长，但不会比指定的延迟时间更少） 如果一直被延迟，到最后，Interval间隔计时器可能会无延迟执行，并且同一个Interval处理程序的多个实例不能同事进行排队 setTimeout()和setInterval()在触发周期的定义上">
+<meta name="twitter:title" content="box-shadow">
+<meta name="twitter:description" content="box-shadow浏览器实现阴影效果原理： 上图从左至右依次是浏览器的4步动作。首先根据指定的color克隆一个和原始元素同样尺寸的元素。然后根据指定的x-offset / y-offset将克隆出来的元素进行偏移。第三步根据指定的blur-radius模糊半径10px，依据高斯算法进行模糊处理。本质上是在阴影边缘将阴影色和纯透明色之间的颜色过渡，长度近似于blur-radius模糊半径的两倍，">
+<meta name="twitter:image" content="http://yoursite.com/images/1516192277559.png">
 
 
 
@@ -119,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/06/untitled-1512557810189/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/17/untitled-1516190394702/"/>
 
 
 
 
 
-  <title>定时器和线程 | LENZAKON</title>
+  <title>box-shadow | LENZAKON</title>
   
 
 
@@ -232,7 +237,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/06/untitled-1512557810189/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/17/untitled-1516190394702/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LENZAKON">
@@ -249,7 +254,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">定时器和线程</h1>
+          <h1 class="post-title" itemprop="name headline">box-shadow</h1>
         
 
         <div class="post-meta">
@@ -261,8 +266,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-06T18:56:50+08:00">
-                2017-12-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-17T19:59:54+08:00">
+                2018-01-17
               </time>
             
 
@@ -299,15 +304,32 @@
       
 
       
-        <h3 id="计时器和线程的工作"><a href="#计时器和线程的工作" class="headerlink" title="计时器和线程的工作"></a>计时器和线程的工作</h3><ul>
-<li>javascript引擎是单线程执行，异步事件必须要排队等待才能执行。</li>
-<li>如果无法立即执行定时器，该定时器会被推迟到下一个可用的执行时间点上（可能更长，但不会比指定的延迟时间更少）</li>
-<li>如果一直被延迟，到最后，Interval间隔计时器可能会无延迟执行，并且同一个Interval处理程序的多个实例不能同事进行排队</li>
-<li>setTimeout()和setInterval()在触发周期的定义上是完全不同的</li>
+        <h4 id="box-shadow"><a href="#box-shadow" class="headerlink" title="box-shadow"></a>box-shadow</h4><h5 id="浏览器实现阴影效果原理："><a href="#浏览器实现阴影效果原理：" class="headerlink" title="浏览器实现阴影效果原理："></a>浏览器实现阴影效果原理：<img src="/images/1516192277559.png" alt="image"></h5><blockquote>
+<p>上图从左至右依次是浏览器的4步动作。首先根据指定的color克隆一个和原始元素同样尺寸的元素。然后根据指定的x-offset / y-offset将克隆出来的元素进行偏移。<br>第三步根据指定的blur-radius模糊半径10px，依据高斯算法进行模糊处理。本质上是在阴影边缘将阴影色和纯透明色之间的颜色过渡，长度近似于blur-radius模糊半径的两倍，即20px左右。这就是导致阴影外扩的原因。<br>最后，浏览器在克隆元素上，将交集部分剪切掉，剩余部分拼接到原始元素边上，就实现了最终的效果。注意这和我们看上去的有的不同，看上去像是两个元素叠加在了一次，导致下层的克隆元素部分被遮盖了。其实不是的。这意味着即使你将原始元素的背景色设成半透明，也不会看到底层的克隆元素，因为原始元素的下面根本没有任何东西。</p>
+</blockquote>
+<h5 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h5><ul>
+<li>inset： 内阴影</li>
+<li>x-offset：水平偏移量</li>
+<li>y-offset：垂直偏移量</li>
+<li>blur-radius：阴影模糊半径</li>
+<li>spread-radius：阴影拓展半径，即是使阴影放大或缩小<br>阴影模糊会导致阴影外扩，此时就可以使用spread-radius缩小阴影大小，使不需要的外扩隐藏<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box-shadow: 0 10px 20px red</span><br><span class="line">box-shadow: 0 10px 20px -10px red</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function repeatMe() &#123;</span><br><span class="line">    // 长时间阻塞块</span><br><span class="line">    setTimeout(repeatMe, 10);</span><br><span class="line">&#125;, 10);</span><br><span class="line"></span><br><span class="line">setInterval(function () &#123;</span><br><span class="line">    // 长时间阻塞块</span><br><span class="line">&#125;, 10)</span><br></pre></td></tr></table></figure>
-<p>setTimeout()要在callback()回调执行结束并延迟10ms（可能更多）以后才再次执行setTimeout()。setInterval()是每过10ms就尝试执行，而不关注上一个callback是何时执行的。</p>
-<h3 id="使用计时器将强循环和操作转化成非阻塞操作"><a href="#使用计时器将强循环和操作转化成非阻塞操作" class="headerlink" title="使用计时器将强循环和操作转化成非阻塞操作"></a>使用计时器将强循环和操作转化成非阻塞操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var rowCount = 20000;</span><br><span class="line">   var divideInto = 4;</span><br><span class="line">   var chunkSize = rowCount / divideInto;</span><br><span class="line">   var iteration = 0;</span><br><span class="line"></span><br><span class="line">   var table = document.getElementsByTagName(&apos;tbody&apos;)[0];</span><br><span class="line">   setTimeout(function generateRows() &#123;</span><br><span class="line"></span><br><span class="line">       var base = chunkSize * iteration;</span><br><span class="line">       for (var i = 0; i &lt; chunkSize; i++) &#123;</span><br><span class="line">           var tr = document.createElement(&apos;tr&apos;);</span><br><span class="line">           for (var t = 0; t &lt; 6; t++) &#123;</span><br><span class="line">               var td = document.createElement(&apos;td&apos;);</span><br><span class="line">               td.appendChild(document.createTextNode((i + base) + &apos;,&apos; + t + &apos;,&apos; + iteration));</span><br><span class="line">               tr.appendChild(td);</span><br><span class="line">           &#125;</span><br><span class="line">           table.appendChild(tr);</span><br><span class="line">       &#125;</span><br><span class="line">       iteration++;</span><br><span class="line">       if (iteration &lt; divideInto) &#123;</span><br><span class="line">           setTimeout(generateRows, 0);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;, 0)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><img src="/images/1516191369929.png" alt="image"></p>
+</blockquote>
+<h5 id="图片加阴影："><a href="#图片加阴影：" class="headerlink" title="图片加阴影："></a>图片加阴影：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">	&lt;img /&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>降低<code>img</code>的<code>z-index</code></li>
+<li>将图片设置为<code>div</code>的<code>background-img</code></li>
+</ul>
+<h5 id="多层阴影："><a href="#多层阴影：" class="headerlink" title="多层阴影："></a>多层阴影：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box-shadow: 6px 0 5px -5px red,</span><br><span class="line">            -6px 0 5px -5px red;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><img src="/images/1516191997342.png" alt="image"></p>
+</blockquote>
+<h5 id="不均匀阴影："><a href="#不均匀阴影：" class="headerlink" title="不均匀阴影："></a>不均匀阴影：<img src="/images/1516193078437.png" alt="image"></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">.effect::before, .effect::after &#123;</span><br><span class="line">    content: &quot;&quot;;</span><br><span class="line">    width: 50%;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 10px;</span><br><span class="line">    top: 80%;</span><br><span class="line">    bottom: 15px;</span><br><span class="line">    transform: rotate(-5deg);</span><br><span class="line">    box-shadow: 0 15px 10px #777;</span><br><span class="line">    z-index: -1;</span><br><span class="line">&#125;</span><br><span class="line">.effect::after &#123;</span><br><span class="line">    transform: rotate(5deg);</span><br><span class="line">    right: 10px;</span><br><span class="line">    left: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参考资料：<br><a href="https://www.jianshu.com/p/1303b96661b9" target="_blank" rel="noopener">CSS3 box-shadow介绍</a></p>
+
       
     </div>
     
@@ -331,8 +353,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/04/untitled-1512385544357/" rel="next" title="正则表达式">
-                <i class="fa fa-chevron-left"></i> 正则表达式
+              <a href="/2018/01/17/untitled-1516185681169/" rel="next" title="布局（四）——响应式布局">
+                <i class="fa fa-chevron-left"></i> 布局（四）——响应式布局
               </a>
             
           </div>
@@ -340,10 +362,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/07/untitled-1512611644437/" rel="prev" title="web安全(XSS攻击)">
-                web安全(XSS攻击) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -459,7 +477,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#计时器和线程的工作"><span class="nav-number">1.</span> <span class="nav-text">计时器和线程的工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用计时器将强循环和操作转化成非阻塞操作"><span class="nav-number">2.</span> <span class="nav-text">使用计时器将强循环和操作转化成非阻塞操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#box-shadow"><span class="nav-number">1.</span> <span class="nav-text">box-shadow</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#浏览器实现阴影效果原理："><span class="nav-number">1.1.</span> <span class="nav-text">浏览器实现阴影效果原理：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#参数："><span class="nav-number">1.2.</span> <span class="nav-text">参数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#图片加阴影："><span class="nav-number">1.3.</span> <span class="nav-text">图片加阴影：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多层阴影："><span class="nav-number">1.4.</span> <span class="nav-text">多层阴影：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不均匀阴影："><span class="nav-number">1.5.</span> <span class="nav-text">不均匀阴影：</span></a></li></ol></li></ol></div>
             
 
           </div>

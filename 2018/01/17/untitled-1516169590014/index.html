@@ -92,7 +92,7 @@
 <meta property="og:image" content="http://yoursite.com/images/1516179054910.png">
 <meta property="og:image" content="http://yoursite.com/images/1516176235611.png">
 <meta property="og:image" content="http://yoursite.com/images/1516176309975.png">
-<meta property="og:updated_time" content="2018-01-17T09:13:57.050Z">
+<meta property="og:updated_time" content="2018-01-17T11:20:52.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="布局（二）float布局">
 <meta name="twitter:description" content="float布局： 元素“浮动” 脱离文档流 但不脱离文件流脱离文档流是指“很长文字”部分所占空间是外部div是所有部分，float 部分不占空间，不脱离文件流是指float的元素把“很长文字”部分的文字挤出。  对自身的影响： 形成“块”(BFC)  形成块以后负责自身的布局，可以设置宽高，即使一个元素是inline的，使用float后，也可以设置宽高。 位置尽量靠上 位置尽量靠左（右）  对兄弟">
@@ -327,14 +327,16 @@
 </blockquote>
 <h5 id="对父级元素的影响："><a href="#对父级元素的影响：" class="headerlink" title="对父级元素的影响："></a>对父级元素的影响：</h5><ul>
 <li>从布局上“消失”</li>
-<li><p>高度塌陷</p>
+<li><p>高度塌陷  盒子不再管理浮动的元素</p>
 <ul>
-<li><code>overflow: auto / hidden</code></li>
+<li><code>overflow: auto / hidden</code>  设置超出以后该怎么办，从而让盒子管理浮动元素</li>
 <li><p>伪元素：<br> 原理：让父级元素中有一个内容，刚好把父级元素撑开<br>在父级元素上添加一个伪类：<br><img src="/images/1516176621983.png" alt="image"></p>
 <blockquote>
 <p> 对于CSS的清除浮动(clear)，一定要牢记：这个规则只能影响使用清除的元素本身，不能影响其他元素。</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.container2::after &#123;</span><br><span class="line">	  content: &apos; &apos;;</span><br><span class="line">    clear: both;			// 不允许本身与其相临的左右两边有浮动，从例子中看则是不允许左右有绿色的float元素，所以::after这个元素中的内容就会往下挤，如果没有clear，由于元素内容不会往下挤且高度为0，则下面的蓝色区域就会上来。伪元素实际位置是在最下面的红色部分和白色部分的交界处。</span><br><span class="line">    display: block;  // 要独占一行</span><br><span class="line">    height: 0;</span><br><span class="line">    visibility: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>比较古老的浏览器可能会不支持<code>::after</code>，此时可以在容器的最后面加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style=&quot;clear:both; height:0&quot;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -457,7 +459,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
