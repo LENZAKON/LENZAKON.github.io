@@ -79,19 +79,14 @@
 
 
 
-<meta name="description" content="在计时器间隔回调中使用闭包1234567891011121314151617181920212223&amp;lt;div id=&amp;quot;box1&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div id=&amp;quot;box2&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;script&amp;gt;        function animateIt(elementId) &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="闭包（二）">
-<meta property="og:url" content="http://yoursite.com/2017/12/02/untitled-1512229104155/index.html">
+<meta property="og:title" content="Generator函数">
+<meta property="og:url" content="http://yoursite.com/2018/01/19/untitled-1516351000914/index.html">
 <meta property="og:site_name" content="LENZAKON">
-<meta property="og:description" content="在计时器间隔回调中使用闭包1234567891011121314151617181920212223&amp;lt;div id=&amp;quot;box1&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div id=&amp;quot;box2&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;script&amp;gt;        function animateIt(elementId) &amp;#123;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/1512266116043.png">
-<meta property="og:updated_time" content="2017-12-03T02:28:43.685Z">
+<meta property="og:updated_time" content="2018-01-19T08:37:02.122Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="闭包（二）">
-<meta name="twitter:description" content="在计时器间隔回调中使用闭包1234567891011121314151617181920212223&amp;lt;div id=&amp;quot;box1&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;div id=&amp;quot;box2&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;script&amp;gt;        function animateIt(elementId) &amp;#123;">
-<meta name="twitter:image" content="http://yoursite.com/images/1512266116043.png">
+<meta name="twitter:title" content="Generator函数">
 
 
 
@@ -121,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/02/untitled-1512229104155/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/19/untitled-1516351000914/"/>
 
 
 
 
 
-  <title>闭包（二） | LENZAKON</title>
+  <title>Generator函数 | LENZAKON</title>
   
 
 
@@ -234,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/untitled-1512229104155/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/untitled-1516351000914/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LENZAKON">
@@ -251,7 +246,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">闭包（二）</h1>
+          <h1 class="post-title" itemprop="name headline">Generator函数</h1>
         
 
         <div class="post-meta">
@@ -263,8 +258,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T23:38:24+08:00">
-                2017-12-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-19T16:36:40+08:00">
+                2018-01-19
               </time>
             
 
@@ -301,21 +296,7 @@
       
 
       
-        <h3 id="在计时器间隔回调中使用闭包"><a href="#在计时器间隔回调中使用闭包" class="headerlink" title="在计时器间隔回调中使用闭包"></a>在计时器间隔回调中使用闭包</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;box1&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;box2&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    </span><br><span class="line">    function animateIt(elementId) &#123;</span><br><span class="line">        var elem = document.getElementById(elementId)</span><br><span class="line">        var tick = 0</span><br><span class="line"></span><br><span class="line">        var timer = setInterval(function () &#123;</span><br><span class="line">            if (tick &lt; 100) &#123;</span><br><span class="line">                elem.style.left = elem.style.top = tick + &apos;px&apos;</span><br><span class="line">                tick++</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                clearInterval(timer)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, 10)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    animateIt(&apos;box1&apos;)</span><br><span class="line">    animateIt(&apos;box2&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>对于不同的元素，要正常进行动画，则每个元素的自身动画都要维护elem, tick, timer。 因此，这三个变量在函数內部定义，并依赖于闭包，可以将它们在计时器回调函数调用的时候使用，使得闭包去抓去这三个变量，形成每个动画自己的私有气泡变量．</p>
-<p><img src="/images/1512266116043.png" alt="image"></p>
-<p>这个例子还说明了一个<strong>重要</strong>的概念：</p>
-<blockquote>
-<p>函数在闭包里执行的时候，不仅可以在闭包创建的时刻点上看到这些变量的值，我们还可以对其进行更新．换句话说，闭包不是在创建时刻那一时刻点的状态的快照，而是一个真实的状态封装，只要闭包存在，就可以对其进行修改．</p>
-</blockquote>
-<h3 id="即时函数和循环"><a href="#即时函数和循环" class="headerlink" title="即时函数和循环"></a>即时函数和循环</h3><blockquote>
-<p>闭包记住的是变量的引用，而不是闭包创建时刻该变量的值</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var div = document.getElementsByTagName(&apos;div&apos;);</span><br><span class="line"></span><br><span class="line">   for (var i = 0; i &lt; div.length; i++) &#123;</span><br><span class="line">       div[i].addEventListener(&apos;click&apos;, function () &#123;</span><br><span class="line">           console.log(i)</span><br><span class="line">           alert(i);</span><br><span class="line">       &#125;, false)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>在上面这个例子中，函数绑定之后，闭包抓取的变量（本例是i）被更新了，这意味着，每个绑定的函数处理程序都会一直显示i最后的值，本例中为二．</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var div = document.getElementsByTagName(&apos;div&apos;);</span><br><span class="line"></span><br><span class="line">    for (var i = 0; i &lt; div.length; i++) &#123;</span><br><span class="line">        (function (n) &#123;</span><br><span class="line">            div[n].addEventListener(&apos;click&apos;, function () &#123;</span><br><span class="line">                console.log(n)</span><br><span class="line">                alert(n);</span><br><span class="line">            &#125;, false)</span><br><span class="line">        &#125;)(i)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>在这个例子中，闭包抓取的变量是n，n是对i的引用，而n没有像上个例子一样被更新，故n可以正确地获得我们期待的值．</p>
-
+        
       
     </div>
     
@@ -339,8 +320,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/02/untitled-1512209488900/" rel="next" title="闭包（一）">
-                <i class="fa fa-chevron-left"></i> 闭包（一）
+              <a href="/2018/01/19/untitled-1516336417585/" rel="next" title="Iterator和for...of循环">
+                <i class="fa fa-chevron-left"></i> Iterator和for...of循环
               </a>
             
           </div>
@@ -348,10 +329,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/03/untitled-1512268973571/" rel="prev" title="函数缓存">
-                函数缓存 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -403,17 +380,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -457,22 +425,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#在计时器间隔回调中使用闭包"><span class="nav-number">1.</span> <span class="nav-text">在计时器间隔回调中使用闭包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#即时函数和循环"><span class="nav-number">2.</span> <span class="nav-text">即时函数和循环</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

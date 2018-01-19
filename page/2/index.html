@@ -229,6 +229,133 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/16/untitled-1516101875530/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/16/untitled-1516101875530/" itemprop="url">非布局样式——边框</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-16T19:24:35+08:00">
+                2018-01-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h4><ul>
+<li>边框背景图<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">border:30px solid transparent;   // 必须有</span><br><span class="line">border-image:url(./border.png) 30 round;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>原先的图：<br><img src="/images/1516105085601.png" alt="image"><br>效果图：<br><img src="/images/1516105125567.png" alt="image"></p>
+<ul>
+<li>衔接三角形<br>原理：边框的衔接是采用斜切方式<br>底部边框：<br><img src="/images/1516105202737.png" alt="image"><br>底部边框和右边框：<br><img src="/images/1516105287089.png" alt="image"><br>当左右边框为透明，底部边框有颜色时，则变成等腰梯形<br><img src="/images/1516105887855.png" alt="image"><br>所以，当蓝色部分为0，即width为0时，就成为一个三角形，三角形的形状可以根据<code>border-widtn</code>进行调整</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/16/untitled-1516089581203/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1593,133 +1720,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/06/untitled-1512557810189/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/06/untitled-1512557810189/" itemprop="url">定时器和线程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-06T18:56:50+08:00">
-                2017-12-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="计时器和线程的工作"><a href="#计时器和线程的工作" class="headerlink" title="计时器和线程的工作"></a>计时器和线程的工作</h3><ul>
-<li>javascript引擎是单线程执行，异步事件必须要排队等待才能执行。</li>
-<li>如果无法立即执行定时器，该定时器会被推迟到下一个可用的执行时间点上（可能更长，但不会比指定的延迟时间更少）</li>
-<li>如果一直被延迟，到最后，Interval间隔计时器可能会无延迟执行，并且同一个Interval处理程序的多个实例不能同事进行排队</li>
-<li>setTimeout()和setInterval()在触发周期的定义上是完全不同的</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function repeatMe() &#123;</span><br><span class="line">    // 长时间阻塞块</span><br><span class="line">    setTimeout(repeatMe, 10);</span><br><span class="line">&#125;, 10);</span><br><span class="line"></span><br><span class="line">setInterval(function () &#123;</span><br><span class="line">    // 长时间阻塞块</span><br><span class="line">&#125;, 10)</span><br></pre></td></tr></table></figure>
-<p>setTimeout()要在callback()回调执行结束并延迟10ms（可能更多）以后才再次执行setTimeout()。setInterval()是每过10ms就尝试执行，而不关注上一个callback是何时执行的。</p>
-<h3 id="使用计时器将强循环和操作转化成非阻塞操作"><a href="#使用计时器将强循环和操作转化成非阻塞操作" class="headerlink" title="使用计时器将强循环和操作转化成非阻塞操作"></a>使用计时器将强循环和操作转化成非阻塞操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">var rowCount = 20000;</span><br><span class="line">   var divideInto = 4;</span><br><span class="line">   var chunkSize = rowCount / divideInto;</span><br><span class="line">   var iteration = 0;</span><br><span class="line"></span><br><span class="line">   var table = document.getElementsByTagName(&apos;tbody&apos;)[0];</span><br><span class="line">   setTimeout(function generateRows() &#123;</span><br><span class="line"></span><br><span class="line">       var base = chunkSize * iteration;</span><br><span class="line">       for (var i = 0; i &lt; chunkSize; i++) &#123;</span><br><span class="line">           var tr = document.createElement(&apos;tr&apos;);</span><br><span class="line">           for (var t = 0; t &lt; 6; t++) &#123;</span><br><span class="line">               var td = document.createElement(&apos;td&apos;);</span><br><span class="line">               td.appendChild(document.createTextNode((i + base) + &apos;,&apos; + t + &apos;,&apos; + iteration));</span><br><span class="line">               tr.appendChild(td);</span><br><span class="line">           &#125;</span><br><span class="line">           table.appendChild(tr);</span><br><span class="line">       &#125;</span><br><span class="line">       iteration++;</span><br><span class="line">       if (iteration &lt; divideInto) &#123;</span><br><span class="line">           setTimeout(generateRows, 0);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;, 0)</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1770,7 +1770,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
