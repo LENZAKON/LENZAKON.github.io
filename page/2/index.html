@@ -229,6 +229,145 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/16/非布局样式——文本折行/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/16/非布局样式——文本折行/" itemprop="url">非布局样式——文本折行</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-16T21:02:46+08:00">
+                2018-01-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="文本折行"><a href="#文本折行" class="headerlink" title="文本折行"></a>文本折行</h4><p>有关属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 表示当一个很长的单词在一个有限宽度的盒子中时，单词是否要中断换行。normal为不中断溢出，break-word为中断不溢出</span><br><span class="line">overflow-wrap: normal / break-word</span><br></pre></td></tr></table></figure>
+<p><strong>注意空白处：</strong><br><code>normal:</code><br><img src="/images/1516109157628.png" alt="image"><br><code>break-word:</code><br><img src="/images/1516109095378.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 单词内怎么换行</span><br><span class="line">word-break: normal / break-all / keep-all</span><br></pre></td></tr></table></figure>
+<p><strong>注意没有空白</strong><br><code>break-all</code><br><img src="/images/1516109497280.png" alt="image"><br><img src="/images/1516109440704.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 处理元素中的空白</span><br><span class="line">white-space: normal / nowrap / pre / pre-wrap / pre-line</span><br></pre></td></tr></table></figure>
+<p><img src="/images/1516111194301.png" alt="image"></p>
+<p><code>normal</code>：连续空白符会被合并，换行符会被当做空白符。在填充外面盒子的时候，必要时会换行。<br><img src="/images/1516111226743.png" alt="image"></p>
+<p><code>nowrap</code>：连续空白符被合并，不换行<br><img src="/images/1516111263533.png" alt="image"></p>
+<p><code>pre</code>：连续空白符被保留。遇到换行符或<code>br</code>才换行<br><img src="/images/1516111293623.png" alt="image"></p>
+<p><code>pre-wrap</code>：连续空白符被保留，遇到换行符或<code>br</code>换行，在填充外面盒子的时候，必要时会换行。<br><img src="/images/1516111331417.png" alt="image"></p>
+<p><code>pre-line</code>：连续空白符被合并，遇到换行符或<code>br</code>换行，在填充外面盒子的时候，必要时会换行。<br><img src="/images/1516111404255.png" alt="image"></p>
+<p><strong>pre-line 和 pre-wrap的图片没有颠倒，空格是否合并成一个不符合规则</strong></p>
+<p><img src="/images/1516111457893.png" alt="image"></p>
+<p><code>normal</code>:<br><img src="/images/1516111487752.png" alt="image"></p>
+<p><code>nowrap</code>:<br><img src="/images/1516111519907.png" alt="image"></p>
+<p><code>pre</code>:<br><img src="/images/1516111549114.png" alt="image"></p>
+<p><code>pre-line</code>:<br><img src="/images/1516111621295.png" alt="image"></p>
+<p><code>pre-wrap</code>:<br><img src="/images/1516111668839.png" alt="image"></p>
+<p>参考资料：<a href="https://www.cnblogs.com/2050/archive/2012/08/10/2632256.html" target="_blank" rel="noopener">你真的了解…</a>    MDN</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/16/非布局样式——边框/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1539,187 +1678,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/web安全(XSS攻击)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/07/web安全(XSS攻击)/" itemprop="url">web安全(XSS攻击)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-07T09:54:04+08:00">
-                2017-12-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="XSS攻击（跨站脚本攻击）："><a href="#XSS攻击（跨站脚本攻击）：" class="headerlink" title="XSS攻击（跨站脚本攻击）："></a>XSS攻击（跨站脚本攻击）：</h3><h4 id="分类："><a href="#分类：" class="headerlink" title="分类："></a>分类：</h4><ul>
-<li>反射型：url参数直接注入</li>
-<li>存储型：存储到DB读取时注入</li>
-</ul>
-<h4 id="XSS注入攻击点："><a href="#XSS注入攻击点：" class="headerlink" title="XSS注入攻击点："></a>XSS注入攻击点：</h4><ul>
-<li>HTML节点内容：内容是根据用户输入生成的</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">#&#123;content&#125;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div&gt;</span><br><span class="line">&lt;script&gt;&lt;/script&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>HTML节点属性：节点属性是根据用户输入生成的</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;image src=&quot;#&#123;image&#125;&quot;&gt;</span><br><span class="line">&lt;image src=&quot;1&quot; onerror=&quot;alert(1)&quot;&gt;</span><br></pre></td></tr></table></figure>
-<p>输入内容是<code>1&quot; onerror=&quot;alert(1)</code>，提前关闭src属性的值。</p>
-<ul>
-<li>javascript代码：js代码中存在由后台注入的变量或用户输入的信息，用户输入的信息改变js代码逻辑</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var data = &quot;#&#123;data&#125;&quot;</span><br><span class="line">var data = &quot;hello&quot;;alert(1);&quot;&quot;;</span><br></pre></td></tr></table></figure>
-<p>输入内容是<code>hello&quot;;alert(1);&quot;</code>，提前将变量关闭</p>
-<ul>
-<li>富文本</li>
-</ul>
-<h4 id="浏览器自带防御方案"><a href="#浏览器自带防御方案" class="headerlink" title="浏览器自带防御方案"></a>浏览器自带防御方案</h4><p>可在header中设置<code>X-XSS-Protection</code></p>
-<ul>
-<li>0：关闭</li>
-<li>1：开启（默认）</li>
-<li>1＋指定的url，当遭到攻击时向url发通知</li>
-</ul>
-<p>缺点：只能防御反射型攻击，只防御出现在html内容和属性的攻击</p>
-<h4 id="防御"><a href="#防御" class="headerlink" title="防御"></a>防御</h4><ul>
-<li><p>节点内容<br>对<code>&lt;和&gt;</code>进行替换，替换时机：在存入数据库之前或在显示时进行html字符实体转义 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var escapeHtml = function (src) &#123;</span><br><span class="line">    src = src.replace(/&lt;/g, &apos;&amp;lt;&apos;);</span><br><span class="line">    src = src.replace(/&gt;/g, &apos;&amp;gt;&apos;);</span><br><span class="line">    return src;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>节点属性<br>对<code>&quot;，’，</code>进行转义，不让属性提前关闭</p>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var escapeHtmlProperty = function (src) &#123;</span><br><span class="line">        if (!src) return &apos;&apos;;</span><br><span class="line">        src = src.replace(/&quot;/g, &apos;&amp;quto;&apos;);</span><br><span class="line">        src = src.replace(/&apos;/g, &apos;&amp;#39;&apos;);</span><br><span class="line">        src = src.replace(/ /g, &apos;&amp;#32;&apos;);   // 属性可以不用引号</span><br><span class="line">        return src;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p> 两个函数可合并<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">     var escapeHtml = function (src) &#123;</span><br><span class="line">        if (!src) return &apos;&apos;;</span><br><span class="line">        src = src.replace(/&amp;/g, &apos;&amp;amp;&apos;);   // 可转可不转，放到最前</span><br><span class="line">        src = src.replace(/&lt;/g, &apos;&amp;lt;&apos;);</span><br><span class="line">        src = src.replace(/&gt;/g, &apos;&amp;gt;&apos;);</span><br><span class="line">        src = src.replace(/&quot;/g, &apos;&amp;quto;&apos;);</span><br><span class="line">        src = src.replace(/&apos;/g, &apos;&amp;#39;&apos;);</span><br><span class="line">        // 属性可以不用引号，但会造成页面多个空格只显示一个，所以属性一般要加空格</span><br><span class="line">//        src = src.replace(/ /g, &apos;&amp;#32;&apos;);   </span><br><span class="line">        return src;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>js代码</p>
-<p>方法一：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var escapeForJs = function (str) &#123;</span><br><span class="line">       if (!str) return &apos;&apos;;</span><br><span class="line">       str = str.replace(/\\/g,&apos;\\\\&apos;);</span><br><span class="line">       str = str.replace(/&quot;/g,&apos;\\&quot;&apos;);</span><br><span class="line">       return str;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p> 方法二：<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JSON.stringify(var);</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>富文本</p>
-<ul>
-<li><p>方法一：黑名单法。把有攻击可能的代码过滤掉，比如onerror。<br>优点：使用正则表达式过滤，较容易实现<br>缺点：可能有攻击的代码太多，很容易过滤不全</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var xssFilter = function (html) &#123;</span><br><span class="line"></span><br><span class="line">    if (!html) return &apos;&apos;;</span><br><span class="line">    html = html.replace(/&lt;\s*\/?script\s*&gt;/g, &apos;&apos;);</span><br><span class="line">    html = html.replace(/javascript:[^&apos;&quot;]*/g, &apos;&apos;);</span><br><span class="line">    html = html.replace(/onerror\s*=\s*[&apos;&quot;]?[^&apos;&quot;]*[&apos;&quot;]?/g, &apos;&apos;);</span><br><span class="line">    // 还有很多很多....</span><br><span class="line">    return html</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code>- 方法二：白名单法。只保留指定的属性，标签。优缺点相反。
-    过滤时机：输入时或输出时。富文本一般放在输入时。对性能的影响较小。
-
-    使用cherrio
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">       //　白名单法</span><br><span class="line">     	// 1.解析html</span><br><span class="line">     	var xssFilter = function (html) &#123;</span><br><span class="line">         if (!html) return &apos;&apos;;</span><br><span class="line">         var cheerio = require(&apos;cherrio&apos;);</span><br><span class="line">         var $ = cheerio.load(html);</span><br><span class="line"></span><br><span class="line">         //白名单</span><br><span class="line">         var whiteList = &#123;</span><br><span class="line">             &apos;img&apos;: [&apos;src&apos;]</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">       $(&apos;*&apos;).each(function (index, elem) &#123;</span><br><span class="line">           if (!whiteList[elem.name]) &#123;</span><br><span class="line">               $(elem).remove()</span><br><span class="line">               return;</span><br><span class="line">           &#125;</span><br><span class="line">           for (var attr in elem.attribs) &#123;</span><br><span class="line">               if (whiteList[elem.name].indexOf(attr) == -1) &#123;</span><br><span class="line">                   $(elem).attr(attr, null);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;)</span><br><span class="line">       return $.html();</span><br><span class="line">   		&#125;</span><br><span class="line">           </span><br><span class="line">使用xss库</span><br><span class="line">  </span><br><span class="line">   ### Content Security Policy （CSP）</span><br><span class="line">   #### 指定哪些可执行，哪些不可执行</span><br><span class="line"></span><br><span class="line">   启用方法：</span><br><span class="line">   - HTTP头信息</span><br><span class="line">   - `meta`标签</span><br></pre></td></tr></table></figure>
-
-&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;script-src &apos;self&apos;; object-src &apos;none&apos;; style-src cdn.example.org third-party.org; child-src https:&quot;&gt;
-```
-</code></pre><p>链接：<a href="http://www.ruanyifeng.com/blog/2016/09/csp.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/09/csp.html</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1770,7 +1728,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
