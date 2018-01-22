@@ -229,6 +229,245 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/28/js中的宽高/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/28/js中的宽高/" itemprop="url">js中的宽高</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T19:47:35+08:00">
+                2017-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="window-和-document-的关系"><a href="#window-和-document-的关系" class="headerlink" title="window 和 document 的关系"></a>window 和 document 的关系</h2><ul>
+<li>window 是指整个窗口（包括上面的菜单栏），document 是window 的一部分，浏览器的html文档 成为 document 对象</li>
+<li>window.location === document.location。 window / document对象的location 引用的是Location 对象，表示该窗口中当前显示文档的URL。 </li>
+</ul>
+<h3 id="与window-相关的宽高："><a href="#与window-相关的宽高：" class="headerlink" title="与window 相关的宽高："></a>与window 相关的宽高：</h3><ul>
+<li>window.innerWidth 内部宽度</li>
+<li>window.innerHeight 内部高度</li>
+<li>window.outerWidth 外部宽度</li>
+<li>window.outerHeight 外部高度<br><img src="/images/1511871538262.png" alt="image"><br><img src="/images/1511871604740.png" alt="image"></li>
+</ul>
+<h4 id="window-screen"><a href="#window-screen" class="headerlink" title="window.screen"></a>window.screen</h4><ul>
+<li>window.screen.height 屏幕高度</li>
+<li>window.screen.width 屏幕宽度</li>
+<li>window.screen.availHeight 可利用高度</li>
+<li>window.screen.availWidth 可利用宽度</li>
+<li>window.screenTop</li>
+<li>window.screenLeft<br><img src="/images/1511871863159.png" alt="image"><br><img src="/images/1511871916579.png" alt="image"></li>
+</ul>
+<h4 id="innerHeight，innerWidth-IE9以下兼容："><a href="#innerHeight，innerWidth-IE9以下兼容：" class="headerlink" title="innerHeight，innerWidth IE9以下兼容："></a>innerHeight，innerWidth IE9以下兼容：</h4><ol>
+<li>document.documentElement.clientHeight<br> document.documentElement.clientWidth</li>
+<li>document.body.clientHeight<br>document.body.clientWidth </li>
+</ol>
+<h3 id="与document-相关的宽，高"><a href="#与document-相关的宽，高" class="headerlink" title="与document 相关的宽，高"></a>与document 相关的宽，高</h3><h4 id="client"><a href="#client" class="headerlink" title="client:"></a>client:</h4><blockquote>
+<p>clientWidth和clientHeight<br>该属性是指元素的可视部分的宽度和高度，即padding + content。<br>如果没有滚动条，即为元素设定的宽度和高度，如果有滚动条，滚动条会盖住元素的宽高，那么该属性就是其本来宽高减去滚动条的宽高</p>
+</blockquote>
+<ul>
+<li>document.body.clientWidth</li>
+<li>document.body.clientHeight</li>
+<li>document.body.clientLeft</li>
+<li>document.body.clientTop</li>
+<li>document.getElementById(‘client’).clientWidth<br>….</li>
+</ul>
+<h5 id="clientWidth-和-clientWidth小结："><a href="#clientWidth-和-clientWidth小结：" class="headerlink" title="clientWidth 和 clientWidth小结："></a>clientWidth 和 clientWidth小结：</h5><ul>
+<li><p>如果无padding无滚动<br>clientWidth = style.width</p>
+</li>
+<li><p>有padding 无滚动<br>clientWidth = style.width + style.padding * 2</p>
+</li>
+<li><p>有padding 有滚动<br>clientWidth = style.width + style.padding * 2 - 滚动轴宽度</p>
+</li>
+</ul>
+<h5 id="clientLeft-和-clientTop小结："><a href="#clientLeft-和-clientTop小结：" class="headerlink" title="clientLeft 和 clientTop小结："></a>clientLeft 和 clientTop小结：</h5><blockquote>
+<p>这对属性是用来读取元素的border的宽度和高度的</p>
+</blockquote>
+<ul>
+<li>clientTop = border-top 的 border-width</li>
+<li>clientLeft = border-left 的 border-width</li>
+</ul>
+<h4 id="offest"><a href="#offest" class="headerlink" title="offest:"></a>offest:</h4><blockquote>
+<p>offsetWidth与offsetHeight：<br>这一对属性是指元素的border + padding + content 的宽度和高度，该属性和其内部的内容是否超出元素大小无关，只和本来设定的border以及width和height有关</p>
+</blockquote>
+<ul>
+<li>document.body.offestWidth</li>
+<li>document.body.offestHeight</li>
+<li>document.body.offestLeft</li>
+<li>document.body.offestTop</li>
+<li>document.getElementById(‘offest’).clientWidth<br>….<h5 id="offsetWidth-和-offsetHeight小结："><a href="#offsetWidth-和-offsetHeight小结：" class="headerlink" title="offsetWidth 和 offsetHeight小结："></a>offsetWidth 和 offsetHeight小结：</h5></li>
+<li><p>无padding无border无滚动<br>offsetWidth = clientWidth = style.width</p>
+</li>
+<li><p>有padding无滚动有border<br>offsetWidth = style.width + style.padding-left + style.padding-right + border-left-width + border-right-width<br>offsetWidth = clientWidth + border-left-width + border-right-width</p>
+</li>
+<li><p>有padding有滚动显示有border<br>offsetWidth = style.width + style.padding-left + style.padding-right + border-left-width + border-right-width<br>offsetWidth = clientWidth + border-left-width + border-right-width + 滚动轴宽度</p>
+</li>
+</ul>
+<h5 id="offsetLeft-和-offsetTop"><a href="#offsetLeft-和-offsetTop" class="headerlink" title="offsetLeft 和 offsetTop"></a>offsetLeft 和 offsetTop</h5><p>offsetParent</p>
+<ol>
+<li>如果当前元素的父级元素没有CSS定位（position为absolute或relative），offsetParent为body</li>
+<li>如果有CSS定位，取<strong>最近</strong>的那个父级元素</li>
+</ol>
+<ul>
+<li><p>IE6/7中<br>offsetLeft = (offsetParent的padding-left) + (当前元素的margin-left)</p>
+</li>
+<li><p>IE8/9/10及Chrome中<br>offsetLeft = (offsetParent的margin-left) + (offsetParent的border宽度) +(offsetParent的padding-left) +  (当前元素的margin-left)</p>
+</li>
+<li><p>FireFox 中<br>offsetLeft = (offsetParent的margin-left) +(offsetParent的padding-left) +  (当前元素的margin-left)</p>
+</li>
+</ul>
+<h4 id="scroll"><a href="#scroll" class="headerlink" title="scroll:"></a>scroll:</h4><ul>
+<li>document.body.scrollWidth</li>
+<li>document.body.scrollHeight</li>
+<li>document.body.scrollLeft</li>
+<li>document.body.scrollTop</li>
+<li>document.getElementById(‘offest’).scrollWidth</li>
+</ul>
+<h4 id="document-body的scrollWidth和scrollHeight与div的是有区别的"><a href="#document-body的scrollWidth和scrollHeight与div的是有区别的" class="headerlink" title="document.body的scrollWidth和scrollHeight与div的是有区别的"></a>document.body的scrollWidth和scrollHeight与div的是有区别的</h4><h5 id="document-body的scrollWidth和scrollHeight（谷歌浏览器）"><a href="#document-body的scrollWidth和scrollHeight（谷歌浏览器）" class="headerlink" title="document.body的scrollWidth和scrollHeight（谷歌浏览器）"></a>document.body的scrollWidth和scrollHeight（谷歌浏览器）</h5><ol>
+<li><p>给定宽高小于浏览器窗口<br>scrollHeight，scrollWidth 通常是浏览器窗口的宽度和高度</p>
+</li>
+<li><p>给定宽高大于浏览器窗口，且内容小于给定宽高<br>scrollHeight = 给定高 + 所有padding, margin, border (padding*2+margin*2+border*2)<br>scrollWeight = 给定宽 + 所有padding, margin, border</p>
+</li>
+<li><p>给定宽高大于浏览器窗口，且内容大于给定宽高<br>scrollHeight = 内容高 + 所有padding, margin, border (padding+margin+border)<br>scrollWeight = 内容宽 + 所有padding, margin, border</p>
+</li>
+</ol>
+<h5 id="div的scrollWidth和scrollHeight：（所有浏览器一致）"><a href="#div的scrollWidth和scrollHeight：（所有浏览器一致）" class="headerlink" title="div的scrollWidth和scrollHeight：（所有浏览器一致）"></a>div的scrollWidth和scrollHeight：（所有浏览器一致）</h5><p> <img src="/images/1511934743321.png" alt="image"><br><img src="/images/1511934774425.png" alt="image"></p>
+<ul>
+<li><p>无滚动轴时<br>scrollWidth == clientWidth = style.width + style.padding * 2</p>
+</li>
+<li><p>有滚动轴时<br>scrollWidth == 实际内容的宽度 + style.padding <em> 2<br>scrollHeight == 实际内容的高度 + style.padding </em> 2</p>
+</li>
+</ul>
+<h4 id="scrollLeft-和-scrollTop"><a href="#scrollLeft-和-scrollTop" class="headerlink" title="scrollLeft 和 scrollTop"></a>scrollLeft 和 scrollTop</h4><blockquote>
+<p>这对属性是可读写的，指当属性其中的内容超出其宽高的时候，元素被卷起的高度和宽度</p>
+</blockquote>
+<p><img src="/images/1511935273498.png" alt="image"></p>
+<h3 id="documentElement-和-body"><a href="#documentElement-和-body" class="headerlink" title="documentElement 和 body"></a>documentElement 和 body</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>)     <span class="comment">// document对象</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.documentElement)    <span class="comment">// html对象　</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.childNodes[<span class="number">2</span>] === <span class="built_in">document</span>.body</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">document</span>.body)    <span class="comment">//  body对象</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/1511936832108.png" alt="image"></p>
+<h5 id="浏览器窗口可视区域大小兼容写法："><a href="#浏览器窗口可视区域大小兼容写法：" class="headerlink" title="浏览器窗口可视区域大小兼容写法："></a>浏览器窗口可视区域大小兼容写法：</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> w = <span class="built_in">document</span>.documentElement.clientWidth || <span class="built_in">document</span>.body.clientWidth</span><br></pre></td></tr></table></figure>
+<h3 id="document相关宽高兼容"><a href="#document相关宽高兼容" class="headerlink" title="document相关宽高兼容"></a>document相关宽高兼容</h3><h5 id="client相关宽高，各浏览器一致"><a href="#client相关宽高，各浏览器一致" class="headerlink" title="client相关宽高，各浏览器一致"></a>client相关宽高，各浏览器一致</h5><h5 id="offsetTop-offsetLeft-参考前文"><a href="#offsetTop-offsetLeft-参考前文" class="headerlink" title="offsetTop, offsetLeft 参考前文"></a>offsetTop, offsetLeft 参考前文</h5><h5 id="offsetHeight-offsetHeight-各浏览器解析一致"><a href="#offsetHeight-offsetHeight-各浏览器解析一致" class="headerlink" title="offsetHeight, offsetHeight 各浏览器解析一致"></a>offsetHeight, offsetHeight 各浏览器解析一致</h5><h2 id="Event的五种坐标"><a href="#Event的五种坐标" class="headerlink" title="Event的五种坐标"></a>Event的五种坐标</h2><h4 id="1-clientX-clientY"><a href="#1-clientX-clientY" class="headerlink" title="1. clientX, clientY"></a>1. clientX, clientY</h4><blockquote>
+<p>相对于浏览器（可视区左上角0,0）的坐标</p>
+</blockquote>
+<h4 id="2-screenX-cscreenY"><a href="#2-screenX-cscreenY" class="headerlink" title="2. screenX, cscreenY"></a>2. screenX, cscreenY</h4><blockquote>
+<p>相对于设备屏幕左上角（０,0）的坐标</p>
+</blockquote>
+<h4 id="3-offsetX-offsetY"><a href="#3-offsetX-offsetY" class="headerlink" title="3. offsetX, offsetY"></a>3. offsetX, offsetY</h4><blockquote>
+<p>相对于事件源（比如某个div）左上角的坐标</p>
+</blockquote>
+<h4 id="4-pageX-pageY"><a href="#4-pageX-pageY" class="headerlink" title="4. pageX, pageY"></a>4. pageX, pageY</h4><blockquote>
+<p>相对于整个网页左上角（0, 0）的坐标</p>
+</blockquote>
+<h4 id="5-X-Y"><a href="#5-X-Y" class="headerlink" title="5. X, Y"></a>5. X, Y</h4><blockquote>
+<p>本来是IE属性，相对于用CSS动态定位的最内层包容元素（在chrom中和clientX，clientY一直是一样的。在IE中，设置了position的就和offsetX, offsetY是相等的，没有则是和clientX，clientY是一样的）</p>
+</blockquote>
+<h5 id="window-screenX-window-screenLeft"><a href="#window-screenX-window-screenLeft" class="headerlink" title="window.screenX === window.screenLeft"></a>window.screenX === window.screenLeft</h5><h5 id="window-screenY-window-screenTop"><a href="#window-screenY-window-screenTop" class="headerlink" title="window.screenY === window.screenTop"></a>window.screenY === window.screenTop</h5>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/27/jsonp原理及实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -414,7 +653,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

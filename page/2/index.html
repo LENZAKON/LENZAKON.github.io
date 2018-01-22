@@ -229,6 +229,157 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/Class/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/22/Class/" itemprop="url">Class</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T09:25:15+08:00">
+                2018-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Class"><a href="#Class" class="headerlink" title="Class"></a>Class</h1><h2 id="constructor方法"><a href="#constructor方法" class="headerlink" title="constructor方法"></a>constructor方法</h2><ul>
+<li><code>constructor</code>默认返回实例对象(<code>this</code>)，可指定返回另外的一个对象。</li>
+</ul>
+<h2 id="Class表达式"><a href="#Class表达式" class="headerlink" title="Class表达式"></a>Class表达式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> MyClass = <span class="class"><span class="keyword">class</span> <span class="title">Me</span> </span>&#123;</span><br><span class="line">    getClassName() &#123;</span><br><span class="line">        <span class="keyword">return</span> Me.name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Me是可以省略的</span></span><br></pre></td></tr></table></figure>
+<p>类名是<code>MyClass</code>，<code>Me</code>只是在<code>Class</code>的内部代码中使用，代指当前类。</p>
+<h3 id="立即执行类"><a href="#立即执行类" class="headerlink" title="立即执行类"></a>立即执行类</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> <span class="class"><span class="keyword">class</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">    sayName() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;(<span class="string">'张三'</span>)</span><br><span class="line">person.sayName()    <span class="comment">// 张三</span></span><br></pre></td></tr></table></figure>
+<h2 id="私有方法"><a href="#私有方法" class="headerlink" title="私有方法"></a>私有方法</h2><ul>
+<li><p>命名上加以区分，当在类的外部，还是可以调用到这个方法的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Widget</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 公有方法foo (baz) &#123;</span></span><br><span class="line">    <span class="keyword">this</span>._bar(baz);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 私有方法</span></span><br><span class="line">_bar(baz) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.snaf = baz;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将私有方法移除模块</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Widget</span> </span>&#123;</span><br><span class="line">    foo (baz) &#123;</span><br><span class="line">        bar.call(<span class="keyword">this</span>, baz);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">baz</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.snaf = baz;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用<code>Symbol</code>值的唯一性，将私有方法的名字命名为一个<code>Symbol</code>值，使第三方无法获得它们</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bar = <span class="built_in">Symbol</span>(<span class="string">'bar'</span>);</span><br><span class="line"><span class="keyword">const</span> snaf = <span class="built_in">Symbol</span>(<span class="string">'snaf'</span>);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">myClass</span></span>&#123;</span><br><span class="line">    <span class="comment">// 公有方法</span></span><br><span class="line">    foo(baz) &#123;</span><br><span class="line">        <span class="keyword">this</span>[bar](baz);</span><br><span class="line">    &#125;   </span><br><span class="line">    <span class="comment">// 私有方法</span></span><br><span class="line">    [bar](baz) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>[snaf] = baz;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">// ...</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a><code>this</code>指向</h2><p>默认指向类的实例</p>
+<h2 id="Class的继承"><a href="#Class的继承" class="headerlink" title="Class的继承"></a>Class的继承</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ColorPoint</span> <span class="keyword">extends</span> <span class="title">Point</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(x, y, color) &#123;</span><br><span class="line">        <span class="keyword">super</span>(x, y) <span class="comment">// 调用父类的constructor(x, y)</span></span><br><span class="line">        <span class="keyword">this</span>.color = color</span><br><span class="line">    &#125;</span><br><span class="line">    toString() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.color + <span class="string">' '</span> + <span class="keyword">super</span>.toString()  <span class="comment">// 调用父类的toString() </span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>子类必须在<code>constructor</code>方法的最前面调用父类的<code>constructor</code>方法。否则在新建实例的时候后报错，子类没有自己的<code>this</code>方法，而是继承父类的<code>this</code>，再对其进行加工。</li>
+</ul>
+<h3 id="类的prototype属性和-proto-属性"><a href="#类的prototype属性和-proto-属性" class="headerlink" title="类的prototype属性和__proto__属性"></a>类的<code>prototype</code>属性和<code>__proto__</code>属性</h3><ul>
+<li><p>子类的<code>__proto__</code>属性，表示构造函数的继承，总是指向父类</p>
+</li>
+<li><p>子类的<code>prototype</code>属性的<code>__proto__</code>属性，表示方法的继承，总是指向父类的<code>prototype</code>属性。</p>
+</li>
+</ul>
+<p>继承的实现<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// B 的实例继承 A 的实例</span></span><br><span class="line"><span class="built_in">Object</span>.setPrototypeOf(B.prototype, A.prototype);</span><br><span class="line"><span class="comment">// B 继承 A 的静态属性</span></span><br><span class="line"><span class="built_in">Object</span>.setPrototypeOf(B, A);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.setPrototypeOf = <span class="function"><span class="keyword">function</span> (<span class="params">obj, proto</span>) </span>&#123;</span><br><span class="line">    obj.__proto__ = proto;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>理解：作为一个对象，子类（B）的原型（__proto__属性）是父类（A）。作为一个构造函数，子类（B）的原型（prototype属性）是父类的实例。</p>
+<h3 id="new-target"><a href="#new-target" class="headerlink" title="new.target"></a><code>new.target</code></h3><p>返回<code>new</code>命令作用的构造函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">new</span>.target === Person) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">' 必须使用 new 生成实例 '</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">' 张三 '</span>); <span class="comment">// 正确</span></span><br><span class="line"><span class="keyword">var</span> notAPerson = Person.call(person, <span class="string">' 张三 '</span>);</span><br><span class="line"><span class="comment">// 报错</span></span><br></pre></td></tr></table></figure></p>
+<p><code>Class</code>内部调用<code>new.target</code>,返回当前<code>Class</code><br>子类继承父类时,<code>new.target</code>会返回子类。<br>可以写出不能独立使用，必须通过继承后才能使用的类。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>() &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">new</span>.target === Shape) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">' 本类不能实例化 '</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(length, width) &#123;</span><br><span class="line">        <span class="keyword">super</span>();</span><br><span class="line">        <span class="comment">// ...</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> x = <span class="keyword">new</span> Shape(); <span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">var</span> y = <span class="keyword">new</span> Rectangle(<span class="number">3</span>, <span class="number">4</span>); <span class="comment">// 正确</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/Generator函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1662,145 +1813,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/16/非布局样式——文本折行/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/16/非布局样式——文本折行/" itemprop="url">非布局样式——文本折行</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-16T21:02:46+08:00">
-                2018-01-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="文本折行"><a href="#文本折行" class="headerlink" title="文本折行"></a>文本折行</h4><p>有关属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 表示当一个很长的单词在一个有限宽度的盒子中时，单词是否要中断换行。normal为不中断溢出，break-word为中断不溢出</span><br><span class="line">overflow-wrap: normal / break-word</span><br></pre></td></tr></table></figure>
-<p><strong>注意空白处：</strong><br><code>normal:</code><br><img src="/images/1516109157628.png" alt="image"><br><code>break-word:</code><br><img src="/images/1516109095378.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 单词内怎么换行</span><br><span class="line">word-break: normal / break-all / keep-all</span><br></pre></td></tr></table></figure>
-<p><strong>注意没有空白</strong><br><code>break-all</code><br><img src="/images/1516109497280.png" alt="image"><br><img src="/images/1516109440704.png" alt="image"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 处理元素中的空白</span><br><span class="line">white-space: normal / nowrap / pre / pre-wrap / pre-line</span><br></pre></td></tr></table></figure>
-<p><img src="/images/1516111194301.png" alt="image"></p>
-<p><code>normal</code>：连续空白符会被合并，换行符会被当做空白符。在填充外面盒子的时候，必要时会换行。<br><img src="/images/1516111226743.png" alt="image"></p>
-<p><code>nowrap</code>：连续空白符被合并，不换行<br><img src="/images/1516111263533.png" alt="image"></p>
-<p><code>pre</code>：连续空白符被保留。遇到换行符或<code>br</code>才换行<br><img src="/images/1516111293623.png" alt="image"></p>
-<p><code>pre-wrap</code>：连续空白符被保留，遇到换行符或<code>br</code>换行，在填充外面盒子的时候，必要时会换行。<br><img src="/images/1516111331417.png" alt="image"></p>
-<p><code>pre-line</code>：连续空白符被合并，遇到换行符或<code>br</code>换行，在填充外面盒子的时候，必要时会换行。<br><img src="/images/1516111404255.png" alt="image"></p>
-<p><strong>pre-line 和 pre-wrap的图片没有颠倒，空格是否合并成一个不符合规则</strong></p>
-<p><img src="/images/1516111457893.png" alt="image"></p>
-<p><code>normal</code>:<br><img src="/images/1516111487752.png" alt="image"></p>
-<p><code>nowrap</code>:<br><img src="/images/1516111519907.png" alt="image"></p>
-<p><code>pre</code>:<br><img src="/images/1516111549114.png" alt="image"></p>
-<p><code>pre-line</code>:<br><img src="/images/1516111621295.png" alt="image"></p>
-<p><code>pre-wrap</code>:<br><img src="/images/1516111668839.png" alt="image"></p>
-<p>参考资料：<a href="https://www.cnblogs.com/2050/archive/2012/08/10/2632256.html" target="_blank" rel="noopener">你真的了解…</a>    MDN</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1851,7 +1863,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
