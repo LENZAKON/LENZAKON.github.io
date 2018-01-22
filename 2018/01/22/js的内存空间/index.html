@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="背景 背景颜色 123// 色相饱和度和亮度 background: hsl(20, 30%, 40%) background: hsla(20, 30%, 40%, 0.3)  渐变色背景 1background: linear-gradient(135deg, red 0, green 10%, yellow 100%)  多背景叠加 123background: linear-gradien">
+<meta name="description" content="js的内存空间基础数据类型Number，String，Null，Undefined，Boolean 栈内存栈内存中存放的是基础数据类型，有固定的大小。我们可以直接操作保存在栈内存空间的值，所以，基础数据类型都是按值访问的。  堆内存引用类型的值的大小是不固定的，是保存在堆内存空间中的对象，js不允许直接访问堆内存中的位置，所以我们不能直接操作对象的堆内存空间，实际操作的是对象的引用而不是对象，所以">
 <meta property="og:type" content="article">
-<meta property="og:title" content="非布局样式——背景">
-<meta property="og:url" content="http://yoursite.com/2018/01/16/非布局样式——背景/index.html">
+<meta property="og:title" content="js的内存空间">
+<meta property="og:url" content="http://yoursite.com/2018/01/22/js的内存空间/index.html">
 <meta property="og:site_name" content="LENZAKON">
-<meta property="og:description" content="背景 背景颜色 123// 色相饱和度和亮度 background: hsl(20, 30%, 40%) background: hsla(20, 30%, 40%, 0.3)  渐变色背景 1background: linear-gradient(135deg, red 0, green 10%, yellow 100%)  多背景叠加 123background: linear-gradien">
+<meta property="og:description" content="js的内存空间基础数据类型Number，String，Null，Undefined，Boolean 栈内存栈内存中存放的是基础数据类型，有固定的大小。我们可以直接操作保存在栈内存空间的值，所以，基础数据类型都是按值访问的。  堆内存引用类型的值的大小是不固定的，是保存在堆内存空间中的对象，js不允许直接访问堆内存中的位置，所以我们不能直接操作对象的堆内存空间，实际操作的是对象的引用而不是对象，所以">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/1516095125791.png">
-<meta property="og:image" content="http://yoursite.com/images/1516095180098.png">
-<meta property="og:updated_time" content="2018-01-19T09:42:12.769Z">
+<meta property="og:image" content="http://yoursite.com/images/1516597829623.png">
+<meta property="og:image" content="http://yoursite.com/images/1516597881849.png">
+<meta property="og:updated_time" content="2018-01-22T05:11:53.172Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="非布局样式——背景">
-<meta name="twitter:description" content="背景 背景颜色 123// 色相饱和度和亮度 background: hsl(20, 30%, 40%) background: hsla(20, 30%, 40%, 0.3)  渐变色背景 1background: linear-gradient(135deg, red 0, green 10%, yellow 100%)  多背景叠加 123background: linear-gradien">
-<meta name="twitter:image" content="http://yoursite.com/images/1516095125791.png">
+<meta name="twitter:title" content="js的内存空间">
+<meta name="twitter:description" content="js的内存空间基础数据类型Number，String，Null，Undefined，Boolean 栈内存栈内存中存放的是基础数据类型，有固定的大小。我们可以直接操作保存在栈内存空间的值，所以，基础数据类型都是按值访问的。  堆内存引用类型的值的大小是不固定的，是保存在堆内存空间中的对象，js不允许直接访问堆内存中的位置，所以我们不能直接操作对象的堆内存空间，实际操作的是对象的引用而不是对象，所以">
+<meta name="twitter:image" content="http://yoursite.com/images/1516597829623.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/01/16/非布局样式——背景/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/22/js的内存空间/"/>
 
 
 
 
 
-  <title>非布局样式——背景 | LENZAKON</title>
+  <title>js的内存空间 | LENZAKON</title>
   
 
 
@@ -235,7 +235,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/16/非布局样式——背景/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/js的内存空间/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LENZAKON">
@@ -252,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">非布局样式——背景</h1>
+          <h1 class="post-title" itemprop="name headline">js的内存空间</h1>
         
 
         <div class="post-meta">
@@ -264,8 +264,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-16T15:59:41+08:00">
-                2018-01-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T13:09:15+08:00">
+                2018-01-22
               </time>
             
 
@@ -302,26 +302,59 @@
       
 
       
-        <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><ul>
-<li><p>背景颜色</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 色相饱和度和亮度</span><br><span class="line"> background: hsl(20, 30%, 40%)</span><br><span class="line"> background: hsla(20, 30%, 40%, 0.3)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>渐变色背景</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background: linear-gradient(135deg, red 0, green 10%, yellow 100%)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>多背景叠加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">background: linear-gradient(135deg, transparent 0, transparent 49.5%, green 49.5%, green 50.5%, transparent 50.5%, transparent 100%),</span><br><span class="line">	linear-gradient(45deg, transparent 0, transparent 49.5%, red 49.5%, red 50.5%, transparent 50.5%, transparent 100%);</span><br><span class="line">background-size: 30px 30px;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="/images/1516095125791.png" alt="image">平铺形成<br><img src="/images/1516095180098.png" alt="image"></p>
+        <h1 id="js的内存空间"><a href="#js的内存空间" class="headerlink" title="js的内存空间"></a>js的内存空间</h1><h2 id="基础数据类型"><a href="#基础数据类型" class="headerlink" title="基础数据类型"></a>基础数据类型</h2><p><code>Number</code>，<code>String</code>，<code>Null</code>，<code>Undefined</code>，<code>Boolean</code></p>
+<h2 id="栈内存"><a href="#栈内存" class="headerlink" title="栈内存"></a>栈内存</h2><p>栈内存中存放的是基础数据类型，有固定的大小。我们可以直接操作保存在栈内存空间的值，所以，基础数据类型都是按值访问的。</p>
+<p><img src="/images/1516597829623.png" alt="image"></p>
+<h2 id="堆内存"><a href="#堆内存" class="headerlink" title="堆内存"></a>堆内存</h2><p>引用类型的值的大小是不固定的，是保存在堆内存空间中的对象，js不允许直接访问堆内存中的位置，所以我们不能直接操作对象的堆内存空间，实际操作的是对象的引用而不是对象，所以引用类型是按值引用访问的，引用是保存在栈内存中的地址，地址再指向堆内存。</p>
+<p><img src="/images/1516597881849.png" alt="image"></p>
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">栈内存</th>
+<th style="text-align:center">堆内存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">存储基础数据类型</td>
+<td style="text-align:center">存储引用数据类型</td>
+</tr>
+<tr>
+<td style="text-align:center">按值访问</td>
+<td style="text-align:center">按引用访问</td>
+</tr>
+<tr>
+<td style="text-align:center">存储的值大小固定</td>
+<td style="text-align:center">存储的值大小不定，可动态调整</td>
+</tr>
+<tr>
+<td style="text-align:center">由系统自动分配内存空间</td>
+<td style="text-align:center">由程序员通过代码进行分配</td>
+</tr>
+<tr>
+<td style="text-align:center">主要用来执行程序</td>
+<td style="text-align:center">主要用来存放对象</td>
+</tr>
+<tr>
+<td style="text-align:center">空间小，运行效率高</td>
+<td style="text-align:center">空间大，运行效率低</td>
+</tr>
+<tr>
+<td style="text-align:center">先进先出</td>
+<td style="text-align:center">无序存储，根据引用直接获取</td>
+</tr>
+</tbody>
+</table>
+<h2 id="存在栈内存和堆内存的原因："><a href="#存在栈内存和堆内存的原因：" class="headerlink" title="存在栈内存和堆内存的原因："></a>存在栈内存和堆内存的原因：</h2><p>与垃圾回收机制有关，是为了使程序运行的时候占用的内存最少</p>
 <ul>
-<li><p>背景图片和属性（雪碧图）</p>
+<li><p>当一个方法执行时，每个方法都会建立自己的内存栈，在这个方法内定义的变量将会逐个放入这块栈内存里，随着方法的执行结束，这个方法的内存栈也将自然销毁了。因此，所有在方法中定义的变量都是放在栈内存中的；</p>
 </li>
-<li><p>base64和性能优化</p>
-</li>
-<li><p>多分辨率适配<br>使用大图再去缩小</p>
+<li><p>当我们在程序中创建一个对象时，这个对象将被保存到运行时数据区中，以便反复利用（因为对象的创建成本通常较大），这个运行时数据区就是堆内存。堆内存中的对象不会随方法的结束而销毁，即使方法结束后，这个对象还可能被另一个引用变量所引用（方法的参数传递时很常见），则这个对象依然不会被销毁，只有当一个对象没有任何引用变量引用它时，系统的垃圾回收机制才会在核实的时候回收它。</p>
 </li>
 </ul>
+<p>参考：</p>
+<p><a href="https://juejin.im/entry/589c29a9b123db16a3c18adf" target="_blank" rel="noopener">前端基础进阶</a></p>
+<p><a href="http://blog.csdn.net/xdd19910505/article/details/41900693" target="_blank" rel="noopener">JavaScript变量——栈内存or堆内存</a></p>
 
       
     </div>
@@ -346,8 +379,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/16/非布局样式——行高/" rel="next" title="非布局样式——行高">
-                <i class="fa fa-chevron-left"></i> 非布局样式——行高
+              <a href="/2018/01/22/异步操作和Async/" rel="next" title="异步操作和Async函数">
+                <i class="fa fa-chevron-left"></i> 异步操作和Async函数
               </a>
             
           </div>
@@ -356,8 +389,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/01/16/非布局样式——边框/" rel="prev" title="非布局样式——边框">
-                非布局样式——边框 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/22/函数中的传递参数/" rel="prev" title="函数中的传递参数">
+                函数中的传递参数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -474,7 +507,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#js的内存空间"><span class="nav-number">1.</span> <span class="nav-text">js的内存空间</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">基础数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栈内存"><span class="nav-number">1.2.</span> <span class="nav-text">栈内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆内存"><span class="nav-number">1.3.</span> <span class="nav-text">堆内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对比"><span class="nav-number">1.4.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存在栈内存和堆内存的原因："><span class="nav-number">1.5.</span> <span class="nav-text">存在栈内存和堆内存的原因：</span></a></li></ol></li></ol></div>
             
 
           </div>

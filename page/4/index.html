@@ -229,6 +229,340 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/04/正则表达式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/04/正则表达式/" itemprop="url">正则表达式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-04T19:05:44+08:00">
+                2017-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="标志："><a href="#标志：" class="headerlink" title="标志："></a>标志：</h3><ul>
+<li><p>i 忽略大小写</p>
+</li>
+<li><p>g 匹配全部出现的，默认只是匹配第一个出现的结果</p>
+</li>
+<li><p>m 允许匹配多行，比如可以匹配文本去元素textarea中的值</p>
+</li>
+</ul>
+<p><strong>当目标字符串含有\n，而且正则表达式中含有^或$的时候，/m修饰符才有作用</strong></p>
+<p>如果 multiline 为 false，那么“^”与字符串的开始位置相匹配，而“$”与字符串的结束位置相匹配。 如果 multiline 为 true，那么“^”与字符串开始位置以及“\n”或“\r”之后的位置相匹配，而“$”与字符串结束位置以及“\n”或“\r”之前的位置相匹配</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var mutiline = /^abc/m;</span><br><span class="line">var singleline = /^abc/;</span><br><span class="line">var target = &quot;ef\r\nabcd&quot;;</span><br><span class="line">alert(mutiline.test(target));//true</span><br><span class="line">alert(singleline.test(target));//false</span><br></pre></td></tr></table></figure>
+<p>\r\n在windows下代表换行，如果只有1个\n也是一样的效果。由于target不是以abc开头的字符串，所以匹配singleline的结果是false；由于target是多行字符串(含有\n)，而第2行是以abc开头，所以匹配multiline结果是true。</p>
+<h3 id="术语和操作符："><a href="#术语和操作符：" class="headerlink" title="术语和操作符："></a>术语和操作符：</h3><h4 id="精准匹配："><a href="#精准匹配：" class="headerlink" title="精准匹配："></a>精准匹配：</h4><ul>
+<li>/test/   这些字符必须在一个字符串中出现</li>
+</ul>
+<h4 id="匹配一类字符："><a href="#匹配一类字符：" class="headerlink" title="匹配一类字符："></a>匹配一类字符：</h4><ul>
+<li><p>/[abc]/    匹配某个字符即可</p>
+</li>
+<li><p>/[^abc]/   匹配有限字符集以外的字符</p>
+</li>
+<li><p>[a-m]    匹配a到m的任一字符</p>
+<h4 id="转义："><a href="#转义：" class="headerlink" title="转义："></a>转义：</h4></li>
+<li><p>\</p>
+<h4 id="匹配开始和匹配结束："><a href="#匹配开始和匹配结束：" class="headerlink" title="匹配开始和匹配结束："></a>匹配开始和匹配结束：</h4></li>
+<li><p>/^test/  匹配以test开头的字符串</p>
+</li>
+<li><p>/test$/  匹配以test结尾的字符串</p>
+<h4 id="重复出现："><a href="#重复出现：" class="headerlink" title="重复出现："></a>重复出现：</h4></li>
+<li><p>? 出现一次或不出现　/t?est/ 匹配”test”或”est”</p>
+</li>
+<li><p>+ 出现一次或多次        /t+est/ 匹配”test”或”ttest”等，但不匹配”est”</p>
+</li>
+<li><p>*  出现零次或一次或多次</p>
+</li>
+<li><p>{n} 连续出现n次　　/a{4}/ 匹配含有连续四个”a”的字符串 </p>
+</li>
+<li><p>{n, m} 连续出现n到m次</p>
+</li>
+<li><p>{n, } 连续出现n次或n次以上</p>
+<h6 id="重复出现可以是贪婪或是非贪婪的，默认情况下是贪婪的，在操作符后面加-即可变为非贪婪"><a href="#重复出现可以是贪婪或是非贪婪的，默认情况下是贪婪的，在操作符后面加-即可变为非贪婪" class="headerlink" title="重复出现可以是贪婪或是非贪婪的，默认情况下是贪婪的，在操作符后面加?即可变为非贪婪"></a>重复出现可以是贪婪或是非贪婪的，默认情况下是贪婪的，在操作符后面加?即可变为非贪婪</h6></li>
+<li><p>对”aaa”进行匹配：/a+/匹配所有的三个字符，/a+?/匹配一个a字符，因为一个a字符就可以满足a+术语．</p>
+</li>
+</ul>
+<h4 id="预定义字符类"><a href="#预定义字符类" class="headerlink" title="预定义字符类"></a>预定义字符类</h4><p> <img src="/images/1512387375204.png" alt="image"></p>
+<h4 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h4><ul>
+<li><p>/(ab)+/ 匹配一个或多个连续出现的字符串”ab”</p>
+<h6 id="同时，-也创建了捕获"><a href="#同时，-也创建了捕获" class="headerlink" title="同时，()也创建了捕获"></a>同时，()也创建了捕获</h6><h4 id="或操作符"><a href="#或操作符" class="headerlink" title="或操作符"></a>或操作符</h4></li>
+</ul>
+<ul>
+<li>|  /(ab)+|(cd)+/  匹配出现一次或多次的”ab”或”cd”</li>
+</ul>
+<h4 id="反向引用"><a href="#反向引用" class="headerlink" title="反向引用"></a>反向引用</h4><ul>
+<li>在反斜杠后面加一个要引用的捕获数量，该数字从1开始，如\1, \2<br>/^([dnt])a\1/: 可以任意一个”d” “t”或“n” 开头，且后面跟着一个a字符，再在后面跟着和第一个捕获相同字符的字符串。<br>匹配XML类型标记时非常有用：<br>/&lt;(\w+)&gt;(.+)&lt;\/\1&gt;/  匹配<br><img src="/images/1512388333204.png" alt="image"></li>
+</ul>
+<h5 id=""><a href="#" class="headerlink" title="\\"></a>\\</h5><p>在字符串中，需要使用\\来表示在非字符串中只需要用\表示的意思<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new RegExp( &quot;(^|\\s)&quot; + className + &quot;(\\s|$)&quot;)   // 动态创建的字符串构建和编译一个正则表达式</span><br></pre></td></tr></table></figure></p>
+<p>表示匹配的字符串要以样式名称或空格再加样式名称开始，….。创建带有反斜杠的字面量正则表达式时，只需提供一个反斜杠即可。但在字符串(“”)中写反斜杠，要用双反斜杠进行转义。</p>
+<h3 id="正则表达式的编译："><a href="#正则表达式的编译：" class="headerlink" title="正则表达式的编译："></a>正则表达式的编译：</h3><blockquote>
+<p>正则表达式的两个重要阶段是编译和执行，可以使我们优化js代码</p>
+</blockquote>
+<ul>
+<li>编译：发生在第一次创建的时候</li>
+<li>执行：发生在进行字符串匹配的时候</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var re1 = /test/i</span><br><span class="line"></span><br><span class="line">re1.xxxxxx</span><br></pre></td></tr></table></figure>
+<p>用一个变量保存第一次创建编译后的状态，以供以后使用，能优化js</p>
+<h3 id="捕获匹配的片段："><a href="#捕获匹配的片段：" class="headerlink" title="捕获匹配的片段："></a>捕获匹配的片段：</h3><h4 id="局部正则表达式（没有-g）和match-方法："><a href="#局部正则表达式（没有-g）和match-方法：" class="headerlink" title="局部正则表达式（没有/g）和match()方法："></a>局部正则表达式（没有/g）和match()方法：</h4><ul>
+<li>String.match(\ \)<br>第0个索引是完整的匹配值，即能够匹配上的完整字符串，接下来的索引值就是捕获到的分组。</li>
+</ul>
+<h4 id="全局正则表达式匹配"><a href="#全局正则表达式匹配" class="headerlink" title="全局正则表达式匹配"></a>全局正则表达式匹配</h4><ul>
+<li>String.match(\ \g)<br>返回的是全部匹配结果，没有各个结果的捕获。</li>
+</ul>
+<h4 id="全局匹配并捕获exec"><a href="#全局匹配并捕获exec" class="headerlink" title="全局匹配并捕获exec()"></a>全局匹配并捕获exec()</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var html = &apos;&lt;div class=&quot;test&quot;&gt;&lt;b&gt;hello&lt;/b&gt;&lt;i&gt; word&lt;/i&gt;&lt;/div&gt;&apos;</span><br><span class="line">var tag = /&lt;(\/?)(\w+)([^&gt;]*?)&gt;/g, match;</span><br><span class="line">var num = 0;</span><br><span class="line">while ((match = tag.exec(html)) != null)&#123;</span><br><span class="line">    console.log(match[0])																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																				</span><br><span class="line">    console.log(match[3])   //&apos; class=&quot;test&quot;&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="捕获的引用"><a href="#捕获的引用" class="headerlink" title="捕获的引用"></a>捕获的引用</h4><ul>
+<li>在正则表达式中：/1 /2….</li>
+<li>在外部：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">console.log(&quot;fontFamily&quot;.replace(/([A-Z])/g, &quot;-$1&quot;).toLowerCase());     // font-family 中间加了-</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="没有捕获的分组"><a href="#没有捕获的分组" class="headerlink" title="没有捕获的分组"></a>没有捕获的分组</h4><ul>
+<li>要让一组括号不被捕获，要在开始括号后加一个?:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var parttern = /((?:ninja-)+)sword/;</span><br><span class="line">var ninjas = &apos;ninja-ninja-ninja-ninja-sword&apos;.match(parttern);</span><br><span class="line">console.log(ninjas);    // [0]:ninja-ninja-ninja-ninja-sword [1]: ninja-ninja-ninja-ninja-</span><br></pre></td></tr></table></figure>
+<h4 id="replace"><a href="#replace" class="headerlink" title="replace()"></a>replace()</h4><p>replace()的第二个参数（替换值）可以是一个函数，每一个匹配都会执行一次函数。</p>
+<p>函数参数：</p>
+<ul>
+<li>匹配的完整文本</li>
+<li>匹配的捕获，一个捕获对应一个参数</li>
+<li>匹配字符在源字符串中的索引</li>
+<li>源字符串</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function upper(all, letter) &#123;</span><br><span class="line">        console.log(arguments)	// </span><br><span class="line">        return letter.toUpperCase();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">console.log(&apos;boder-bottom-width&apos;.replace(/-(\w)/g, upper));</span><br></pre></td></tr></table></figure>
+<p> <img src="/images/1512538590179.png" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function copress(source) &#123;</span><br><span class="line">       var keys = &#123;&#125;</span><br><span class="line"></span><br><span class="line">       source.replace(/([^=&amp;]+)=([^&amp;]*)/g, function (full, key, value) &#123;</span><br><span class="line">           console.log(arguments)</span><br><span class="line">           keys[key] = (keys[key] ? keys[key] + &apos;,&apos; : &apos;&apos;) + value;</span><br><span class="line">           return &apos;&apos;;</span><br><span class="line">       &#125;)</span><br><span class="line"></span><br><span class="line">       var res = []</span><br><span class="line">       for (key in keys)&#123;</span><br><span class="line">           res.push(key+&apos;=&apos;+keys[key]);</span><br><span class="line">       &#125;</span><br><span class="line">       return res.join(&apos;&amp;&apos;);</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   console.log(copress(&apos;foo=1&amp;foo=2&amp;blah=a&amp;blah=b&amp;foo=3&apos;));</span><br></pre></td></tr></table></figure>
+<p><img src="/images/1512540572092.png" alt="image"></p>
+<p>arguments[0],arguments[1] 都是匹配的捕获</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/函数缓存/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/03/函数缓存/" itemprop="url">函数缓存</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T10:42:53+08:00">
+                2017-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="函数缓存："><a href="#函数缓存：" class="headerlink" title="函数缓存："></a>函数缓存：</h3><p>缺点：调用者必须记住调用　memoized 才有缓存记忆功能<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.memoized = function (key) &#123;</span><br><span class="line">        this._values = this._values || &#123;&#125;;</span><br><span class="line">        return this._values[key] !== undefined ?</span><br><span class="line">            this._values[key] :</span><br><span class="line">            this._values[key] = this.apply(this, arguments);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function isPrime(num) &#123;</span><br><span class="line">        var prime = num != 1;</span><br><span class="line">        for (var i = 2; i &lt; num; i++) &#123;</span><br><span class="line">            if (num % i == 0) &#123;</span><br><span class="line">                prime = false;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return prime;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(isPrime._values)    // undefined</span><br><span class="line">    console.log(isPrime.memoized(5))</span><br><span class="line">    console.log(isPrime._values)    //&#123;5: true&#125;</span><br><span class="line">    console.log(isPrime._values[5])</span><br></pre></td></tr></table></figure></p>
+<h3 id="使用闭包进行函数缓存："><a href="#使用闭包进行函数缓存：" class="headerlink" title="使用闭包进行函数缓存："></a>使用闭包进行函数缓存：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.memoized = function (key) &#123;</span><br><span class="line">        this._values = this._values || &#123;&#125;;</span><br><span class="line">        console.log(&apos;menorized: &apos; + this)   // function(num)&#123;&#125;</span><br><span class="line">        console.log(this._values)   // 第一次调用时&#123;&#125;, 第二次调用时&#123;17: true&#125;</span><br><span class="line">        console.log(&apos;memorized arguments: &apos;);</span><br><span class="line">        console.log(arguments)  // 17</span><br><span class="line">        return this._values[key] !== undefined ?</span><br><span class="line">            this._values[key] :</span><br><span class="line">            this._values[key] = this.apply(this, arguments);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Function.prototype.memoize = function () &#123;</span><br><span class="line">        console.log(&apos;outer monoize: &apos;)</span><br><span class="line">        console.log(this)    // function(num)&#123;&#125;</span><br><span class="line">        console.log(arguments)  // 空</span><br><span class="line">        var fn = this;</span><br><span class="line">        return function () &#123;</span><br><span class="line">            console.log(&apos;inner memorize: &apos;);</span><br><span class="line">            console.log(this)   // window</span><br><span class="line">            console.log(arguments)  // 17</span><br><span class="line">            return fn.memoized.apply(fn, arguments);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var isPrime = (function (num) &#123;</span><br><span class="line">        console.log(&apos;isPrime&apos;)</span><br><span class="line">        console.log(this)   // function(num)</span><br><span class="line">        console.log(arguments)  // 17</span><br><span class="line">        var prime = num != 1;</span><br><span class="line">        for (var i = 2; i &lt; num; i++) &#123;</span><br><span class="line">            if (num % i == 0) &#123;</span><br><span class="line">                prime = false;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return prime;</span><br><span class="line">    &#125;).memoize();</span><br><span class="line"></span><br><span class="line">    console.log(isPrime(17))</span><br><span class="line">    console.log(isPrime(17))</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/闭包（二）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1398,7 +1732,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

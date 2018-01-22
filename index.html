@@ -229,6 +229,455 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/函数中的传递参数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/22/函数中的传递参数/" itemprop="url">函数中的传递参数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T13:15:15+08:00">
+                2018-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="函数中的传递参数"><a href="#函数中的传递参数" class="headerlink" title="函数中的传递参数"></a>函数中的传递参数</h1><p><strong>在js中，所有函数的参数都是按值传递的</strong></p>
+<p>对于基本类型，传递的是基本类型的值。</p>
+<p>对于引用类型，传递的是这个值在内存中的地址。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">    v = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(v); <span class="comment">//2</span></span><br><span class="line">&#125;</span><br><span class="line">foo(value);</span><br><span class="line"><span class="built_in">console</span>.log(value) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/1516598925742.png" alt="image"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    value: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">    o.value = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(o.value); <span class="comment">//2</span></span><br><span class="line">&#125;</span><br><span class="line">foo(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj.value) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/1516598970164.png" alt="image"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    value: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">    o = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(o); <span class="comment">//2</span></span><br><span class="line">&#125;</span><br><span class="line">foo(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj.value) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/1516598994300.png" alt="image"></p>
+<h2 id="另外参考理解"><a href="#另外参考理解" class="headerlink" title="另外参考理解"></a>另外参考理解</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">n</span>:<span class="number">1</span>&#125;; </span><br><span class="line"><span class="keyword">var</span> b = a;  </span><br><span class="line">a.x = a = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;; </span><br><span class="line"><span class="built_in">console</span>.log(a.x);<span class="comment">// --&gt; undefined </span></span><br><span class="line"><span class="built_in">console</span>.log(b.x);<span class="comment">// --&gt; [object Object]</span></span><br></pre></td></tr></table></figure>
+<p>答案：<a href="http://www.cnblogs.com/huaan011/p/4381703.html" target="_blank" rel="noopener">连续赋值与求值顺序</a></p>
+<p>参考资料：</p>
+<p><a href="https://github.com/mqyqingfeng/Blog/issues/10" target="_blank" rel="noopener">js深入之参数按值传递</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/js的内存空间/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/22/js的内存空间/" itemprop="url">js的内存空间</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T13:09:15+08:00">
+                2018-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="js的内存空间"><a href="#js的内存空间" class="headerlink" title="js的内存空间"></a>js的内存空间</h1><h2 id="基础数据类型"><a href="#基础数据类型" class="headerlink" title="基础数据类型"></a>基础数据类型</h2><p><code>Number</code>，<code>String</code>，<code>Null</code>，<code>Undefined</code>，<code>Boolean</code></p>
+<h2 id="栈内存"><a href="#栈内存" class="headerlink" title="栈内存"></a>栈内存</h2><p>栈内存中存放的是基础数据类型，有固定的大小。我们可以直接操作保存在栈内存空间的值，所以，基础数据类型都是按值访问的。</p>
+<p><img src="/images/1516597829623.png" alt="image"></p>
+<h2 id="堆内存"><a href="#堆内存" class="headerlink" title="堆内存"></a>堆内存</h2><p>引用类型的值的大小是不固定的，是保存在堆内存空间中的对象，js不允许直接访问堆内存中的位置，所以我们不能直接操作对象的堆内存空间，实际操作的是对象的引用而不是对象，所以引用类型是按值引用访问的，引用是保存在栈内存中的地址，地址再指向堆内存。</p>
+<p><img src="/images/1516597881849.png" alt="image"></p>
+<h2 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">栈内存</th>
+<th style="text-align:center">堆内存</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">存储基础数据类型</td>
+<td style="text-align:center">存储引用数据类型</td>
+</tr>
+<tr>
+<td style="text-align:center">按值访问</td>
+<td style="text-align:center">按引用访问</td>
+</tr>
+<tr>
+<td style="text-align:center">存储的值大小固定</td>
+<td style="text-align:center">存储的值大小不定，可动态调整</td>
+</tr>
+<tr>
+<td style="text-align:center">由系统自动分配内存空间</td>
+<td style="text-align:center">由程序员通过代码进行分配</td>
+</tr>
+<tr>
+<td style="text-align:center">主要用来执行程序</td>
+<td style="text-align:center">主要用来存放对象</td>
+</tr>
+<tr>
+<td style="text-align:center">空间小，运行效率高</td>
+<td style="text-align:center">空间大，运行效率低</td>
+</tr>
+<tr>
+<td style="text-align:center">先进先出</td>
+<td style="text-align:center">无序存储，根据引用直接获取</td>
+</tr>
+</tbody>
+</table>
+<h2 id="存在栈内存和堆内存的原因："><a href="#存在栈内存和堆内存的原因：" class="headerlink" title="存在栈内存和堆内存的原因："></a>存在栈内存和堆内存的原因：</h2><p>与垃圾回收机制有关，是为了使程序运行的时候占用的内存最少</p>
+<ul>
+<li><p>当一个方法执行时，每个方法都会建立自己的内存栈，在这个方法内定义的变量将会逐个放入这块栈内存里，随着方法的执行结束，这个方法的内存栈也将自然销毁了。因此，所有在方法中定义的变量都是放在栈内存中的；</p>
+</li>
+<li><p>当我们在程序中创建一个对象时，这个对象将被保存到运行时数据区中，以便反复利用（因为对象的创建成本通常较大），这个运行时数据区就是堆内存。堆内存中的对象不会随方法的结束而销毁，即使方法结束后，这个对象还可能被另一个引用变量所引用（方法的参数传递时很常见），则这个对象依然不会被销毁，只有当一个对象没有任何引用变量引用它时，系统的垃圾回收机制才会在核实的时候回收它。</p>
+</li>
+</ul>
+<p>参考：</p>
+<p><a href="https://juejin.im/entry/589c29a9b123db16a3c18adf" target="_blank" rel="noopener">前端基础进阶</a></p>
+<p><a href="http://blog.csdn.net/xdd19910505/article/details/41900693" target="_blank" rel="noopener">JavaScript变量——栈内存or堆内存</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/异步操作和Async/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/22/异步操作和Async/" itemprop="url">异步操作和Async函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T09:30:37+08:00">
+                2018-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Async函数"><a href="#Async函数" class="headerlink" title="Async函数"></a>Async函数</h1><p><code>async</code>函数返回一个<code>Promise</code>对象,可以使用<code>then</code>方法添加回调函数。当函数执行的时候,一旦遇到<code>await</code>就会先返回,等到触发的异步操作完成,再接着执行函数体内后面的语句。</p>
+<h2 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h2><ul>
+<li><p><code>async</code>函数返回的是一个<code>Promise</code>对象</p>
+</li>
+<li><p><code>async</code>函数返回的<code>Promise</code>对象，必须等到内部所有<code>await</code>命令的<code>Promise</code>对象执行完，才发生状态的改变。即，只有<code>async</code>函数内部的异步操作执行完，才会调用<code>then</code>方法指定的回调函数。</p>
+</li>
+<li><p>正常情况下，<code>await</code>命令后面是一个<code>Promise</code>对象。如果不是，会被转成一个立即<code>resolve</code>的<code>Promise</code>对象。</p>
+</li>
+<li><p><code>await</code>命令后面的<code>Promise</code>对象如果变为<code>reject</code>状态,则<code>reject</code>的参数会被<code>catch</code>方法的回调函数接收到。</p>
+</li>
+<li><p>只要一个<code>await</code>语句后面的<code>Promise</code>变为<code>reject</code>,那么整个<code>async</code>函数都会中断执行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="built_in">Promise</span>.reject(<span class="string">' 出错了 '</span>);</span><br><span class="line">    <span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(<span class="string">'hello world'</span>); <span class="comment">// 不会执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>解决方法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="built_in">Promise</span>.reject(<span class="string">'出错了'</span>)</span><br><span class="line">    &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(<span class="string">'haha'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f().then(<span class="function"><span class="params">v</span> =&gt;</span> <span class="built_in">console</span>.log(v))   <span class="comment">// haha</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>如果<code>await</code>后面的异步操作出错,那么等同于<code>async</code>函数返回的 <code>Promise</code>对象被<code>reject</code></li>
+</ul>
+<h2 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h2><ul>
+<li><p><code>await</code>命令后面的<code>Promise</code>对象,运行结果可能是<code>rejected</code>,所以最好把<code>await</code>命令放在<code>try...catch</code>代码块中</p>
+</li>
+<li><p>多个<code>await</code>命令后面的异步操作,如果不存在继发关系,最好让它们同时触发。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = <span class="keyword">await</span> getFoo();</span><br><span class="line"><span class="keyword">let</span> bar = <span class="keyword">await</span> getBar();</span><br></pre></td></tr></table></figure>
+<p>写成<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写法一</span></span><br><span class="line"><span class="keyword">let</span> [foo, bar] = <span class="keyword">await</span> <span class="built_in">Promise</span>.all([getFoo(), getBar()]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法二</span></span><br><span class="line"><span class="keyword">let</span> fooPromise = getFoo();</span><br><span class="line"><span class="keyword">let</span> barPromise = getBar();</span><br><span class="line"><span class="keyword">let</span> foo = <span class="keyword">await</span> fooPromise;</span><br><span class="line"><span class="keyword">let</span> bar = <span class="keyword">await</span> barPromise;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/编程风格/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1119,151 +1568,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/异步操作和Async/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/20/异步操作和Async/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T15:29:19+08:00">
-                2018-01-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Async函数"><a href="#Async函数" class="headerlink" title="Async函数"></a>Async函数</h1><p><code>async</code>函数返回一个<code>Promise</code>对象,可以使用<code>then</code>方法添加回调函数。当函数执行的时候,一旦遇到<code>await</code>就会先返回,等到触发的异步操作完成,再接着执行函数体内后面的语句。</p>
-<h2 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h2><ul>
-<li><p><code>async</code>函数返回的是一个<code>Promise</code>对象</p>
-</li>
-<li><p><code>async</code>函数返回的<code>Promise</code>对象，必须等到内部所有<code>await</code>命令的<code>Promise</code>对象执行完，才发生状态的改变。即，只有<code>async</code>函数内部的异步操作执行完，才会调用<code>then</code>方法指定的回调函数。</p>
-</li>
-<li><p>正常情况下，<code>await</code>命令后面是一个<code>Promise</code>对象。如果不是，会被转成一个立即<code>resolve</code>的<code>Promise</code>对象。</p>
-</li>
-<li><p><code>await</code>命令后面的<code>Promise</code>对象如果变为<code>reject</code>状态,则<code>reject</code>的参数会被<code>catch</code>方法的回调函数接收到。</p>
-</li>
-<li><p>只要一个<code>await</code>语句后面的<code>Promise</code>变为<code>reject</code>,那么整个<code>async</code>函数都会中断执行。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="built_in">Promise</span>.reject(<span class="string">' 出错了 '</span>);</span><br><span class="line">    <span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(<span class="string">'hello world'</span>); <span class="comment">// 不会执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>解决方法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="built_in">Promise</span>.reject(<span class="string">'出错了'</span>)</span><br><span class="line">    &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(<span class="string">'haha'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f().then(<span class="function"><span class="params">v</span> =&gt;</span> <span class="built_in">console</span>.log(v))   <span class="comment">// haha</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>如果<code>await</code>后面的异步操作出错,那么等同于<code>async</code>函数返回的 <code>Promise</code>对象被<code>reject</code></li>
-</ul>
-<h2 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h2><ul>
-<li><p><code>await</code>命令后面的<code>Promise</code>对象,运行结果可能是<code>rejected</code>,所以最好把<code>await</code>命令放在<code>try...catch</code>代码块中</p>
-</li>
-<li><p>多个<code>await</code>命令后面的异步操作,如果不存在继发关系,最好让它们同时触发。</p>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = <span class="keyword">await</span> getFoo();</span><br><span class="line"><span class="keyword">let</span> bar = <span class="keyword">await</span> getBar();</span><br></pre></td></tr></table></figure>
-<p>写成<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写法一</span></span><br><span class="line"><span class="keyword">let</span> [foo, bar] = <span class="keyword">await</span> <span class="built_in">Promise</span>.all([getFoo(), getBar()]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法二</span></span><br><span class="line"><span class="keyword">let</span> fooPromise = getFoo();</span><br><span class="line"><span class="keyword">let</span> barPromise = getBar();</span><br><span class="line"><span class="keyword">let</span> foo = <span class="keyword">await</span> fooPromise;</span><br><span class="line"><span class="keyword">let</span> bar = <span class="keyword">await</span> barPromise;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/Generator函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1414,466 +1718,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/Iterator和for...of循环/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/19/Iterator和for...of循环/" itemprop="url">Iterator和for...of循环</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-19T12:33:37+08:00">
-                2018-01-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h4><ul>
-<li><p>概念：<br>是一种接口，任何数据结构（set, map, arry, Object）只要部署<code>Iterator</code>接口，就可以完成遍历。</p>
-</li>
-<li><p>作用：</p>
-<ul>
-<li>为各种数据结构提供统一，简便的访问接口。</li>
-<li>使数据结构的成员能够按某种次序排列。</li>
-<li>ES6 创造了一种新的遍历命令for…of 循环, Iterator 接口主要供for…of 消费</li>
-</ul>
-</li>
-<li><p>遍历过程：</p>
-<ul>
-<li>创建一个指针指向数据结构的起始位置。<code>Iterator</code>对象本质就是一个指针对象</li>
-<li>使用指针对象的<code>next</code>方法，指向第一个成员</li>
-<li>通过<code>next</code>方法直到数据结构的结束位置。<code>next</code>返回的是有<code>value</code>（当前成员值）和<code>done</code>（遍历是否结束）两个属性的对象。</li>
-</ul>
-</li>
-</ul>
-<h4 id="数据结构的默认Iterator接口"><a href="#数据结构的默认Iterator接口" class="headerlink" title="数据结构的默认Iterator接口"></a>数据结构的默认Iterator接口</h4><ul>
-<li><p>默认部署</p>
-<p>  原生具备<code>Iterator</code>接口非数据结构：数组，某些类似数组的对象，Set，Map。其他数据结构（主要为对象）的<code>Iterator</code>接口，都需要自己在<code>Symbol.iterator</code>属性上部署，这样才会被<code>for...of</code>循环遍历。严格地说,对象部署遍历器接口并不是很必要,因为这时对象实际上被当作 Map 结构使用, ES5 没有 Map 结构,而 ES6 原生提供了。</p>
-</li>
-</ul>
-<blockquote>
-<p>默认的 Iterator 接口部署在数据结构的Symbol.iterator 属性,或者说,一个数据结构只要具有Symbol.iterator 属性,就可以认为是 “ 可遍历的 ” ( iterable )。<br>调用Symbol.iterator 方法,就会得到当前数据结构默认的遍历器生成函数。Symbol.iterator 本身是一个表达式,返回 Symbol 对象的iterator 属性,这是一个预定义好的、类型为 Symbol 的特殊值,所以要放在方括号内。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>];</span><br><span class="line"><span class="keyword">let</span> iter = arr[<span class="built_in">Symbol</span>.iterator]();</span><br><span class="line">iter.next()	<span class="comment">// &#123;value: 'a', done: false&#125;</span></span><br><span class="line">iter.next()</span><br><span class="line">iter.next()</span><br><span class="line">iter.next() <span class="comment">// &#123;value: undefine, done: true&#125;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>手动部署<br>在部署<code>iterator</code>接口的时候，在<code>[Symbol.iterator]</code>函数中返回的对象要有<code>next</code>方法，在这个<code>next</code>方法中，又可以返回<code>{value: xx, done: xx}</code>，例子可见《ES6标准入门》P160</p>
-</li>
-<li><p>调用<code>Iterator</code>接口的场合</p>
-<ul>
-<li>解构赋值</li>
-<li><p>扩展运算符<br>只要某个数据结构部署了 Iterator 接口,就可以对它使用扩展运算符,将其转为数组。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [...iterable];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>yield*<br>yield* 后面跟的是一个可遍历的结构,它会调用该结构的遍历器接口。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> generator = <span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">yield</span>* [<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">5</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> iterator = generator();</span><br><span class="line">iterator.next()  <span class="comment">// &#123;value: 1, done: false&#125;</span></span><br><span class="line">iterator.next()  <span class="comment">// &#123;value: 2&#125;</span></span><br><span class="line">iterator.next()  <span class="comment">// 3</span></span><br><span class="line">iterator.next()  <span class="comment">// 4</span></span><br><span class="line">iterator.next()  <span class="comment">// 5</span></span><br><span class="line">iterator.next() <span class="comment">// undefine</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>数组的遍历回调用遍历器接口，对任何接受数组作为参数的场合，都调用了遍历器接口。</p>
-<ul>
-<li><code>for...of</code></li>
-<li><code>Arry.from</code></li>
-<li>Map(), Set(), WeakMap(), WeakSet() (比如new Map([[‘a’,1],[‘b’,2]]) )</li>
-<li><code>Promise.all()</code></li>
-<li><code>Promise.race()</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="字符串的Iterator接口"><a href="#字符串的Iterator接口" class="headerlink" title="字符串的Iterator接口"></a>字符串的<code>Iterator</code>接口</h4><p>字符串是一个类似数组的对象，原生具有<code>iterator</code>接口。</p>
-<p>对于原生的<code>iterator</code>接口可以进行覆盖，从而修改遍历器的行为。修改后的对于使用到遍历器的场合，原来的行为都会被修改，比如扩展运算符等。</p>
-<h4 id="iterator接口和Generator函数"><a href="#iterator接口和Generator函数" class="headerlink" title="iterator接口和Generator函数"></a><code>iterator</code>接口和<code>Generator</code>函数</h4><p>对<code>Symbol.iterator</code>方法最简单的实现是<code>Generator</code>函数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myIterable = &#123;&#125;;</span><br><span class="line">myIterable[<span class="built_in">Symbol</span>.iterator] = <span class="function"><span class="keyword">function</span>* (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;;</span><br><span class="line">[...myIterable] <span class="comment">// [1, 2, 3]</span></span><br><span class="line"><span class="comment">// 或者采用下面的简洁写法</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  * [<span class="built_in">Symbol</span>.iterator]() &#123;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">'Hello'</span>;</span><br><span class="line">    <span class="keyword">yield</span> <span class="string">'hello'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> x <span class="keyword">of</span> obj) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// hello</span></span><br><span class="line"><span class="comment">// world</span></span><br></pre></td></tr></table></figure></p>
-<h4 id="遍历器对象的return-和throw"><a href="#遍历器对象的return-和throw" class="headerlink" title="遍历器对象的return()和throw()"></a>遍历器对象的<code>return()</code>和<code>throw()</code></h4><p>在遍历器对象生成函数中，<code>next()</code>是必须部署的，<code>return()</code>和<code>throw()</code>是可选的</p>
-<ul>
-<li><code>return()</code>：<br><code>for...of</code>循环提前退出时(出错，有break，或continue)，就会进行调用，如果一个对象在完成遍历前需要清理和释放资源，可以部署<code>return()</code>方法。</li>
-<li><code>throw()</code>：<br>配合<code>Generator</code>函数使用，一般遍历器不使用</li>
-</ul>
-<h4 id="for-of循环"><a href="#for-of循环" class="headerlink" title="for...of循环"></a><code>for...of</code>循环</h4><p><code>for...of</code> 循环内部调用的是数据结构的<code>Symbol.iterator</code>方法，有这个方法就可使用<code>for...of</code></p>
-<ul>
-<li>数组：<code>for...of</code>本质就是调用这个接口产生的遍历器<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'blue'</span>];</span><br><span class="line"><span class="keyword">let</span> iterator = arr[<span class="built_in">Symbol</span>.iterator]();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> v <span class="keyword">of</span> arr) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(v); <span class="comment">// red green blue</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> v <span class="keyword">of</span> iterator) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(v); <span class="comment">// red green blue</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>for…in 循环读取键名,for…of 循环读取键值。如果要通过for…of 循环,获取数组的索引,可以借助数组实例的entries 方法和keys 方法。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> [key, value] <span class="keyword">of</span> arr.entries()) &#123;&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>数组，Set，Map都部署的三个方法<br><code>entries()</code>，<code>keys()</code>，<code>values()</code>都是返回遍历器对象</p>
-</li>
-<li><p>可以使用<code>for...of</code>的 类数组对象(具备<code>iterator</code>接口的类数组对象)</p>
-<ul>
-<li><p>字符串<br>可以正确识别32位UTF-16字符</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> x <span class="keyword">of</span> <span class="string">'a\uD83D\uDC0A'</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 'a'</span></span><br><span class="line"><span class="comment">// '\uD83D\uDC0A'</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>DOM NodeList</p>
-</li>
-<li>arguments<br>不具备<code>iterator</code>接口的类数组对象的解决方法：<br>使用<code>Arry.from</code>将其转为数组<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> arrayLike = &#123; <span class="attr">length</span>: <span class="number">2</span>, <span class="number">0</span>: <span class="string">'a'</span>, <span class="number">1</span>: <span class="string">'b'</span> &#125;;</span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> x <span class="keyword">of</span> arrayLike) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 正确</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> x <span class="keyword">of</span> <span class="built_in">Array</span>.from(arrayLike)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>对象<br>普通对象可以用<code>for...in</code>遍历键名，不能用<code>for...of</code><br>解决方法：</p>
-<ul>
-<li><p><code>Object.keys</code>将键名生成一个数组，遍历该数组</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> <span class="built_in">Object</span>.keys(obj))&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(obj[key])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>部署<code>iterator</code>接口<br>其中一个方便的方法是把数组的<code>Symbol.iterator</code>属性赋值给其他对象的<code>Symbol.iterator</code>属性</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jQuery.prototype[<span class="built_in">Symbol</span>.iterator] = <span class="built_in">Array</span>.prototype[<span class="built_in">Symbol</span>.iterator];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用<code>Generator</code>函数对对象进行包装</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>* <span class="title">entries</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> <span class="built_in">Object</span>.keys(obj)) &#123;</span><br><span class="line">    <span class="keyword">yield</span> [key, obj[key]];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> entries(obj)) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, <span class="string">"-&gt;"</span>, value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// a -&gt; 1</span></span><br><span class="line"><span class="comment">// b -&gt; 2</span></span><br><span class="line"><span class="comment">// c -&gt; 3</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="遍历语法的比较"><a href="#遍历语法的比较" class="headerlink" title="遍历语法的比较"></a>遍历语法的比较</h4><ul>
-<li><p>for循环</p>
-</li>
-<li><p>数组内置的<code>forEach</code>，但无法在中途跳出循环</p>
-</li>
-<li><p><code>for...in</code> 遍历数组键名<br><code>for...in</code>是为遍历对象设计，不适用于数组。缺点：</p>
-<ul>
-<li>数组的键名是数组，但是<code>for...in</code>循环是以字符串作为键名“0”,“1”…</li>
-<li><code>for...in</code> 循环不仅遍历数字键名,还会遍历手动添加的其他键,甚至包括原型链上的键。</li>
-<li>某些情况下, for…in 循环会以任意顺序遍历键名。</li>
-</ul>
-</li>
-<li><p><code>for...in</code>优点</p>
-<ul>
-<li>有着同 for…in 一样的简洁语法,但是没有 for…in 那些缺点。</li>
-<li>不同用于 forEach 方法,它可以与 break 、 continue 和 return 配合使用。</li>
-<li>提供了遍历所有数据结构的统一操作接口。</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/19/Set和Map/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/19/Set和Map/" itemprop="url">Set和Map</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-19T10:00:09+08:00">
-                2018-01-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h4><ul>
-<li>声明方法：</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> list = <span class="keyword">new</span> <span class="built_in">Set</span>();</span><br><span class="line">    list.add(<span class="number">5</span>);</span><br><span class="line">    list.add(<span class="number">7</span>);</span><br><span class="line">    <span class="comment">//数量size</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'size'</span>,list.size);</span><br><span class="line">&#125;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>];</span><br><span class="line">    <span class="keyword">let</span> list = <span class="keyword">new</span> <span class="built_in">Set</span>(arr);</span><br><span class="line">    <span class="built_in">console</span>.log(list.size);  <span class="comment">// 5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>去除数组重复成员：</p>
-<ul>
-<li><code>[...new Set(arry)]</code></li>
-<li><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dedupe</span>(<span class="params">arry</span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="built_in">Array</span>.form(<span class="keyword">new</span> <span class="built_in">Set</span>(arry))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>相等处理：<br>在<code>set</code>内部使用的是<code>===</code><br>但在<code>Set</code>中，对于两个<code>NaN</code>，它们是相等的，另外，两个对象总是不相等的。如<code>{}</code>和<code>{}</code>可以同时添加到<code>Set</code>中。</p>
-</li>
-</ul>
-<ul>
-<li><p>遍历：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> arr = [<span class="string">'add'</span>, <span class="string">'delete'</span>, <span class="string">'clear'</span>, <span class="string">'has'</span>];</span><br><span class="line">    <span class="keyword">let</span> list3 = <span class="keyword">new</span> <span class="built_in">Set</span>(arr);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//key和value都是同一个</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> list3.keys())&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'keys'</span>,key);</span><br><span class="line">    &#125; <span class="comment">//add,delete,clear,has</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> list3.values())&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'values'</span>,value);</span><br><span class="line">    &#125; <span class="comment">//add,delete,clear,has</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> list3)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'values'</span>,value);</span><br><span class="line">    &#125;<span class="comment">//和.values()一样</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> [key,value] <span class="keyword">of</span> list3.entries())&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'entries'</span>,key,value);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    list3.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item</span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(item);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>遍历的应用：</p>
-<ul>
-<li><p>数组的<code>map</code>和<code>filter</code>应用于<code>Set</code>中</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">set = <span class="keyword">new</span> <span class="built_in">Set</span>([...set].map(<span class="function"><span class="params">x</span> =&gt;</span> x * <span class="number">2</span>))</span><br><span class="line">set = <span class="keyword">new</span> <span class="built_in">Set</span>([...set].filter(<span class="function"><span class="params">x</span> =&gt;</span> (x % <span class="number">2</span>) == <span class="number">0</span>))</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>Set</code>的并集，交集，差集 </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 并集</span></span><br><span class="line"><span class="keyword">let</span> union = <span class="keyword">new</span> <span class="built_in">Set</span>([...a, ...b]);</span><br><span class="line"><span class="comment">// set &#123;1, 2, 3, 4&#125;</span></span><br><span class="line"><span class="comment">// 交集</span></span><br><span class="line"><span class="keyword">let</span> intersect = <span class="keyword">new</span> <span class="built_in">Set</span>([...a].filter(<span class="function"><span class="params">x</span> =&gt;</span> b.has(x)));</span><br><span class="line"><span class="comment">// set &#123;2, 3&#125;</span></span><br><span class="line"><span class="comment">// 差集</span></span><br><span class="line"><span class="keyword">let</span> difference = <span class="keyword">new</span> <span class="built_in">Set</span>([...a].filter(<span class="function"><span class="params">x</span> =&gt;</span> !b.has(x)));</span><br><span class="line"><span class="comment">// set &#123;1&#125;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>改变原来Set的结构<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">set = <span class="keyword">new</span> <span class="built_in">Set</span>([...set].map(<span class="function"><span class="params">x</span> =&gt;</span> x * <span class="number">2</span>))  <span class="comment">// 2 4 6</span></span><br><span class="line"><span class="keyword">let</span> set = <span class="keyword">new</span> <span class="built_in">Set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">set = <span class="keyword">new</span> <span class="built_in">Set</span>(Arry.form(set, val =&gt; val * <span class="number">2</span>))  <span class="comment">// 2 4 6</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="WeakSet"><a href="#WeakSet" class="headerlink" title="WeakSet"></a>WeakSet</h4><ul>
-<li><p>成员只能是对象</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [[<span class="number">1</span>,<span class="number">2</span>], [<span class="number">3</span>,<span class="number">4</span>]];</span><br><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> <span class="built_in">WeakSet</span>(a);  <span class="comment">// a的成员为ws的成员</span></span><br><span class="line"><span class="keyword">var</span> b = [<span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">var</span> ws = <span class="keyword">new</span> <span class="built_in">WeakSet</span>(b);	<span class="comment">// 报错</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><blockquote>
-<p>WeakSet 中的对象都是弱引用,即垃圾回收机制不考虑 WeakSet 对该对象的引用,也就是说,如果其他对象都不再引用该对象,那么垃圾回收机制会自动回收该对象所占用的内存,不考虑该对象还存在于 WeakSet 之中。这个特点意味着,无法引用 WeakSet 的成员,因此 WeakSet 是不可遍历的。</p>
-</blockquote>
-</li>
-<li><p>方法</p>
-<ul>
-<li><code>add</code></li>
-<li><code>has</code></li>
-<li><code>delete</code></li>
-</ul>
-</li>
-<li><p>作用</p>
-<blockquote>
-<p>WeakSet 的一个用处,是储存 DOM 节点,而不用担心这些节点从文档移除时,会引发内存泄漏。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> const foos = new WeakSet()</span><br><span class="line">class Foo &#123;</span><br><span class="line">constructor() &#123;</span><br><span class="line">   foos.add(this)</span><br><span class="line">&#125;</span><br><span class="line">method () &#123;</span><br><span class="line">  if (!foos.has(this)) &#123;</span><br><span class="line">    throw new TypeError(&apos;Foo.prototype.method 只能在 Foo 的实例上调用! &apos;);&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>上面代码保证了Foo 的实例方法,只能在Foo 的实例上调用。这里使用 WeakSet 的好处是,foos 对实例的引用,不会被计入内存回收机制,所以删除实<br>例的时候,不用考虑foos ,也不会出现内存泄漏。</p>
-</li>
-</ul>
-<h4 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h4><p>对象只能是用字符串作为键，而<code>Map</code>可以使用各种类型作为键</p>
-<ul>
-<li><p>方法属性：</p>
-<ul>
-<li><code>set()</code></li>
-<li><code>get()</code></li>
-<li><code>has()</code></li>
-<li><code>delete()</code></li>
-<li><code>clear()</code></li>
-<li><code>.size</code></li>
-</ul>
-</li>
-<li><p>可以接受一个数组作为参数，数组成员是一个个表示键值对的数组</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">  [<span class="literal">true</span>, <span class="string">'foo'</span>],</span><br><span class="line">  [<span class="string">'true'</span>, <span class="string">'bar'</span>]</span><br><span class="line">]);</span><br><span class="line">m.get(<span class="literal">true</span>) <span class="comment">// 'foo'</span></span><br><span class="line">m.get(<span class="string">'true'</span>) <span class="comment">// 'bar'</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在<code>Map</code>中，Map 的键实际上是跟内存地址绑定的,只要内存地址不一样,就视为两个键。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line"><span class="keyword">var</span> k1 = [<span class="string">'a'</span>];</span><br><span class="line"><span class="keyword">var</span> k2 = [<span class="string">'a'</span>];</span><br><span class="line">map</span><br><span class="line">.set(k1, <span class="number">111</span>)</span><br><span class="line">.set(k2, <span class="number">222</span>);</span><br><span class="line">map.get(k1) <span class="comment">// 111</span></span><br><span class="line">map.get(k2) <span class="comment">// 222</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>遍历：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">[<span class="string">'F'</span>, <span class="string">'no'</span>],</span><br><span class="line">[<span class="string">'T'</span>, <span class="string">'yes'</span>],</span><br><span class="line">]);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">of</span> map.keys()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "F"</span></span><br><span class="line"><span class="comment">// "T"</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> value <span class="keyword">of</span> map.values()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "no"</span></span><br><span class="line"><span class="comment">// "yes"</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> item <span class="keyword">of</span> map.entries()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item[<span class="number">0</span>], item[<span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "F" "no"</span></span><br><span class="line"><span class="comment">// "T" "yes"</span></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> map.entries()) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, value);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 等同于使用 map.entries()</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> [key, value] <span class="keyword">of</span> map) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key, value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><code>Map</code>转化为数组</p>
-<ul>
-<li><p>使用扩展运算符<code>...</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>([</span><br><span class="line">[<span class="number">1</span>, <span class="string">'one'</span>],</span><br><span class="line">[<span class="number">2</span>, <span class="string">'two'</span>],</span><br><span class="line">[<span class="number">3</span>, <span class="string">'three'</span>],</span><br><span class="line">]);</span><br><span class="line">[...map.keys()]</span><br><span class="line"><span class="comment">// [1, 2, 3]</span></span><br><span class="line">[...map.values()]</span><br><span class="line"><span class="comment">// ['one', 'two', 'three']</span></span><br><span class="line">[...map.entries()]</span><br><span class="line"><span class="comment">// [[1,'one'], [2, 'two'], [3, 'three']]</span></span><br><span class="line">[...map]</span><br><span class="line"><span class="comment">// [[1,'one'], [2, 'two'], [3, 'three']]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过拓展运算符实现<code>map</code>,<code>filter</code></p>
-</li>
-<li><p><code>forEach</code><br>可以接受第二个参数绑定<code>this</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reporter = &#123;</span><br><span class="line">  report: <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Key: %s, Value: %s"</span>, key, value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">map.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value, key, map</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.report(key, value);</span><br><span class="line">&#125;, reporter);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="WeakMap"><a href="#WeakMap" class="headerlink" title="WeakMap"></a>WeakMap</h4><ul>
-<li><p>键名只能为除<code>null</code>外的对象</p>
-</li>
-<li><p>方法和属性</p>
-<ul>
-<li><code>get</code></li>
-<li><code>set</code></li>
-<li><code>has</code></li>
-<li><code>delete</code></li>
-</ul>
-</li>
-<li><p>作用</p>
-<ul>
-<li>存储DOM节点，防止内存泄露</li>
-<li>部署私有属性，防止内存泄露</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1924,7 +1768,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
