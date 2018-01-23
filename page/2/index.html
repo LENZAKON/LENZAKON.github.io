@@ -229,6 +229,311 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/Promise/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/22/Promise/" itemprop="url">Promise</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T09:26:14+08:00">
+                2018-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h1><p><code>Promise</code>实例的状态变为<code>Resolved</code>,就会触发<code>then</code>方法绑定的回调函数。</p>
+<p><code>Promise</code>创建后会立即执行，而<code>then</code>绑定的回调函数会在当前脚本的所有同步任务执行完后再执行<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Promise'</span>)</span><br><span class="line">    resolve()</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">promise.then(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'resolved'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'Hi'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Promise</span></span><br><span class="line"><span class="comment">// Hi</span></span><br><span class="line"><span class="comment">// resolved</span></span><br></pre></td></tr></table></figure></p>
+<p><code>Promise</code>封装Ajax<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getJSON = <span class="function"><span class="keyword">function</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> client = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">        client.open(<span class="string">'GET'</span>, url)</span><br><span class="line">        client.onreadystatechange = handler</span><br><span class="line">        client.responseType = <span class="string">'json'</span></span><br><span class="line">        client.setRequestHeader(<span class="string">'Accept'</span>, <span class="string">'application/json'</span>)</span><br><span class="line">        client.send()</span><br><span class="line">        </span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">handler</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.readyState !== <span class="number">4</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.state === <span class="number">200</span>) &#123;</span><br><span class="line">                resolve(<span class="keyword">this</span>.response)</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="keyword">this</span>.statusText))</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> promise</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">getJSON(<span class="string">'/posts.json'</span>).then(<span class="function">(<span class="params">json</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(json)</span><br><span class="line">&#125;, (error) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>在一个<code>Promise</code>实例中的<code>resolve</code>方法中使用另一个<code>Promise</code>实例作为参数，及一个异步操作的结果是返回另一个异步操作。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'fail'</span>)), <span class="number">3000</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> resolve(p1), <span class="number">1000</span>)</span><br><span class="line">&#125;)</span><br><span class="line">p2</span><br><span class="line">.then(<span class="function"><span class="params">result</span> =&gt;</span> <span class="built_in">console</span>.log(result))</span><br><span class="line">.catch(<span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.log(error))</span><br><span class="line"><span class="comment">// Error: fail</span></span><br></pre></td></tr></table></figure>
+<p>两个<code>Promise</code>实例是同时进行的，当p2在1秒后状态改变时，由于返回的是另一个<code>Promise</code>，所以把后面的<code>then</code>和<code>catch</code>控制权交给p1，由p1在2秒后决定</p>
+<h2 id="Peomose-prototype-then"><a href="#Peomose-prototype-then" class="headerlink" title="Peomose.prototype.then"></a>Peomose.prototype.then</h2><p><code>then</code>返回的是一个新的<code>Promise</code>实例，所以在<code>then</code>后面可以再调用<code>then</code>。<br>依次指定多个回调函数，第一个回调函数执行的结构(<code>return</code>值)，作为参数传入第二个回调函数，让回调函数顺序执行<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">getJSON(<span class="string">'/post.json'</span>).then(<span class="function">(<span class="params">json</span>) =&gt;</span> json.post</span><br><span class="line">).then(<span class="function">(<span class="params">post</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>当前一个回调函数返回的还是<code>Promise</code>对象时，后一个回调函数要等待该<code>Promise</code>对象的状态发生变化，才被调用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getJSON(<span class="string">"/post/1.json"</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">post</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> getJSON(post.commentURL);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span> <span class="title">funcA</span>(<span class="params">comments</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Resolved: "</span>, comments);</span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span> <span class="title">funcB</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Rejected: "</span>, err);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>第一个<code>then</code>返回的是另一个<code>Promise</code>对象，第二个<code>then</code>指定的回调函数要等新的<code>Promise</code>对象状态发生变化。如果为<code>resolve</code>，调用<code>funcA</code>，如果为<code>reject</code>，调用<code>funcB</code>。</p>
+<h2 id="Promise-prototype-catch"><a href="#Promise-prototype-catch" class="headerlink" title="Promise.prototype.catch"></a>Promise.prototype.catch</h2><p>当异步操作抛出错误时，状态变为<code>reject</code>，调用<code>catch</code>方法指定的回调函数，<code>then</code>方法中指定的回调抛出错误时也会被<code>catch</code>捕获。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p.then(<span class="function">(<span class="params">val</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">"fulfilled:"</span>, val))</span><br><span class="line">.catch(<span class="function">(<span class="params">err</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">"rejected:"</span>, err));</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">p.then(<span class="function">(<span class="params">val</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">"fulfilled:"</span>, val))</span><br><span class="line">.then(<span class="literal">null</span>, (err) =&gt; <span class="built_in">console</span>.log(<span class="string">"rejected:"</span>, err));</span><br></pre></td></tr></table></figure>
+<p>所以在第一个<code>then</code>中指定第二个参数时，<code>catch</code>则不会执行。<br><code>reject</code>方法的作用,等同于抛出错误。建议总是使用<code>catch</code>方法,而不使用<code>then</code>方法的第二个参数</p>
+<p>如果<code>Promise</code>状态变为<code>resolve</code>，再抛出错误是无效的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    resolve(<span class="string">'ok'</span>);</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'test'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">promise</span><br><span class="line">.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123; <span class="built_in">console</span>.log(value) &#125;)</span><br><span class="line">.catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123; <span class="built_in">console</span>.log(error) &#125;);</span><br><span class="line"><span class="comment">// ok</span></span><br></pre></td></tr></table></figure></p>
+<p><code>Promise</code>错误是具有“冒泡”性质的，一直向后传递，直到被捕获为止。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">getJSON(<span class="string">"/post/1.json"</span>).then(<span class="function"><span class="keyword">function</span>(<span class="params">post</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> getJSON(post.commentURL);</span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">comments</span>) </span>&#123;</span><br><span class="line"><span class="comment">// some code</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">error</span>) </span>&#123;</span><br><span class="line"><span class="comment">// 处理前面三个 Promise 产生的错误</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p><code>catch</code>会捕获三个<code>Promise</code>对象，一个由<code>getJSON</code>产生,两个由<code>then</code>产生。</p>
+<p>如果没有使用<code>catch</code>指定错误处理的回调函数，<code>Promise</code>对象的错误不会传递到外层代码，即不会有反应（没有任何输出）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> someAsyncThing = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 下面一行会报错,因为 x 没有声明</span></span><br><span class="line">    resolve(x + <span class="number">2</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br><span class="line">someAsyncThing().then(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'everything is great'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>没有任何输出</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'test'</span>) &#125;, <span class="number">0</span>)   <span class="comment">// HTML5规定如果小于4ms，则自动添加到4ms，所以是ok先输出</span></span><br><span class="line">    resolve(<span class="string">"ok"</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"在resolve后的语句"</span>);</span><br><span class="line">&#125;);</span><br><span class="line">promise.then(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123; <span class="built_in">console</span>.log(value) &#125;);</span><br><span class="line"><span class="comment">// 在resolve后的语句</span></span><br><span class="line"><span class="comment">// ok</span></span><br><span class="line"><span class="comment">// Uncaught Error: test</span></span><br></pre></td></tr></table></figure>
+<p><code>Promise</code>指定在下一轮“事件循环”中再抛出错误，冒泡到外层成了未捕获错误，此时，<code>Promise</code>函数体已经运行结束，所以错误是在<code>Promise</code>函数体外抛出的</p>
+<p>Node 中监听未被捕获的<code>reject</code>错误<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">process.on(<span class="string">'unhandledRejection'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">err, p</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.error(err.stack)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>第一个是错误对象,第二个是报错的 Promise 实例</p>
+<p><code>catch</code>返回的也是<code>Promise</code>对象，后面可以接着调用<code>then</code>。如果一个异步操作有错误，则会执行<code>catch</code>，再执行后面的<code>then</code>，如果没有，则跳过<code>catch</code>执行<code>then</code></p>
+<p><code>catch</code>中还可以再抛出错误，如果后面还有<code>catch</code>，则会被捕获，否则，则不会被捕获，也不会传递到外层。</p>
+<h2 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all()"></a>Promise.all()</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="built_in">Promise</span>.all([p1, p2, p3]);</span><br></pre></td></tr></table></figure>
+<p>p1,p2,p3都必须是<code>Promise</code>对象的实例，如果不是，则会先调用<code>Promise.resolve</code>方法，将参数转成<code>Promise</code>实例。<code>Promise.all</code>中的参数不一定是数组，但一定要有<code>Iterator</code>接口，且返回的每个成员都是<code>Promise</code>实例。</p>
+<p>p的状态</p>
+<ul>
+<li>当p1,p2,p3都为<code>fulfilled</code>，p才为<code>fulfilled</code>。p1,p2,p3返回值组成数组，传给p的回调函数</li>
+<li>p1,p2,p3只要有一个为<code>rejected</code>，p为<code>rejected</code>。第一个被<code>rejected</code>的实例的返回值，会传递给p的回调函数</li>
+</ul>
+<h2 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race()"></a>Promise.race()</h2><p>p的状态</p>
+<ul>
+<li>参数中只要有一个改变，p的状态就改变。率先改变的实例的返回值就会被传递给p的回调函数<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="built_in">Promise</span>.race([</span><br><span class="line">fetch(<span class="string">'/resource-that-may-take-a-while'</span>),</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> reject(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'request timeout'</span>)), <span class="number">5000</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">])</span><br><span class="line">p.then(<span class="function"><span class="params">response</span> =&gt;</span> <span class="built_in">console</span>.log(response))</span><br><span class="line">p.catch(<span class="function"><span class="params">error</span> =&gt;</span> <span class="built_in">console</span>.log(error))</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>如果5秒之内<code>fetch</code>方法无法返回结果,变量p的状态就会变为<code>rejected</code>,从而触发<code>catch</code>方法指定的回调函数。</p>
+<h2 id="Promise-resolve"><a href="#Promise-resolve" class="headerlink" title="Promise.resolve()"></a>Promise.resolve()</h2><p>将现有对象转化成<code>Promise</code>对象</p>
+<ul>
+<li>参数是一个<code>Promise</code>实例。不做任何修改，直接返回</li>
+<li>参数是一个<code>thenable</code>对象。先将这个对象转化成<code>Promise</code>对象，然后立刻执行<code>thenable</code>的<code>then</code>方法。</li>
+<li>参数不是具有<code>then</code>方法的对象，则<code>Promise.resolve</code>方法返回一个新的<code>Promise</code>对象，状态为<code>resolve</code>。</li>
+<li>不带任何参数，直接返回一个<code>resolved</code>状态的<code>Promise</code>对象。</li>
+</ul>
+<p><strong>立即<code>resolve</code>的<code>Promise</code>对象，是在本轮“事件循环”的结束时，而不是在下一轮“事件循环”的开始时</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'three'</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">Promise</span>.resolve().then(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'two'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'one'</span>);</span><br><span class="line"><span class="comment">// one</span></span><br><span class="line"><span class="comment">// two</span></span><br><span class="line"><span class="comment">// three</span></span><br></pre></td></tr></table></figure>
+<h3 id="Promise-reject"><a href="#Promise-reject" class="headerlink" title="Promise.reject()"></a>Promise.reject()</h3><p>返回的是一个状态为<code>rejected</code>的<code>Promise</code>实例。参数用法和<code>Promise.resolve()</code>相同。</p>
+<h2 id="自己添加的附加方法"><a href="#自己添加的附加方法" class="headerlink" title="自己添加的附加方法"></a>自己添加的附加方法</h2><h3 id="done"><a href="#done" class="headerlink" title="done()"></a><code>done()</code></h3><p>由于<code>Promise</code>内部抛出错误如果没被捕获，不会冒泡到全局。所以会在回调链的最后添加一个方法保证抛出任何可能出现的错误。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.prototype.done = <span class="function"><span class="keyword">function</span> (<span class="params">onFulfilled, onRejected</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.then(onFulfilled, onRejected)</span><br><span class="line">        .catch(<span class="function"><span class="keyword">function</span> (<span class="params">reason</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 抛出一个全局错误</span></span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="keyword">throw</span> reason &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h3 id="finally"><a href="#finally" class="headerlink" title="finally()"></a><code>finally()</code></h3><p>无论是<code>Promise</code>对象最后状态如何都会执行的函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Promise</span>.prototype.finally = <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> P = <span class="keyword">this</span>.constructor;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.then(</span><br><span class="line">        value =&gt; P.resolve(callback()).then(<span class="function"><span class="params">()</span> =&gt;</span> value),</span><br><span class="line">        reason =&gt; P.resolve(callback()).then(<span class="function"><span class="params">()</span> =&gt;</span> &#123; <span class="keyword">throw</span> reason &#125;)</span><br><span class="line">    );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/Module/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/22/Module/" itemprop="url">Module</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T09:25:56+08:00">
+                2018-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h1><p>ES6模块的设计思想是尽量静态化，编译时就能确定模块的依赖关系，以及输入和输出变量。CommonJS 和 AMD 模块,都只能在运行时确定这些东西。比如, CommonJS 模块就是对象,输入时必须查找对象属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CommonJS 模块</span></span><br><span class="line"><span class="keyword">let</span> &#123; stat, exists, readFile &#125; = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"><span class="keyword">let</span> _fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line"><span class="keyword">let</span> stat = _fs.stat, exists = _fs.exists, readfile = _fs.readfile;</span><br></pre></td></tr></table></figure>
+<p>先加载<code>fs</code>的所有方法，再从对象上读取3个方法。这种加载称为“运行时加载”。因为只有运行时才能得到这个对象,导致完全没办法在编译时做 “ 静态优化 ” 。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6 模块</span></span><br><span class="line"><span class="keyword">import</span> &#123; stat, exists, readFile &#125; <span class="keyword">from</span> <span class="string">'fs'</span>;</span><br></pre></td></tr></table></figure>
+<p>实质是从fs 模块加载 3 个方法,其他方法不加载。这种加载称为 “ 编译时加载 ” ,即 ES6 可以在编译时就完成模块加载,效率要比 CommonJS 模块的加载方式高。</p>
+<p><code>export</code>语句输出的接口，与其对应的值是动态绑定关系，即通过该接口，可以取到模块内部实时的值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> foo = <span class="string">'bar'</span>;</span><br><span class="line">setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> foo = <span class="string">'baz'</span>, <span class="number">500</span>);</span><br></pre></td></tr></table></figure></p>
+<p>上面代码输出变量foo ,值为bar , 500 毫秒之后变成baz。</p>
+<p>CommonJS 模块输出的是值的缓存,不存在动态更新。</p>
+<p>CommonJS 模块输出的是一个值的拷贝,而 ES6 模块输出的是值的引用</p>
+<h2 id="循环加载"><a href="#循环加载" class="headerlink" title="循环加载"></a>循环加载</h2><p><code>a</code>脚本的执行依赖<code>b</code>脚本,而<code>b</code>脚本的执行又依赖<code>a</code>脚本</p>
+<h3 id="CommonJS模块的加载原理"><a href="#CommonJS模块的加载原理" class="headerlink" title="CommonJS模块的加载原理"></a>CommonJS模块的加载原理</h3><p>CommonJS 的一个模块，就是一个脚本文件。<code>require</code>命令第一次加载该脚本，就会执行整个脚本，然后在内存生成一个对象。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    id: <span class="string">'...'</span>,</span><br><span class="line">    exports: &#123; ... &#125;,</span><br><span class="line">    loaded: <span class="literal">true</span>,</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>即使再次执行<code>require</code>命令,也不会再次执行该模块,而是到缓存之中取值。也就是说, CommonJS 模块无论加载多少次,都只会在第一次加载时运行一次,以后再加载,就返回第一次运行的结果,除非手动清除系统缓存。</p>
+<p>例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line">exports.done = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">require</span>(<span class="string">'./b.js'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' 在 a.js 之中, b.done = %j'</span>, b.done);</span><br><span class="line">exports.done = <span class="literal">true</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'a.js 执行完毕 '</span>);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// b.js</span></span><br><span class="line">exports.done = <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'./a.js'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' 在 b.js 之中, a.done = %j'</span>, a.done);</span><br><span class="line">exports.done = <span class="literal">true</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'b.js 执行完毕 '</span>);</span><br></pre></td></tr></table></figure>
+<p>b.js 执行到第二行,就会去加载a.js ,这时,就发生了“循环加载”。系统会去a.js 模块对应对象的exports 属性取值,可是因为a.js 还<br>没有执行完,从exports 属性只能取回已经执行的部分,而不是最后的值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'./a.js'</span>);</span><br><span class="line"><span class="keyword">var</span> b = <span class="built_in">require</span>(<span class="string">'./b.js'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">' 在 main.js 之中 , a.done=%j, b.done=%j'</span>, a.done, b.done);</span><br><span class="line"></span><br><span class="line">在 b.js 之中, a.done = <span class="literal">false</span></span><br><span class="line">b.js 执行完毕</span><br><span class="line">在 a.js 之中, b.done = <span class="literal">true</span></span><br><span class="line">a.js 执行完毕</span><br><span class="line">在 main.js 之中 , a.done=<span class="literal">true</span>, b.done=<span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>CommonJS 模块遇到循环加载时,返回的是当前已经执行的部分的值,而不是代码全部执行后的值,两者可能会有差异</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="built_in">require</span>(<span class="string">'a'</span>); <span class="comment">// 安全的写法</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="built_in">require</span>(<span class="string">'a'</span>).foo; <span class="comment">// 危险的写法</span></span><br><span class="line">exports.good = <span class="function"><span class="keyword">function</span> (<span class="params">arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a.foo(<span class="string">'good'</span>, arg); <span class="comment">// 使用的是 a.foo 的最新值</span></span><br><span class="line">&#125;;</span><br><span class="line">exports.bad = <span class="function"><span class="keyword">function</span> (<span class="params">arg</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> foo(<span class="string">'bad'</span>, arg); <span class="comment">// 使用的是一个部分加载时的值</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="ES6的循环加载"><a href="#ES6的循环加载" class="headerlink" title="ES6的循环加载"></a>ES6的循环加载</h3><p>ES6 模块是动态引用,如果使用import 从一个模块加载变量(即import foo from ‘foo’ ),那些变量不会被缓存,而是成为一个指向被加载模块的引用。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/Class/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1565,254 +1870,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/17/布局（一）表格布局/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/17/布局（一）表格布局/" itemprop="url">布局（一）表格布局</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-17T12:58:43+08:00">
-                2018-01-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="表格布局："><a href="#表格布局：" class="headerlink" title="表格布局："></a>表格布局：</h4><h5 id="使用-lt-table-gt-元素："><a href="#使用-lt-table-gt-元素：" class="headerlink" title="使用&lt;table&gt;元素："></a>使用<code>&lt;table&gt;</code>元素：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td class=&quot;left&quot;&gt;左&lt;/td&gt;</span><br><span class="line">            &lt;td class=&quot;right&quot;&gt;右&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line"></span><br><span class="line">table&#123;</span><br><span class="line">  width:800px;</span><br><span class="line">  height:200px;</span><br><span class="line">  border-collapse: collapse;</span><br><span class="line">&#125;</span><br><span class="line">.left: &#123;</span><br><span class="line">	background: red</span><br><span class="line">&#125;</span><br><span class="line">.right: &#123;</span><br><span class="line">	background: blue</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="使用div模仿表格布局："><a href="#使用div模仿表格布局：" class="headerlink" title="使用div模仿表格布局："></a>使用<code>div</code>模仿表格布局：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;table&quot;&gt;</span><br><span class="line">	&lt;div class=&quot;table-row&quot;&gt;</span><br><span class="line">    	&lt;div class=&quot;left table-cell&quot;&gt;</span><br><span class="line">        	左</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;riight table-cell&quot;&gt;</span><br><span class="line">        	右</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">.left: &#123;</span><br><span class="line">  background: red;</span><br><span class="line">&#125;</span><br><span class="line">.right: &#123;</span><br><span class="line">  background: blue;</span><br><span class="line">&#125;</span><br><span class="line">.table: &#123;</span><br><span class="line">  display: table;</span><br><span class="line">  width: 800px;</span><br><span class="line">  height: 200px;</span><br><span class="line">&#125;</span><br><span class="line">.table-row: &#123;</span><br><span class="line">	display: table-row;</span><br><span class="line">&#125;</span><br><span class="line">.table-cell: &#123;</span><br><span class="line">	display: table-cell;</span><br><span class="line">  vertical-align: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/17/CSS案例与hack/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/17/CSS案例与hack/" itemprop="url">CSS案例与hack</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-17T12:19:21+08:00">
-                2018-01-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="案例："><a href="#案例：" class="headerlink" title="案例："></a>案例：</h4><h5 id="美化表单元素："><a href="#美化表单元素：" class="headerlink" title="美化表单元素："></a>美化表单元素：</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkbox"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"me"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"me"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.checkbox</span> <span class="selector-tag">input</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: none</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.checkbox</span> <span class="selector-tag">input</span> + <span class="selector-tag">label</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(./checkbox1.png) left center no-repeat;</span><br><span class="line">    <span class="attribute">background-size</span>:<span class="number">20px</span> <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">padding-left</span>:<span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.checkbox</span> <span class="selector-tag">input</span><span class="selector-pseudo">:checked</span> + <span class="selector-tag">label</span>&#123;</span><br><span class="line">   <span class="attribute">background-image</span>:<span class="built_in">url</span>(./checkbox2.png);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="纯CSS实现树型结构："><a href="#纯CSS实现树型结构：" class="headerlink" title="纯CSS实现树型结构："></a>纯CSS实现树型结构：</h5><p>核心css也是<code>input:checked +</code></p>
-<h5 id="选项卡："><a href="#选项卡：" class="headerlink" title="选项卡："></a>选项卡：</h5><p>使用<code>radio</code></p>
-<h4 id="hack"><a href="#hack" class="headerlink" title="hack:"></a>hack:</h4><p>浏览器兼容：</p>
-<ul>
-<li>hack：有效但不合法的css，写在合法的样式后面</li>
-<li>特性检测：检测特定的浏览器，对特定的浏览器写特定的样式</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1863,7 +1920,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

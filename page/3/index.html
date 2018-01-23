@@ -229,6 +229,254 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/17/布局（一）表格布局/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/17/布局（一）表格布局/" itemprop="url">布局（一）表格布局</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-17T12:58:43+08:00">
+                2018-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="表格布局："><a href="#表格布局：" class="headerlink" title="表格布局："></a>表格布局：</h4><h5 id="使用-lt-table-gt-元素："><a href="#使用-lt-table-gt-元素：" class="headerlink" title="使用&lt;table&gt;元素："></a>使用<code>&lt;table&gt;</code>元素：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">            &lt;td class=&quot;left&quot;&gt;左&lt;/td&gt;</span><br><span class="line">            &lt;td class=&quot;right&quot;&gt;右&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line"></span><br><span class="line">table&#123;</span><br><span class="line">  width:800px;</span><br><span class="line">  height:200px;</span><br><span class="line">  border-collapse: collapse;</span><br><span class="line">&#125;</span><br><span class="line">.left: &#123;</span><br><span class="line">	background: red</span><br><span class="line">&#125;</span><br><span class="line">.right: &#123;</span><br><span class="line">	background: blue</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="使用div模仿表格布局："><a href="#使用div模仿表格布局：" class="headerlink" title="使用div模仿表格布局："></a>使用<code>div</code>模仿表格布局：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;table&quot;&gt;</span><br><span class="line">	&lt;div class=&quot;table-row&quot;&gt;</span><br><span class="line">    	&lt;div class=&quot;left table-cell&quot;&gt;</span><br><span class="line">        	左</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;riight table-cell&quot;&gt;</span><br><span class="line">        	右</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">.left: &#123;</span><br><span class="line">  background: red;</span><br><span class="line">&#125;</span><br><span class="line">.right: &#123;</span><br><span class="line">  background: blue;</span><br><span class="line">&#125;</span><br><span class="line">.table: &#123;</span><br><span class="line">  display: table;</span><br><span class="line">  width: 800px;</span><br><span class="line">  height: 200px;</span><br><span class="line">&#125;</span><br><span class="line">.table-row: &#123;</span><br><span class="line">	display: table-row;</span><br><span class="line">&#125;</span><br><span class="line">.table-cell: &#123;</span><br><span class="line">	display: table-cell;</span><br><span class="line">  vertical-align: middle;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/17/CSS案例与hack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/17/CSS案例与hack/" itemprop="url">CSS案例与hack</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-17T12:19:21+08:00">
+                2018-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="案例："><a href="#案例：" class="headerlink" title="案例："></a>案例：</h4><h5 id="美化表单元素："><a href="#美化表单元素：" class="headerlink" title="美化表单元素："></a>美化表单元素：</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkbox"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">id</span>=<span class="string">"me"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"me"</span>&gt;</span><span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.checkbox</span> <span class="selector-tag">input</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: none</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.checkbox</span> <span class="selector-tag">input</span> + <span class="selector-tag">label</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(./checkbox1.png) left center no-repeat;</span><br><span class="line">    <span class="attribute">background-size</span>:<span class="number">20px</span> <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">padding-left</span>:<span class="number">20px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.checkbox</span> <span class="selector-tag">input</span><span class="selector-pseudo">:checked</span> + <span class="selector-tag">label</span>&#123;</span><br><span class="line">   <span class="attribute">background-image</span>:<span class="built_in">url</span>(./checkbox2.png);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="纯CSS实现树型结构："><a href="#纯CSS实现树型结构：" class="headerlink" title="纯CSS实现树型结构："></a>纯CSS实现树型结构：</h5><p>核心css也是<code>input:checked +</code></p>
+<h5 id="选项卡："><a href="#选项卡：" class="headerlink" title="选项卡："></a>选项卡：</h5><p>使用<code>radio</code></p>
+<h4 id="hack"><a href="#hack" class="headerlink" title="hack:"></a>hack:</h4><p>浏览器兼容：</p>
+<ul>
+<li>hack：有效但不合法的css，写在合法的样式后面</li>
+<li>特性检测：检测特定的浏览器，对特定的浏览器写特定的样式</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/16/非布局样式——文本折行/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1388,296 +1636,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/08/ES6：let，const/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/08/ES6：let，const/" itemprop="url">ES6：let，const</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-08T20:33:19+08:00">
-                2017-12-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="let，const"><a href="#let，const" class="headerlink" title="let，const"></a>let，const</h2><h3 id="let："><a href="#let：" class="headerlink" title="let："></a>let：</h3><ul>
-<li>let 声明的只在代码块{　}中有效<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    a[i] = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	    <span class="built_in">console</span>.log(i);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">a[<span class="number">6</span>](); <span class="comment">// 6　　var i=0 输出的是10</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><code>var</code>是全局变量，每次循环新值都覆盖旧值，最后输出的就是10。<br><code>let</code>只在本次循环有效，每次循环i都是一个新的变量，最后输出是6</p>
-<ul>
-<li><p>没有变量提升</p>
-</li>
-<li><p>暂时性死区</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="comment">// TDZ 开始</span></span><br><span class="line">    tmp = <span class="string">'abc'</span>; <span class="comment">// ReferenceError</span></span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">// ReferenceError</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> tmp; <span class="comment">// TDZ 结束</span></span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">// undefined</span></span><br><span class="line">    </span><br><span class="line">    tmp = <span class="number">123</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(tmp); <span class="comment">// 123</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>不允许重复声明</p>
-</li>
-</ul>
-<h4 id="块级作用域："><a href="#块级作用域：" class="headerlink" title="块级作用域："></a>块级作用域：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> n = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> n = <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(n); <span class="comment">// 5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>使用块级作用域不必再使用立即执行函数<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// IIFE 写法</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> tmp = ...;</span><br><span class="line">    ...</span><br><span class="line">&#125;());</span><br><span class="line"><span class="comment">// 块级作用域写法</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">let</span> tmp = ...;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>ES6可以在块级作用域中声明函数，但由于浏览器差异，应尽量避免，如果需要，应写成函数表达式</p>
-</blockquote>
-<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><p><code>const</code>命令只保证变量名指向的<strong>地址</strong>不变，并不保证该地址的数据不变</p>
-<p>使用<code>Object.freeze()</code>解冻，添加的新属性不起作用</p>
-<p>彻底解冻函数：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> constantize = <span class="function">(<span class="params">obj</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">Object</span>.freeze(obj);</span><br><span class="line">    <span class="built_in">Object</span>.keys(obj).forEach( <span class="function">(<span class="params">key, value</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> ( <span class="keyword">typeof</span> obj[key] === <span class="string">'object'</span> ) &#123;</span><br><span class="line">            constantize( obj[key] );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="全局对象属性"><a href="#全局对象属性" class="headerlink" title="全局对象属性"></a>全局对象属性</h3><p>使用<code>let</code>，<code>const</code>定义的属性在<code>window</code>或<code>global</code>中是访问不到的</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/Web安全（CSRF）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/07/Web安全（CSRF）/" itemprop="url">Web安全（CSRF)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-07T20:37:43+08:00">
-                2017-12-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="CSRF攻击（跨站请求伪造）"><a href="#CSRF攻击（跨站请求伪造）" class="headerlink" title="CSRF攻击（跨站请求伪造）"></a>CSRF攻击（跨站请求伪造）</h4><h5 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h5><p><img src="/images/1512725481487.png" alt="image"></p>
-<h5 id="特征："><a href="#特征：" class="headerlink" title="特征："></a>特征：</h5><ul>
-<li><p>B网站向A网站请求</p>
-</li>
-<li><p>带A网站Cookies</p>
-</li>
-<li><p>不访问A网站前端</p>
-</li>
-<li><p>refer（http头中）为B网站</p>
-</li>
-</ul>
-<h5 id="防御："><a href="#防御：" class="headerlink" title="防御："></a>防御：</h5><ul>
-<li><p>禁止第三方网站带Cookies（same-site属性）兼容性较差</p>
-</li>
-<li><p>在前端页面加入验证信息　</p>
-<ul>
-<li>验证码<ul>
-<li>token（随机字符串）</li>
-<li>表单提交则前端把token放在<code>&lt;input type=&#39;hidden&#39; value=token&gt;</code>中</li>
-</ul>
-</li>
-<li>ajax提交则把<code>token</code>放在<code>&lt;meta name=&quot;CSRF_token&quot; content=token&gt;</code>中，通过<code>js</code>拿到值提交到后台<br>用户打开多个页面（token会被覆盖，只有最后一个页面可以被提交）</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1728,7 +1686,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
