@@ -79,17 +79,20 @@
 
 
 
-<meta name="description" content="函数缓存：缺点：调用者必须记住调用　memoized 才有缓存记忆功能12345678910111213141516171819202122Function.prototype.memoized = function (key) &amp;#123;        this._values = this._values || &amp;#123;&amp;#125;;        return this._values">
+<meta name="description" content="浏览器模式是指浏览器对 HTML 和 CSS 的渲染方式 标准模式浏览器按照 HTML 和 CSS 标准对文档进行渲染和解析 怪异模式浏览器按照旧标准（非标准）对文档进行渲染和解析 浏览器切换这两个模式的依据文档类型声明DOCTYPE。 标准模式和怪异模式渲染方式的区别 盒模型1box-sizing: border-box   标准模式下 width 不包含 padding 和 border  行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="函数缓存">
-<meta property="og:url" content="http://yoursite.com/2017/12/03/函数缓存/index.html">
+<meta property="og:title" content="浏览器模式">
+<meta property="og:url" content="http://yoursite.com/2018/01/26/浏览器的标准模式和怪异模式/index.html">
 <meta property="og:site_name" content="LENZAKON">
-<meta property="og:description" content="函数缓存：缺点：调用者必须记住调用　memoized 才有缓存记忆功能12345678910111213141516171819202122Function.prototype.memoized = function (key) &amp;#123;        this._values = this._values || &amp;#123;&amp;#125;;        return this._values">
+<meta property="og:description" content="浏览器模式是指浏览器对 HTML 和 CSS 的渲染方式 标准模式浏览器按照 HTML 和 CSS 标准对文档进行渲染和解析 怪异模式浏览器按照旧标准（非标准）对文档进行渲染和解析 浏览器切换这两个模式的依据文档类型声明DOCTYPE。 标准模式和怪异模式渲染方式的区别 盒模型1box-sizing: border-box   标准模式下 width 不包含 padding 和 border  行">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-19T09:39:51.346Z">
+<meta property="og:image" content="http://yoursite.com/images/1516967230577.png">
+<meta property="og:image" content="http://yoursite.com/images/1516968205033.png">
+<meta property="og:updated_time" content="2018-01-26T12:23:04.421Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="函数缓存">
-<meta name="twitter:description" content="函数缓存：缺点：调用者必须记住调用　memoized 才有缓存记忆功能12345678910111213141516171819202122Function.prototype.memoized = function (key) &amp;#123;        this._values = this._values || &amp;#123;&amp;#125;;        return this._values">
+<meta name="twitter:title" content="浏览器模式">
+<meta name="twitter:description" content="浏览器模式是指浏览器对 HTML 和 CSS 的渲染方式 标准模式浏览器按照 HTML 和 CSS 标准对文档进行渲染和解析 怪异模式浏览器按照旧标准（非标准）对文档进行渲染和解析 浏览器切换这两个模式的依据文档类型声明DOCTYPE。 标准模式和怪异模式渲染方式的区别 盒模型1box-sizing: border-box   标准模式下 width 不包含 padding 和 border  行">
+<meta name="twitter:image" content="http://yoursite.com/images/1516967230577.png">
 
 
 
@@ -119,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/03/函数缓存/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/26/浏览器的标准模式和怪异模式/"/>
 
 
 
 
 
-  <title>函数缓存 | LENZAKON</title>
+  <title>浏览器模式 | LENZAKON</title>
   
 
 
@@ -232,7 +235,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/03/函数缓存/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/26/浏览器的标准模式和怪异模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LENZAKON">
@@ -249,7 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">函数缓存</h1>
+          <h1 class="post-title" itemprop="name headline">浏览器模式</h1>
         
 
         <div class="post-meta">
@@ -261,8 +264,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-03T10:42:53+08:00">
-                2017-12-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-26T19:45:22+08:00">
+                2018-01-26
               </time>
             
 
@@ -299,8 +302,49 @@
       
 
       
-        <h3 id="函数缓存："><a href="#函数缓存：" class="headerlink" title="函数缓存："></a>函数缓存：</h3><p>缺点：调用者必须记住调用　memoized 才有缓存记忆功能<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.memoized = function (key) &#123;</span><br><span class="line">        this._values = this._values || &#123;&#125;;</span><br><span class="line">        return this._values[key] !== undefined ?</span><br><span class="line">            this._values[key] :</span><br><span class="line">            this._values[key] = this.apply(this, arguments);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function isPrime(num) &#123;</span><br><span class="line">        var prime = num != 1;</span><br><span class="line">        for (var i = 2; i &lt; num; i++) &#123;</span><br><span class="line">            if (num % i == 0) &#123;</span><br><span class="line">                prime = false;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return prime;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(isPrime._values)    // undefined</span><br><span class="line">    console.log(isPrime.memoized(5))</span><br><span class="line">    console.log(isPrime._values)    //&#123;5: true&#125;</span><br><span class="line">    console.log(isPrime._values[5])</span><br></pre></td></tr></table></figure></p>
-<h3 id="使用闭包进行函数缓存："><a href="#使用闭包进行函数缓存：" class="headerlink" title="使用闭包进行函数缓存："></a>使用闭包进行函数缓存：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.memoized = function (key) &#123;</span><br><span class="line">        this._values = this._values || &#123;&#125;;</span><br><span class="line">        console.log(&apos;menorized: &apos; + this)   // function(num)&#123;&#125;</span><br><span class="line">        console.log(this._values)   // 第一次调用时&#123;&#125;, 第二次调用时&#123;17: true&#125;</span><br><span class="line">        console.log(&apos;memorized arguments: &apos;);</span><br><span class="line">        console.log(arguments)  // 17</span><br><span class="line">        return this._values[key] !== undefined ?</span><br><span class="line">            this._values[key] :</span><br><span class="line">            this._values[key] = this.apply(this, arguments);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Function.prototype.memoize = function () &#123;</span><br><span class="line">        console.log(&apos;outer monoize: &apos;)</span><br><span class="line">        console.log(this)    // function(num)&#123;&#125;</span><br><span class="line">        console.log(arguments)  // 空</span><br><span class="line">        var fn = this;</span><br><span class="line">        return function () &#123;</span><br><span class="line">            console.log(&apos;inner memorize: &apos;);</span><br><span class="line">            console.log(this)   // window</span><br><span class="line">            console.log(arguments)  // 17</span><br><span class="line">            return fn.memoized.apply(fn, arguments);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    var isPrime = (function (num) &#123;</span><br><span class="line">        console.log(&apos;isPrime&apos;)</span><br><span class="line">        console.log(this)   // function(num)</span><br><span class="line">        console.log(arguments)  // 17</span><br><span class="line">        var prime = num != 1;</span><br><span class="line">        for (var i = 2; i &lt; num; i++) &#123;</span><br><span class="line">            if (num % i == 0) &#123;</span><br><span class="line">                prime = false;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return prime;</span><br><span class="line">    &#125;).memoize();</span><br><span class="line"></span><br><span class="line">    console.log(isPrime(17))</span><br><span class="line">    console.log(isPrime(17))</span><br></pre></td></tr></table></figure>
+        <h1 id="浏览器模式"><a href="#浏览器模式" class="headerlink" title="浏览器模式"></a>浏览器模式</h1><p>是指浏览器对 <code>HTML</code> 和 <code>CSS</code> 的渲染方式</p>
+<h2 id="标准模式"><a href="#标准模式" class="headerlink" title="标准模式"></a>标准模式</h2><p>浏览器按照 <code>HTML</code> 和 <code>CSS</code> 标准对文档进行渲染和解析</p>
+<h2 id="怪异模式"><a href="#怪异模式" class="headerlink" title="怪异模式"></a>怪异模式</h2><p>浏览器按照旧标准（非标准）对文档进行渲染和解析</p>
+<h2 id="浏览器切换这两个模式的依据"><a href="#浏览器切换这两个模式的依据" class="headerlink" title="浏览器切换这两个模式的依据"></a>浏览器切换这两个模式的依据</h2><p>文档类型声明<code>DOCTYPE</code>。</p>
+<h2 id="标准模式和怪异模式渲染方式的区别"><a href="#标准模式和怪异模式渲染方式的区别" class="headerlink" title="标准模式和怪异模式渲染方式的区别"></a>标准模式和怪异模式渲染方式的区别</h2><ol>
+<li>盒模型<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">border-box</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>标准模式下 <code>width</code> 不包含 <code>padding</code> 和 <code>border</code></p>
+<ol>
+<li>行内元素垂直对齐</li>
+</ol>
+<p>标准模式下，图片是按基线对齐的，所以图片底边和其父元素会有间隙。</p>
+<p>原理：</p>
+<p><code>vertical-align</code> 和 <code>line-heigh</code></p>
+<p><code>vertical-align</code> 的值为百分比的时候，是按照 <code>line-heigh</code> 计算的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-color:#e5edff;"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"mm1.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/1516967230577.png" alt="image"></p>
+<p>文字默认对齐 <code>vertical-align</code> 是基于基线对齐的。而文字的高度又是由行高 <code>line-heigh</code> 决定的。</p>
+<p><img src="/images/1516968205033.png" alt="image"></p>
+<p>解决方法：</p>
+<ol>
+<li><p>让 <code>vertical-align</code> 失效。 <code>vertical-align</code> 对于块级元素无效。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123; <span class="attribute">display</span>: block; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用别的 <code>vertical-align</code> 值</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">vertical-align</span>: bottom/middle/top</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改 <code>line-heigh</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">line-heigh</span>: <span class="number">5px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改 <code>font-size</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>应用：</p>
+<ol>
+<li>完全垂直居中<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123; <span class="attribute">line-height</span>: <span class="number">240px</span>; <span class="attribute">font-size</span>: <span class="number">0</span>; &#125;</span><br><span class="line"><span class="selector-tag">img</span> &#123; <span class="attribute">vertical-align</span>: middle; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>参考资料：</p>
+<p><a href="http://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/" target="_blank" rel="noopener">CSS深入理解vertical-align和line-heigh</a></p>
+<p><a href="https://www.jianshu.com/p/dcab7cde8c04" target="_blank" rel="noopener">浏览器的标准模式和怪异模式</a></p>
 
       
     </div>
@@ -325,8 +369,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/02/闭包（二）/" rel="next" title="闭包（二）">
-                <i class="fa fa-chevron-left"></i> 闭包（二）
+              <a href="/2018/01/25/继承/" rel="next" title="继承">
+                <i class="fa fa-chevron-left"></i> 继承
               </a>
             
           </div>
@@ -334,10 +378,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/12/04/正则表达式/" rel="prev" title="正则表达式">
-                正则表达式 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -453,7 +493,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数缓存："><span class="nav-number">1.</span> <span class="nav-text">函数缓存：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用闭包进行函数缓存："><span class="nav-number">2.</span> <span class="nav-text">使用闭包进行函数缓存：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器模式"><span class="nav-number">1.</span> <span class="nav-text">浏览器模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标准模式"><span class="nav-number">1.1.</span> <span class="nav-text">标准模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怪异模式"><span class="nav-number">1.2.</span> <span class="nav-text">怪异模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器切换这两个模式的依据"><span class="nav-number">1.3.</span> <span class="nav-text">浏览器切换这两个模式的依据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准模式和怪异模式渲染方式的区别"><span class="nav-number">1.4.</span> <span class="nav-text">标准模式和怪异模式渲染方式的区别</span></a></li></ol></li></ol></div>
             
 
           </div>
