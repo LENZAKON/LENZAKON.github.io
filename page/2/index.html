@@ -229,6 +229,151 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/异步操作和Async/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/22/异步操作和Async/" itemprop="url">异步操作和Async函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T09:30:37+08:00">
+                2018-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Async函数"><a href="#Async函数" class="headerlink" title="Async函数"></a>Async函数</h1><p><code>async</code>函数返回一个<code>Promise</code>对象,可以使用<code>then</code>方法添加回调函数。当函数执行的时候,一旦遇到<code>await</code>就会先返回,等到触发的异步操作完成,再接着执行函数体内后面的语句。</p>
+<h2 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h2><ul>
+<li><p><code>async</code>函数返回的是一个<code>Promise</code>对象</p>
+</li>
+<li><p><code>async</code>函数返回的<code>Promise</code>对象，必须等到内部所有<code>await</code>命令的<code>Promise</code>对象执行完，才发生状态的改变。即，只有<code>async</code>函数内部的异步操作执行完，才会调用<code>then</code>方法指定的回调函数。</p>
+</li>
+<li><p>正常情况下，<code>await</code>命令后面是一个<code>Promise</code>对象。如果不是，会被转成一个立即<code>resolve</code>的<code>Promise</code>对象。</p>
+</li>
+<li><p><code>await</code>命令后面的<code>Promise</code>对象如果变为<code>reject</code>状态,则<code>reject</code>的参数会被<code>catch</code>方法的回调函数接收到。</p>
+</li>
+<li><p>只要一个<code>await</code>语句后面的<code>Promise</code>变为<code>reject</code>,那么整个<code>async</code>函数都会中断执行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="built_in">Promise</span>.reject(<span class="string">' 出错了 '</span>);</span><br><span class="line">    <span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(<span class="string">'hello world'</span>); <span class="comment">// 不会执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>解决方法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="built_in">Promise</span>.reject(<span class="string">'出错了'</span>)</span><br><span class="line">    &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(<span class="string">'haha'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f().then(<span class="function"><span class="params">v</span> =&gt;</span> <span class="built_in">console</span>.log(v))   <span class="comment">// haha</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>如果<code>await</code>后面的异步操作出错,那么等同于<code>async</code>函数返回的 <code>Promise</code>对象被<code>reject</code></li>
+</ul>
+<h2 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h2><ul>
+<li><p><code>await</code>命令后面的<code>Promise</code>对象,运行结果可能是<code>rejected</code>,所以最好把<code>await</code>命令放在<code>try...catch</code>代码块中</p>
+</li>
+<li><p>多个<code>await</code>命令后面的异步操作,如果不存在继发关系,最好让它们同时触发。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = <span class="keyword">await</span> getFoo();</span><br><span class="line"><span class="keyword">let</span> bar = <span class="keyword">await</span> getBar();</span><br></pre></td></tr></table></figure>
+<p>写成<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写法一</span></span><br><span class="line"><span class="keyword">let</span> [foo, bar] = <span class="keyword">await</span> <span class="built_in">Promise</span>.all([getFoo(), getBar()]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法二</span></span><br><span class="line"><span class="keyword">let</span> fooPromise = getFoo();</span><br><span class="line"><span class="keyword">let</span> barPromise = getBar();</span><br><span class="line"><span class="keyword">let</span> foo = <span class="keyword">await</span> fooPromise;</span><br><span class="line"><span class="keyword">let</span> bar = <span class="keyword">await</span> barPromise;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/编程风格/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1729,156 +1874,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/17/box-shadow/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/17/box-shadow/" itemprop="url">box-shadow</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-17T19:59:54+08:00">
-                2018-01-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="box-shadow"><a href="#box-shadow" class="headerlink" title="box-shadow"></a>box-shadow</h4><h5 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h5><ul>
-<li>营造立体感</li>
-<li>充当没有宽度的边框，不会影响布局。</li>
-<li>特殊效果（多投影）<h5 id="浏览器实现阴影效果原理："><a href="#浏览器实现阴影效果原理：" class="headerlink" title="浏览器实现阴影效果原理："></a>浏览器实现阴影效果原理：<img src="/images/1516192277559.png" alt="image"></h5></li>
-</ul>
-<blockquote>
-<p>上图从左至右依次是浏览器的4步动作。首先根据指定的color克隆一个和原始元素同样尺寸的元素。然后根据指定的x-offset / y-offset将克隆出来的元素进行偏移。<br>第三步根据指定的blur-radius模糊半径10px，依据高斯算法进行模糊处理。本质上是在阴影边缘将阴影色和纯透明色之间的颜色过渡，长度近似于blur-radius模糊半径的两倍，即20px左右。这就是导致阴影外扩的原因。<br>最后，浏览器在克隆元素上，将交集部分剪切掉，剩余部分拼接到原始元素边上，就实现了最终的效果。注意这和我们看上去的有的不同，看上去像是两个元素叠加在了一次，导致下层的克隆元素部分被遮盖了。其实不是的。这意味着即使你将原始元素的背景色设成半透明，也不会看到底层的克隆元素，因为原始元素的下面根本没有任何东西。</p>
-</blockquote>
-<h5 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h5><ul>
-<li>inset： 内阴影</li>
-<li>x-offset：水平偏移量</li>
-<li>y-offset：垂直偏移量</li>
-<li>blur-radius：阴影模糊半径</li>
-<li>spread-radius：阴影拓展半径，即是使阴影放大或缩小<br>阴影模糊会导致阴影外扩，此时就可以使用spread-radius缩小阴影大小，使不需要的外扩隐藏<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">box-shadow</span>: 0 10<span class="selector-tag">px</span> 20<span class="selector-tag">px</span> <span class="selector-tag">red</span></span><br><span class="line"><span class="selector-tag">box-shadow</span>: 0 10<span class="selector-tag">px</span> 20<span class="selector-tag">px</span> <span class="selector-tag">-10px</span> <span class="selector-tag">red</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p><img src="/images/1516191369929.png" alt="image"></p>
-</blockquote>
-<h5 id="图片加阴影："><a href="#图片加阴影：" class="headerlink" title="图片加阴影："></a>图片加阴影：</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span>&gt;</span><br><span class="line">    &lt;img /&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>降低<code>img</code>的<code>z-index</code></li>
-<li>将图片设置为<code>div</code>的<code>background-img</code></li>
-</ul>
-<h5 id="多层阴影："><a href="#多层阴影：" class="headerlink" title="多层阴影："></a>多层阴影：</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">box-shadow</span>: 6<span class="selector-tag">px</span> 0 5<span class="selector-tag">px</span> <span class="selector-tag">-5px</span> <span class="selector-tag">red</span>,</span><br><span class="line">            <span class="selector-tag">-6px</span> 0 5<span class="selector-tag">px</span> <span class="selector-tag">-5px</span> <span class="selector-tag">red</span>;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><img src="/images/1516191997342.png" alt="image"></p>
-</blockquote>
-<p>通过多层阴影可以根据一个元素画出一幅图，可以用很小的投影变成点，再通过点组成线等需要的图形。</p>
-<h5 id="不均匀阴影："><a href="#不均匀阴影：" class="headerlink" title="不均匀阴影："></a>不均匀阴影：<img src="/images/1516193078437.png" alt="image"></h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.effect</span><span class="selector-pseudo">::before</span>, <span class="selector-class">.effect</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">80%</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">15px</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(-5deg);</span><br><span class="line">    <span class="attribute">box-shadow</span>: <span class="number">0</span> <span class="number">15px</span> <span class="number">10px</span> <span class="number">#777</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.effect</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotate</span>(5deg);</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">10px</span>;</span><br><span class="line">    <span class="attribute">left</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>参考资料：<br><a href="https://www.jianshu.com/p/1303b96661b9" target="_blank" rel="noopener">CSS3 box-shadow介绍</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1929,7 +1924,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

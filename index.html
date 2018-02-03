@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/26/浏览器模式和文档模式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/03/路由/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LENZAKON">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/01/26/浏览器模式和文档模式/" itemprop="url">浏览器模式和文档模式</a></h1>
+                <a class="post-title-link" href="/2018/02/03/路由/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -260,8 +260,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-26T19:45:22+08:00">
-                2018-01-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-03T16:25:57+08:00">
+                2018-02-03
               </time>
             
 
@@ -300,33 +300,17 @@
       
         
           
-            <h1 id="浏览器模式和文档模式"><a href="#浏览器模式和文档模式" class="headerlink" title="浏览器模式和文档模式"></a>浏览器模式和文档模式</h1><h2 id="浏览器模式决定内容："><a href="#浏览器模式决定内容：" class="headerlink" title="浏览器模式决定内容："></a>浏览器模式决定内容：</h2><ul>
-<li><p>发送给服务端的 userAgent</p>
-</li>
-<li><p>默认的文档模式</p>
-</li>
-<li><p>如何解析条件注释</p>
-</li>
-<li><p>它在请求发送前就已经确定，且不受服务端控制</p>
-</li>
+            <h1 id="Router"><a href="#Router" class="headerlink" title="Router"></a>Router</h1><p>浏览器中一种处理先后访问关系的机制，即允许在不同页面中跳转，记录跳转关系还能退回去的机制</p>
+<h2 id="要素："><a href="#要素：" class="headerlink" title="要素："></a>要素：</h2><ul>
+<li>历史：栈形式数据结构</li>
+<li>跳转：不同页面之间进行跳转，并可以传递参数</li>
+<li>事件：打开新页面或退回上一个页面触发的逻辑</li>
 </ul>
-<h2 id="文档模式决定内容"><a href="#文档模式决定内容" class="headerlink" title="文档模式决定内容:"></a>文档模式决定内容:</h2><ul>
-<li><p>排版引擎</p>
-</li>
-<li><p>JS引擎</p>
-</li>
-<li><p>在浏览器得到响应后最终决定，服务端可通过<code>doctype</code>或<code>X-UA-Compatible</code>决定</p>
-</li>
-</ul>
-<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=7"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/1517139153717.png" alt="image"></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=7Esge"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/1517139197584.png" alt="image"></p>
-<p>在 IE8/9 中X-UA-Compatible对文本模式的改变会导致浏览器模式的改变，也就是说服务端可以间接控制浏览器模式。 </p>
-<p>在IE8中，JS获取的UA是浏览器模式初始状态。这样会导致用JS获取UA得到的浏览器版本，与实际渲染的浏览器版本不符，这会对基于UA的浏览器检测造成干扰。</p>
-<p>对于IE9，只有一点与IE8不同：JS获取到的是新文本模式对应的浏览器模式的UA。这会导致用JS获取UA得到的浏览器版本，与请求头发送给服务器UA里标识的浏览器版本不符，这可能对统计有影响。</p>
-<p>参考资料：</p>
-<p>(关于浏览器模式和文本模式的困惑)[<a href="https://imququ.com/post/browser-mode-and-document-mode-in-ie.html" target="_blank" rel="noopener">https://imququ.com/post/browser-mode-and-document-mode-in-ie.html</a>]</p>
+<h2 id="常见router"><a href="#常见router" class="headerlink" title="常见router:"></a>常见router:</h2><h3 id="页面Router"><a href="#页面Router" class="headerlink" title="页面Router:"></a>页面Router:</h3><p>真正的页面跳转，跳转后整个页面都会按照新的路径重新加载，回退的时候也是整个页面重新渲染<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.href = <span class="string">''</span></span><br><span class="line">history.back();  <span class="comment">// 回退</span></span><br></pre></td></tr></table></figure></p>
+<p>通过浏览器按钮后退</p>
+<h3 id="Hash-Router"><a href="#Hash-Router" class="headerlink" title="Hash Router:"></a>Hash Router:</h3><p>只有路径的hash值在发生变化，页面没有重新加载，只是跳到当前页面hash指定的状态，后退时也是跳到上一个hash状态，整个页面不会刷新。兼容性好<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.href = <span class="string">'#test'</span></span><br><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="built_in">console</span>.log(<span class="built_in">window</span>.location.hash)&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或者<br>通过\<a>链接跳转</a></p>
+<h3 id="H5-router"><a href="#H5-router" class="headerlink" title="H5 router:"></a>H5 router:</h3><p>js的history对象中提供一个新的方法，手动在路由历史里推进一个新值，点击浏览器后退按钮还可以通过事件进行截获浏览器后退按钮触发的事件，保证在模拟路由的同时不做页面跳转。能操作整个路径，也能操作hash，兼容性较差<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 推进一个状态</span></span><br><span class="line">history.pushState(<span class="string">'test'</span>, <span class="string">'Title'</span>, <span class="string">'#test'</span>)</span><br><span class="line">history.pushState(<span class="string">'test1'</span>, <span class="string">'Title'</span>, <span class="string">'/user/index'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 前进和后退都会输出，输出的是 name ，即pushState函数的第一个参数</span></span><br><span class="line"><span class="built_in">window</span>.onpopstate = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;<span class="built_in">console</span>.log(e.state)&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 替换一个状态，进行替换，原来的消失了</span></span><br><span class="line">history.replaceState(<span class="string">'test'</span>, <span class="string">'Tittle'</span>, <span class="string">'/index/test'</span>)</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -484,6 +468,152 @@
 <p>参考资料：</p>
 <p><a href="http://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/" target="_blank" rel="noopener">CSS深入理解vertical-align和line-heigh</a></p>
 <p><a href="https://www.jianshu.com/p/dcab7cde8c04" target="_blank" rel="noopener">浏览器的标准模式和怪异模式</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/26/浏览器模式和文档模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/26/浏览器模式和文档模式/" itemprop="url">浏览器模式和文档模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-26T19:45:22+08:00">
+                2018-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="浏览器模式和文档模式"><a href="#浏览器模式和文档模式" class="headerlink" title="浏览器模式和文档模式"></a>浏览器模式和文档模式</h1><h2 id="浏览器模式决定内容："><a href="#浏览器模式决定内容：" class="headerlink" title="浏览器模式决定内容："></a>浏览器模式决定内容：</h2><ul>
+<li><p>发送给服务端的 userAgent</p>
+</li>
+<li><p>默认的文档模式</p>
+</li>
+<li><p>如何解析条件注释</p>
+</li>
+<li><p>它在请求发送前就已经确定，且不受服务端控制</p>
+</li>
+</ul>
+<h2 id="文档模式决定内容"><a href="#文档模式决定内容" class="headerlink" title="文档模式决定内容:"></a>文档模式决定内容:</h2><ul>
+<li><p>排版引擎</p>
+</li>
+<li><p>JS引擎</p>
+</li>
+<li><p>在浏览器得到响应后最终决定，服务端可通过<code>doctype</code>或<code>X-UA-Compatible</code>决定</p>
+</li>
+</ul>
+<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=7"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/1517139153717.png" alt="image"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=7Esge"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/1517139197584.png" alt="image"></p>
+<p>在 IE8/9 中X-UA-Compatible对文本模式的改变会导致浏览器模式的改变，也就是说服务端可以间接控制浏览器模式。 </p>
+<p>在IE8中，JS获取的UA是浏览器模式初始状态。这样会导致用JS获取UA得到的浏览器版本，与实际渲染的浏览器版本不符，这会对基于UA的浏览器检测造成干扰。</p>
+<p>对于IE9，只有一点与IE8不同：JS获取到的是新文本模式对应的浏览器模式的UA。这会导致用JS获取UA得到的浏览器版本，与请求头发送给服务器UA里标识的浏览器版本不符，这可能对统计有影响。</p>
+<p>参考资料：</p>
+<p>(关于浏览器模式和文本模式的困惑)[<a href="https://imququ.com/post/browser-mode-and-document-mode-in-ie.html" target="_blank" rel="noopener">https://imququ.com/post/browser-mode-and-document-mode-in-ie.html</a>]</p>
 
           
         
@@ -1473,151 +1603,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/异步操作和Async/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/22/异步操作和Async/" itemprop="url">异步操作和Async函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T09:30:37+08:00">
-                2018-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Async函数"><a href="#Async函数" class="headerlink" title="Async函数"></a>Async函数</h1><p><code>async</code>函数返回一个<code>Promise</code>对象,可以使用<code>then</code>方法添加回调函数。当函数执行的时候,一旦遇到<code>await</code>就会先返回,等到触发的异步操作完成,再接着执行函数体内后面的语句。</p>
-<h2 id="语法规则"><a href="#语法规则" class="headerlink" title="语法规则"></a>语法规则</h2><ul>
-<li><p><code>async</code>函数返回的是一个<code>Promise</code>对象</p>
-</li>
-<li><p><code>async</code>函数返回的<code>Promise</code>对象，必须等到内部所有<code>await</code>命令的<code>Promise</code>对象执行完，才发生状态的改变。即，只有<code>async</code>函数内部的异步操作执行完，才会调用<code>then</code>方法指定的回调函数。</p>
-</li>
-<li><p>正常情况下，<code>await</code>命令后面是一个<code>Promise</code>对象。如果不是，会被转成一个立即<code>resolve</code>的<code>Promise</code>对象。</p>
-</li>
-<li><p><code>await</code>命令后面的<code>Promise</code>对象如果变为<code>reject</code>状态,则<code>reject</code>的参数会被<code>catch</code>方法的回调函数接收到。</p>
-</li>
-<li><p>只要一个<code>await</code>语句后面的<code>Promise</code>变为<code>reject</code>,那么整个<code>async</code>函数都会中断执行。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="built_in">Promise</span>.reject(<span class="string">' 出错了 '</span>);</span><br><span class="line">    <span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(<span class="string">'hello world'</span>); <span class="comment">// 不会执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>解决方法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">await</span> <span class="built_in">Promise</span>.reject(<span class="string">'出错了'</span>)</span><br><span class="line">    &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">await</span> <span class="built_in">Promise</span>.resolve(<span class="string">'haha'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f().then(<span class="function"><span class="params">v</span> =&gt;</span> <span class="built_in">console</span>.log(v))   <span class="comment">// haha</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>如果<code>await</code>后面的异步操作出错,那么等同于<code>async</code>函数返回的 <code>Promise</code>对象被<code>reject</code></li>
-</ul>
-<h2 id="注意点："><a href="#注意点：" class="headerlink" title="注意点："></a>注意点：</h2><ul>
-<li><p><code>await</code>命令后面的<code>Promise</code>对象,运行结果可能是<code>rejected</code>,所以最好把<code>await</code>命令放在<code>try...catch</code>代码块中</p>
-</li>
-<li><p>多个<code>await</code>命令后面的异步操作,如果不存在继发关系,最好让它们同时触发。</p>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> foo = <span class="keyword">await</span> getFoo();</span><br><span class="line"><span class="keyword">let</span> bar = <span class="keyword">await</span> getBar();</span><br></pre></td></tr></table></figure>
-<p>写成<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 写法一</span></span><br><span class="line"><span class="keyword">let</span> [foo, bar] = <span class="keyword">await</span> <span class="built_in">Promise</span>.all([getFoo(), getBar()]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写法二</span></span><br><span class="line"><span class="keyword">let</span> fooPromise = getFoo();</span><br><span class="line"><span class="keyword">let</span> barPromise = getBar();</span><br><span class="line"><span class="keyword">let</span> foo = <span class="keyword">await</span> fooPromise;</span><br><span class="line"><span class="keyword">let</span> bar = <span class="keyword">await</span> barPromise;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1668,7 +1653,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
