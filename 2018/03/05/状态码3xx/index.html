@@ -87,7 +87,7 @@
 <meta property="og:description" content="状态码3xx重定向理解例子：假设要访问一个 url ，该 url 没有尾部斜杠，认为请求的是文件  若文件存在，发送文件 若文件不存在，判断同名的目录是否存在 。 若存在，返回301，并在原来的 url 上添加 ‘/’ 作为要跳转到的 location 若不存在，返回404    1234res.wirteHead(301, &amp;#123;    &apos;Location&apos;: location  // u">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/1520228343406.png">
-<meta property="og:updated_time" content="2018-03-05T05:39:11.595Z">
+<meta property="og:updated_time" content="2018-03-05T05:44:29.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="状态码3xx">
 <meta name="twitter:description" content="状态码3xx重定向理解例子：假设要访问一个 url ，该 url 没有尾部斜杠，认为请求的是文件  若文件存在，发送文件 若文件不存在，判断同名的目录是否存在 。 若存在，返回301，并在原来的 url 上添加 ‘/’ 作为要跳转到的 location 若不存在，返回404    1234res.wirteHead(301, &amp;#123;    &apos;Location&apos;: location  // u">
@@ -313,6 +313,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">res.wirteHead(<span class="number">301</span>, &#123;</span><br><span class="line">    <span class="string">'Location'</span>: location  <span class="comment">// url + '/'</span></span><br><span class="line">    ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>浏览器收到301响应时，会根据头部指定的 location 字段值，向服务器发一个新请求。</p>
 <p>例子：访问<code>localhost:9527/testfolder</code><br><img src="/images/1520228343406.png" alt="image"></p>
+<p>参考资料：<br><a href="https://github.com/sheila1227/FE-blog/issues/1" target="_blank" rel="noopener">使用node搭建静态资源服务器</a></p>
 
       
     </div>
