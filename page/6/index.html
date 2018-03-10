@@ -229,131 +229,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/闭包（一）/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/12/02/闭包（一）/" itemprop="url">闭包（一）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T18:11:28+08:00">
-                2017-12-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var outerValue = &apos;nnja&apos;;</span><br><span class="line">    var later;</span><br><span class="line"></span><br><span class="line">    function outerFunction() &#123;</span><br><span class="line">        var innerValue = &apos;samuai&apos;;</span><br><span class="line"></span><br><span class="line">        function innerFunction(paramValue) &#123;</span><br><span class="line">            console.log(&apos;outerValue: &apos; + outerValue);   // nnja</span><br><span class="line">            console.log(&apos;innerValue: &apos; + innerValue);   // samuai</span><br><span class="line">            console.log(&apos;paramValue: &apos; + paramValue);   // wakizashi</span><br><span class="line">            console.log(&apos;toolLate: &apos; + toolLate);       // ronin</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        later = innerFunction;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&apos;outer toolLate: &apos; + toolLate);     //undefined</span><br><span class="line"></span><br><span class="line">	outerFunction();</span><br><span class="line">    var toolLate = &apos;ronin&apos;;</span><br><span class="line">    later(&apos;wakizashi&apos;);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>内部函数的参数是包含在闭包内的。</li>
-<li>作用域之外的所有变量，即使是函数声明之后的那些变量，也包含在闭包中。（变量的声明是在调用闭包之前）</li>
-<li>相同的作用域内，尚未声明的变量不能提前引用。</li>
-</ul>
-<h3 id="利用闭包实现函数curry化："><a href="#利用闭包实现函数curry化：" class="headerlink" title="利用闭包实现函数curry化："></a>利用闭包实现函数curry化：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">Function.prototype.partial = function () &#123;</span><br><span class="line">    var fn = this,</span><br><span class="line">        args = Array.prototype.slice.call(arguments);</span><br><span class="line">    console.log(arguments)  // undefind,10</span><br><span class="line">    console.log(this)   // setTimeout</span><br><span class="line">    return function () &#123;</span><br><span class="line">        var arg = 0;</span><br><span class="line">        console.log(arguments)  // f, 就是delay()里面的function</span><br><span class="line">        for (var i = 0; i &lt; args.length &amp;&amp; arg &lt; arguments.length; i++) &#123;</span><br><span class="line">            if (args[i] === undefined) &#123;</span><br><span class="line">                args[i] = arguments[arg++];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(this)   // window，因为delay是一个全局函数</span><br><span class="line">        return fn.apply(this, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//　可以把undefined理解为一个占位的，把消灭delay中的参数取代undefined</span><br><span class="line">var delay = setTimeout.partial(undefined, 10);</span><br><span class="line">delay(function () &#123;</span><br><span class="line">    console.log(&apos;10ms&apos;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/02/js函数重载/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1265,7 +1140,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

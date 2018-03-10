@@ -229,286 +229,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(五)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(五)/" itemprop="url">《图解HTTP》(五)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
-                2018-03-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="与HTTP协作的Web服务器"><a href="#与HTTP协作的Web服务器" class="headerlink" title="与HTTP协作的Web服务器"></a>与HTTP协作的Web服务器</h1><h2 id="单台虚拟主机实现多个域名"><a href="#单台虚拟主机实现多个域名" class="headerlink" title="单台虚拟主机实现多个域名"></a>单台虚拟主机实现多个域名</h2><h2 id="通信数据转发程序"><a href="#通信数据转发程序" class="headerlink" title="通信数据转发程序"></a>通信数据转发程序</h2><h3 id="代理："><a href="#代理：" class="headerlink" title="代理："></a>代理：</h3><ul>
-<li><p>代理服务器转发请求或响应时，可以追加写入<code>Via</code>首部字段，<code>Via</code>首部字段可以标记出经过的主机信息。</p>
-</li>
-<li><p>作用：</p>
-<ul>
-<li>利用缓存技术减少带宽</li>
-<li>组织内部针对特定网站的访问控制</li>
-<li>以获取访问日志为主要目的</li>
-</ul>
-</li>
-<li><p>分类：</p>
-<ul>
-<li>是否使用缓存</li>
-<li>是否会修改报文</li>
-<li>缓存代理：转发响应时，把资源缓存在代理服务器上，再次请求相同资源时直接把缓存返回</li>
-<li>透明代理：不对报文进行任何加工</li>
-</ul>
-</li>
-</ul>
-<h3 id="网关："><a href="#网关：" class="headerlink" title="网关："></a>网关：</h3><p>作用：</p>
-<ul>
-<li>能使通信线路上的服务器提供非HTTP协议服务</li>
-<li>能提高通信安全性，可以在客户端与网关之间的通信线路上加密</li>
-</ul>
-<h3 id="隧道："><a href="#隧道：" class="headerlink" title="隧道："></a>隧道：</h3><p>作用：<br>和远距离的服务器安全通信。</p>
-<h2 id="保存资源的缓存"><a href="#保存资源的缓存" class="headerlink" title="保存资源的缓存"></a>保存资源的缓存</h2><blockquote>
-<p>缓存是指代理服务器或客户端本地磁盘内保存的资源副本。利用缓存可减少对源服务器的访问,因此也就节省了通信流量和通信时间。</p>
-<p>缓存服务器是代理服务器的一种,并归类在缓存代理类型中。换句话说,当代理转发从服务器返回的响应时,代理服务器将会保存一份资源的副本。    </p>
-</blockquote>
-<h3 id="缓存资源的有效期限"><a href="#缓存资源的有效期限" class="headerlink" title="缓存资源的有效期限"></a>缓存资源的有效期限</h3><p>即使存在缓存，也会因为客户端的要求、缓存的有效期等因素，向源服务器确认资源的有效性。若判断缓存失效，缓存服务器将会再次从源服务器上获取“新”资源。</p>
-<h3 id="客户端的缓存"><a href="#客户端的缓存" class="headerlink" title="客户端的缓存"></a>客户端的缓存</h3><p>缓存不仅可以存在于缓存服务器内，还可以存在客户端浏览器内。和缓存服务器相同的一点是,当判定缓存过期后,会向源服务器确认资源的有效性。若判断浏览器缓存失效,浏览器会再次请求新资源。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(四)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(四)/" itemprop="url">《图解HTTP》(四)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
-                2018-03-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="3xx状态码"><a href="#3xx状态码" class="headerlink" title="3xx状态码"></a>3xx状态码</h1><p>例子：假设要方位一个 url, 该 url 没有尾部斜杠，认为请求的是文件</p>
-<ul>
-<li>如果文件存在，发送文件</li>
-<li>如果文件不存在，判断同名的目录是否存在<ul>
-<li>若存在，返回301，并在原来 url 添加上 “/“ 作为要跳转到的 location</li>
-<li>若不存在目录，返回404</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location = url + <span class="string">'/'</span></span><br><span class="line">request.writeHead(<span class="number">301</span>, &#123;</span><br><span class="line">    <span class="string">'Location'</span>: location</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p>浏览器收到301响应时，会根据头部指定的 location 字段值，向服务器发一个新请求。        </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(七)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -540,7 +260,183 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T19:08:18+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Web-攻击"><a href="#Web-攻击" class="headerlink" title="Web 攻击"></a>Web 攻击</h1><h2 id="转义不完全"><a href="#转义不完全" class="headerlink" title="转义不完全"></a>转义不完全</h2><h3 id="跨站脚本攻击（XSS）"><a href="#跨站脚本攻击（XSS）" class="headerlink" title="跨站脚本攻击（XSS）"></a>跨站脚本攻击（XSS）</h3><p>在浏览器内运行非法的 <code>HTML</code> 标签和 <code>JS</code></p>
+<p>原因：动态创建 <code>HTML</code></p>
+<h3 id="SQL-注入攻击"><a href="#SQL-注入攻击" class="headerlink" title="SQL 注入攻击"></a>SQL 注入攻击</h3><p>将 <code>SQL</code> 语句改成开发者意想不到的形式</p>
+<p>例子：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> bookTb1 <span class="keyword">where</span> author = <span class="string">'$q'</span> <span class="keyword">and</span> flag = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> bookTb1 <span class="keyword">where</span> author = <span class="string">'上野'</span><span class="comment">--‘and flag = 1</span></span><br></pre></td></tr></table></figure></p>
+<p>输入<code>’上野‘--</code>导致<code>and</code>后面被当成注释省略。</p>
+<h3 id="OS-注入攻击"><a href="#OS-注入攻击" class="headerlink" title="OS 注入攻击"></a>OS 注入攻击</h3><ul>
+<li>向 <code>shell</code> 发送命令，让命令行启动程序</li>
+<li>调用 <code>shell</code> 函数的地方就有被攻击的风险， web 应用中可以通过 <code>shell</code> 来调用操作系统命令，存在疏忽时会执行插入的非法<code>OS</code>命令。</li>
+</ul>
+<h3 id="HTTP-首部注入攻击"><a href="#HTTP-首部注入攻击" class="headerlink" title="HTTP 首部注入攻击"></a>HTTP 首部注入攻击</h3><ul>
+<li>指攻击者通过在响应首部字段中插入换行，添加任意响应首部或主体的一种攻击。</li>
+<li>向首部主体内添加内容的统计成为 HTTP响应截断攻击。</li>
+</ul>
+<p>例子：</p>
+<p>将一个 <code>ID</code> 值反映在响应内的 <code>Location</code> 首部字段内实现重定向。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Location: http://example.com/?cat=101</span><br><span class="line">101 替换成 101%OD%OASet-Cookie: +SID=12345</span><br><span class="line">Location: http://example.com/?cat=101(换行符%OD%OA)</span><br><span class="line">Set-Cookie: +SID=12345</span><br></pre></td></tr></table></figure></p>
+<p>攻击者修改了 <code>cookie</code> 的信息。</p>
+<p>响应截断攻击例子：</p>
+<p>使用两个<code>%OD%OA</code>做出<code>HTTP</code>首部与主体分割所需的空行，会使伪造的主体返回一个伪造的页面，再让用户输入个人信息，达到和跨站脚本攻击相同的效果。</p>
+<h3 id="邮件首部注入攻击"><a href="#邮件首部注入攻击" class="headerlink" title="邮件首部注入攻击"></a>邮件首部注入攻击</h3><p>相邮件首部 <code>To</code> 或 <code>Subject</code> 内添加非法内容。</p>
+<p>例子：</p>
+<ol>
+<li>改写 <code>To</code> 和 <code>Subject</code> 等邮件首部<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bob@hackr.jp%OD%OABcc: user@example.com</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>向Bcc邮箱地址追加发送了邮件。</p>
+<ol>
+<li>篡改邮件文本，向文本添加附件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bob@hackr.jp%OD%OA%OD%OA Test Message</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="目录遍历攻击"><a href="#目录遍历攻击" class="headerlink" title="目录遍历攻击"></a>目录遍历攻击</h3><p>使用”../“相对路径定位到本不该被访问到的服务器上的路径</p>
+<p>解决：</p>
+<ol>
+<li>转义</li>
+<li>关闭指定对任意文件名的访问权限。</li>
+</ol>
+<h2 id="因设置或设计上的缺陷引发的安全漏洞"><a href="#因设置或设计上的缺陷引发的安全漏洞" class="headerlink" title="因设置或设计上的缺陷引发的安全漏洞"></a>因设置或设计上的缺陷引发的安全漏洞</h2><h3 id="强制浏览"><a href="#强制浏览" class="headerlink" title="强制浏览"></a>强制浏览</h3><p>例子：虽然没哟权限访问某一页面，却可以直接通过输入一个 <code>url</code> 访问页面中的某一图片</p>
+<h3 id="不正确的错误消息处理"><a href="#不正确的错误消息处理" class="headerlink" title="不正确的错误消息处理"></a>不正确的错误消息处理</h3><p>web应用的错误消息内包含对攻击者有用的消息</p>
+<p>例子：登录时提供“账号未注册”，这也能为攻击者提供有用信息。</p>
+<h3 id="开发重定向"><a href="#开发重定向" class="headerlink" title="开发重定向"></a>开发重定向</h3><p>是一种对指定的任意 <code>URL</code> 作重定向跳转的功能。</p>
+<p>例子：指定的重定向 <code>URL</code> 到某个恶意的 web 网站</p>
+<h2 id="因会话管理疏忽引发的安全漏洞"><a href="#因会话管理疏忽引发的安全漏洞" class="headerlink" title="因会话管理疏忽引发的安全漏洞"></a>因会话管理疏忽引发的安全漏洞</h2><p>会话管理：管理用户状态的必备功能。</p>
+<p>在会话管理上有所疏忽会导致用户的认证状态被盗取等</p>
+<h3 id="会话挟持"><a href="#会话挟持" class="headerlink" title="会话挟持"></a>会话挟持</h3><p>攻击者拿到用户会话ID伪装成用户<br>攻击者获得会话ID的途径</p>
+<ul>
+<li>推测会话ID</li>
+<li>使用窃听或XSS</li>
+<li>使用会话固定攻击</li>
+</ul>
+<h3 id="会话固定攻击"><a href="#会话固定攻击" class="headerlink" title="会话固定攻击"></a>会话固定攻击</h3><p><img src="/images/1520666308048.png" alt="image"></p>
+<h3 id="跨站点请求伪造"><a href="#跨站点请求伪造" class="headerlink" title="跨站点请求伪造"></a>跨站点请求伪造</h3><p><img src="/images/1520666394263.png" alt="image"></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="点击劫持"><a href="#点击劫持" class="headerlink" title="点击劫持"></a>点击劫持</h3><p>加透明按钮做成陷阱覆盖在web上</p>
+<h3 id="DoS攻击"><a href="#DoS攻击" class="headerlink" title="DoS攻击"></a>DoS攻击</h3><p>让运行中的服务呈停止状态</p>
+<ul>
+<li>海量请求</li>
+<li>攻击安全漏洞是服务停止</li>
+</ul>
+<h3 id="后门程序"><a href="#后门程序" class="headerlink" title="后门程序"></a>后门程序</h3><p>开发设置的隐藏入口，可不按正常步骤使用受限功能</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(六)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(六)/" itemprop="url">《图解HTTP》(六)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T16:08:18+08:00">
                 2018-03-10
               </time>
             
@@ -724,7 +620,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(一)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(五)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LENZAKON">
@@ -743,7 +639,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(一)/" itemprop="url">《图解HTTP》(一)</a></h1>
+                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(五)/" itemprop="url">《图解HTTP》(五)</a></h1>
         
 
         <div class="post-meta">
@@ -755,469 +651,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
-                2018-03-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="TCP-IP-协议族"><a href="#TCP-IP-协议族" class="headerlink" title="TCP/IP 协议族"></a>TCP/IP 协议族</h1><p><img src="/images/1520647771114.png" alt="image"></p>
-<h2 id="与HTTP协议密切相关的"><a href="#与HTTP协议密切相关的" class="headerlink" title="与HTTP协议密切相关的"></a>与HTTP协议密切相关的</h2><ul>
-<li><p>IP协议（网络层）负责传输</p>
-<p>  使用ARP协议，实现通过IP地址查找MAC地址</p>
-</li>
-<li><p>TCP协议（传输层）负责可靠性</p>
-<p>  将大数据分割，通过三次握手确保成功送达，握手的过程使用了TCP的标志 ——— SYN，ACK</p>
-<p>  握手过程：<br>  <img src="/images/1520648427858.png" alt="image"></p>
-</li>
-<li><p>DNS服务（应用层）负责域名解析</p>
-<p>  把域名转成IP地址</p>
-</li>
-</ul>
-<h2 id="各协议与HTTP协议的关系"><a href="#各协议与HTTP协议的关系" class="headerlink" title="各协议与HTTP协议的关系"></a>各协议与HTTP协议的关系</h2><p><img src="/images/1520648598468.png" alt="image"></p>
-<h2 id="URL-和-URI"><a href="#URL-和-URI" class="headerlink" title="URL 和 URI"></a>URL 和 URI</h2><p>URI：由某个协议方案表示的资源的定位标识符</p>
-<p>URI用字符串标识某一互联网资源，URL标识资源的地址（互联网上所处的位置）URL 是 URI 的子集</p>
-<p>URI格式：<br><img src="/images/1520649180281.png" alt="image"></p>
-<p>登录信息：指定用户名和密码，作为从服务端获取资源时必要的登录信息（可选）</p>
-<p>服务器地址：域名，IPV4，IPV6</p>
-<p>查询字符串：针对文件路径内的资源传入任意参数（可选）</p>
-<p>片段标识符：标识以获取资源中的子资源（文档中的某个位置）</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(二)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(二)/" itemprop="url">《图解HTTP》(二)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
-                2018-03-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><h2 id="请求-响应报文"><a href="#请求-响应报文" class="headerlink" title="请求/响应报文"></a>请求/响应报文</h2><h3 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h3><p><img src="/images/1520649781882.png" alt="image"></p>
-<h3 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h3><p><img src="/images/1520649817709.png" alt="image"></p>
-<h2 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h2><ul>
-<li>完整URI</li>
-<li>在首部Host写明域名或IP地址</li>
-<li>* 不是访问特定资源，而是对服务器本身发请求</li>
-</ul>
-<h2 id="不保存状态（无状态，cookie-实现保存状态）"><a href="#不保存状态（无状态，cookie-实现保存状态）" class="headerlink" title="不保存状态（无状态，cookie 实现保存状态）"></a>不保存状态（无状态，cookie 实现保存状态）</h2><h2 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h2><ul>
-<li><p>GET：获取资源</p>
-</li>
-<li><p>POST：传输实体的主体</p>
-</li>
-<li><p>PUT：传输文件</p>
-</li>
-<li><p>HEAD：获得报文首部，不返回报文主体部分，用于确认 URI 的有效性和资源更新的日期时间</p>
-</li>
-<li><p>DELETE：删除文件</p>
-</li>
-<li><p>OPTIONS：询问请求 URI 指定的资源支持的方法</p>
-</li>
-<li><p>TRACE：追踪路径，让web服务端将之前的通信环回给客户端（引发XST攻击）从代理服务器罗中转时，请求可能被篡改。<br><img src="/images/1520650427605.png" alt="image"></p>
-</li>
-<li><p>CONNECT：要求用隧道协议连接代理。与代理服务器通信建立隧道，用隧道协议进行TCP通信（使用SSL和 TLS把通信内容加密后在网络隧道传输）</p>
-</li>
-</ul>
-<h2 id="持久连接"><a href="#持久连接" class="headerlink" title="持久连接"></a>持久连接</h2><p>概念：只要任意一端没有明确提出断开连接，则保持TCP连接状态</p>
-<p>管线化：同时并发发送多个请求</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(八)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(八)/" itemprop="url">《图解HTTP》(八)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
-                2018-03-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Web-攻击"><a href="#Web-攻击" class="headerlink" title="Web 攻击"></a>Web 攻击</h1><h2 id="转义不完全"><a href="#转义不完全" class="headerlink" title="转义不完全"></a>转义不完全</h2><h3 id="跨站脚本攻击（XSS）"><a href="#跨站脚本攻击（XSS）" class="headerlink" title="跨站脚本攻击（XSS）"></a>跨站脚本攻击（XSS）</h3><p>在浏览器内运行非法的 <code>HTML</code> 标签和 <code>JS</code></p>
-<p>原因：动态创建 <code>HTML</code></p>
-<h3 id="SQL-注入攻击"><a href="#SQL-注入攻击" class="headerlink" title="SQL 注入攻击"></a>SQL 注入攻击</h3><p>将 <code>SQL</code> 语句改成开发者意想不到的形式</p>
-<p>例子：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> bookTb1 <span class="keyword">where</span> author = <span class="string">'$q'</span> <span class="keyword">and</span> flag = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> bookTb1 <span class="keyword">where</span> author = <span class="string">'上野'</span><span class="comment">--‘and flag = 1</span></span><br></pre></td></tr></table></figure></p>
-<p>输入<code>’上野‘--</code>导致<code>and</code>后面被当成注释省略。</p>
-<h3 id="OS-注入攻击"><a href="#OS-注入攻击" class="headerlink" title="OS 注入攻击"></a>OS 注入攻击</h3><ul>
-<li>向 <code>shell</code> 发送命令，让命令行启动程序</li>
-<li>调用 <code>shell</code> 函数的地方就有被攻击的风险， web 应用中可以通过 <code>shell</code> 来调用操作系统命令，存在疏忽时会执行插入的非法<code>OS</code>命令。</li>
-</ul>
-<h3 id="HTTP-首部注入攻击"><a href="#HTTP-首部注入攻击" class="headerlink" title="HTTP 首部注入攻击"></a>HTTP 首部注入攻击</h3><ul>
-<li>指攻击者通过在响应首部字段中插入换行，添加任意响应首部或主体的一种攻击。</li>
-<li>向首部主体内添加内容的统计成为 HTTP响应截断攻击。</li>
-</ul>
-<p>例子：</p>
-<p>将一个 <code>ID</code> 值反映在响应内的 <code>Location</code> 首部字段内实现重定向。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Location: http://example.com/?cat=101</span><br><span class="line">101 替换成 101%OD%OASet-Cookie: +SID=12345</span><br><span class="line">Location: http://example.com/?cat=101(换行符%OD%OA)</span><br><span class="line">Set-Cookie: +SID=12345</span><br></pre></td></tr></table></figure></p>
-<p>攻击者修改了 <code>cookie</code> 的信息。</p>
-<p>响应截断攻击例子：</p>
-<p>使用两个<code>%OD%OA</code>做出<code>HTTP</code>首部与主体分割所需的空行，会使伪造的主体返回一个伪造的页面，再让用户输入个人信息，达到和跨站脚本攻击相同的效果。</p>
-<h3 id="邮件首部注入攻击"><a href="#邮件首部注入攻击" class="headerlink" title="邮件首部注入攻击"></a>邮件首部注入攻击</h3><p>相邮件首部 <code>To</code> 或 <code>Subject</code> 内添加非法内容。</p>
-<p>例子：</p>
-<ol>
-<li>改写 <code>To</code> 和 <code>Subject</code> 等邮件首部<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bob@hackr.jp%OD%OABcc: user@example.com</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>向Bcc邮箱地址追加发送了邮件。</p>
-<ol>
-<li>篡改邮件文本，向文本添加附件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bob@hackr.jp%OD%OA%OD%OA Test Message</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="目录遍历攻击"><a href="#目录遍历攻击" class="headerlink" title="目录遍历攻击"></a>目录遍历攻击</h3><p>使用”../“相对路径定位到本不该被访问到的服务器上的路径</p>
-<p>解决：</p>
-<ol>
-<li>转义</li>
-<li>关闭指定对任意文件名的访问权限。</li>
-</ol>
-<h2 id="因设置或设计上的缺陷引发的安全漏洞"><a href="#因设置或设计上的缺陷引发的安全漏洞" class="headerlink" title="因设置或设计上的缺陷引发的安全漏洞"></a>因设置或设计上的缺陷引发的安全漏洞</h2><h3 id="强制浏览"><a href="#强制浏览" class="headerlink" title="强制浏览"></a>强制浏览</h3><p>例子：虽然没哟权限访问某一页面，却可以直接通过输入一个 <code>url</code> 访问页面中的某一图片</p>
-<h3 id="不正确的错误消息处理"><a href="#不正确的错误消息处理" class="headerlink" title="不正确的错误消息处理"></a>不正确的错误消息处理</h3><p>web应用的错误消息内包含对攻击者有用的消息</p>
-<p>例子：登录时提供“账号未注册”，这也能为攻击者提供有用信息。</p>
-<h3 id="开发重定向"><a href="#开发重定向" class="headerlink" title="开发重定向"></a>开发重定向</h3><p>是一种对指定的任意 <code>URL</code> 作重定向跳转的功能。</p>
-<p>例子：指定的重定向 <code>URL</code> 到某个恶意的 web 网站</p>
-<h2 id="因会话管理疏忽引发的安全漏洞"><a href="#因会话管理疏忽引发的安全漏洞" class="headerlink" title="因会话管理疏忽引发的安全漏洞"></a>因会话管理疏忽引发的安全漏洞</h2><p>会话管理：管理用户状态的必备功能。</p>
-<p>在会话管理上有所疏忽会导致用户的认证状态被盗取等</p>
-<h3 id="会话挟持"><a href="#会话挟持" class="headerlink" title="会话挟持"></a>会话挟持</h3><p>攻击者拿到用户会话ID伪装成用户<br>攻击者获得会话ID的途径</p>
-<ul>
-<li>推测会话ID</li>
-<li>使用窃听或XSS</li>
-<li>使用会话固定攻击</li>
-</ul>
-<h3 id="会话固定攻击"><a href="#会话固定攻击" class="headerlink" title="会话固定攻击"></a>会话固定攻击</h3><p><img src="/images/1520666308048.png" alt="image"></p>
-<h3 id="跨站点请求伪造"><a href="#跨站点请求伪造" class="headerlink" title="跨站点请求伪造"></a>跨站点请求伪造</h3><p><img src="/images/1520666394263.png" alt="image"></p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="点击劫持"><a href="#点击劫持" class="headerlink" title="点击劫持"></a>点击劫持</h3><p>加透明按钮做成陷阱覆盖在web上</p>
-<h3 id="DoS攻击"><a href="#DoS攻击" class="headerlink" title="DoS攻击"></a>DoS攻击</h3><p>让运行中的服务呈停止状态</p>
-<ul>
-<li>海量请求</li>
-<li>攻击安全漏洞是服务停止</li>
-</ul>
-<h3 id="后门程序"><a href="#后门程序" class="headerlink" title="后门程序"></a>后门程序</h3><p>开发设置的隐藏入口，可不按正常步骤使用受限功能</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(六)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(六)/" itemprop="url">《图解HTTP》(六)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T15:08:18+08:00">
                 2018-03-10
               </time>
             
@@ -1345,6 +779,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(四)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(四)/" itemprop="url">《图解HTTP》(四)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T14:08:18+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="与HTTP协作的Web服务器"><a href="#与HTTP协作的Web服务器" class="headerlink" title="与HTTP协作的Web服务器"></a>与HTTP协作的Web服务器</h1><h2 id="单台虚拟主机实现多个域名"><a href="#单台虚拟主机实现多个域名" class="headerlink" title="单台虚拟主机实现多个域名"></a>单台虚拟主机实现多个域名</h2><h2 id="通信数据转发程序"><a href="#通信数据转发程序" class="headerlink" title="通信数据转发程序"></a>通信数据转发程序</h2><h3 id="代理："><a href="#代理：" class="headerlink" title="代理："></a>代理：</h3><ul>
+<li><p>代理服务器转发请求或响应时，可以追加写入<code>Via</code>首部字段，<code>Via</code>首部字段可以标记出经过的主机信息。</p>
+</li>
+<li><p>作用：</p>
+<ul>
+<li>利用缓存技术减少带宽</li>
+<li>组织内部针对特定网站的访问控制</li>
+<li>以获取访问日志为主要目的</li>
+</ul>
+</li>
+<li><p>分类：</p>
+<ul>
+<li>是否使用缓存</li>
+<li>是否会修改报文</li>
+<li>缓存代理：转发响应时，把资源缓存在代理服务器上，再次请求相同资源时直接把缓存返回</li>
+<li>透明代理：不对报文进行任何加工</li>
+</ul>
+</li>
+</ul>
+<h3 id="网关："><a href="#网关：" class="headerlink" title="网关："></a>网关：</h3><p>作用：</p>
+<ul>
+<li>能使通信线路上的服务器提供非HTTP协议服务</li>
+<li>能提高通信安全性，可以在客户端与网关之间的通信线路上加密</li>
+</ul>
+<h3 id="隧道："><a href="#隧道：" class="headerlink" title="隧道："></a>隧道：</h3><p>作用：<br>和远距离的服务器安全通信。</p>
+<h2 id="保存资源的缓存"><a href="#保存资源的缓存" class="headerlink" title="保存资源的缓存"></a>保存资源的缓存</h2><blockquote>
+<p>缓存是指代理服务器或客户端本地磁盘内保存的资源副本。利用缓存可减少对源服务器的访问,因此也就节省了通信流量和通信时间。</p>
+<p>缓存服务器是代理服务器的一种,并归类在缓存代理类型中。换句话说,当代理转发从服务器返回的响应时,代理服务器将会保存一份资源的副本。    </p>
+</blockquote>
+<h3 id="缓存资源的有效期限"><a href="#缓存资源的有效期限" class="headerlink" title="缓存资源的有效期限"></a>缓存资源的有效期限</h3><p>即使存在缓存，也会因为客户端的要求、缓存的有效期等因素，向源服务器确认资源的有效性。若判断缓存失效，缓存服务器将会再次从源服务器上获取“新”资源。</p>
+<h3 id="客户端的缓存"><a href="#客户端的缓存" class="headerlink" title="客户端的缓存"></a>客户端的缓存</h3><p>缓存不仅可以存在于缓存服务器内，还可以存在客户端浏览器内。和缓存服务器相同的一点是,当判定缓存过期后,会向源服务器确认资源的有效性。若判断浏览器缓存失效,浏览器会再次请求新资源。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(三)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1376,7 +960,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T13:08:18+08:00">
                 2018-03-10
               </time>
             
@@ -1477,6 +1061,292 @@
 </ul>
 </li>
 </ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(二)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(二)/" itemprop="url">《图解HTTP》(二)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T12:08:18+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><h2 id="请求-响应报文"><a href="#请求-响应报文" class="headerlink" title="请求/响应报文"></a>请求/响应报文</h2><h3 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h3><p><img src="/images/1520649781882.png" alt="image"></p>
+<h3 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h3><p><img src="/images/1520649817709.png" alt="image"></p>
+<h2 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h2><ul>
+<li>完整URI</li>
+<li>在首部Host写明域名或IP地址</li>
+<li>* 不是访问特定资源，而是对服务器本身发请求</li>
+</ul>
+<h2 id="不保存状态（无状态，cookie-实现保存状态）"><a href="#不保存状态（无状态，cookie-实现保存状态）" class="headerlink" title="不保存状态（无状态，cookie 实现保存状态）"></a>不保存状态（无状态，cookie 实现保存状态）</h2><h2 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h2><ul>
+<li><p>GET：获取资源</p>
+</li>
+<li><p>POST：传输实体的主体</p>
+</li>
+<li><p>PUT：传输文件</p>
+</li>
+<li><p>HEAD：获得报文首部，不返回报文主体部分，用于确认 URI 的有效性和资源更新的日期时间</p>
+</li>
+<li><p>DELETE：删除文件</p>
+</li>
+<li><p>OPTIONS：询问请求 URI 指定的资源支持的方法</p>
+</li>
+<li><p>TRACE：追踪路径，让web服务端将之前的通信环回给客户端（引发XST攻击）从代理服务器罗中转时，请求可能被篡改。<br><img src="/images/1520650427605.png" alt="image"></p>
+</li>
+<li><p>CONNECT：要求用隧道协议连接代理。与代理服务器通信建立隧道，用隧道协议进行TCP通信（使用SSL和 TLS把通信内容加密后在网络隧道传输）</p>
+</li>
+</ul>
+<h2 id="持久连接"><a href="#持久连接" class="headerlink" title="持久连接"></a>持久连接</h2><p>概念：只要任意一端没有明确提出断开连接，则保持TCP连接状态</p>
+<p>管线化：同时并发发送多个请求</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(一)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(一)/" itemprop="url">《图解HTTP》(一)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="TCP-IP-协议族"><a href="#TCP-IP-协议族" class="headerlink" title="TCP/IP 协议族"></a>TCP/IP 协议族</h1><p><img src="/images/1520647771114.png" alt="image"></p>
+<h2 id="与HTTP协议密切相关的"><a href="#与HTTP协议密切相关的" class="headerlink" title="与HTTP协议密切相关的"></a>与HTTP协议密切相关的</h2><ul>
+<li><p>IP协议（网络层）负责传输</p>
+<p>  使用ARP协议，实现通过IP地址查找MAC地址</p>
+</li>
+<li><p>TCP协议（传输层）负责可靠性</p>
+<p>  将大数据分割，通过三次握手确保成功送达，握手的过程使用了TCP的标志 ——— SYN，ACK</p>
+<p>  握手过程：<br>  <img src="/images/1520648427858.png" alt="image"></p>
+</li>
+<li><p>DNS服务（应用层）负责域名解析</p>
+<p>  把域名转成IP地址</p>
+</li>
+</ul>
+<h2 id="各协议与HTTP协议的关系"><a href="#各协议与HTTP协议的关系" class="headerlink" title="各协议与HTTP协议的关系"></a>各协议与HTTP协议的关系</h2><p><img src="/images/1520648598468.png" alt="image"></p>
+<h2 id="URL-和-URI"><a href="#URL-和-URI" class="headerlink" title="URL 和 URI"></a>URL 和 URI</h2><p>URI：由某个协议方案表示的资源的定位标识符</p>
+<p>URI用字符串标识某一互联网资源，URL标识资源的地址（互联网上所处的位置）URL 是 URI 的子集</p>
+<p>URI格式：<br><img src="/images/1520649180281.png" alt="image"></p>
+<p>登录信息：指定用户名和密码，作为从服务端获取资源时必要的登录信息（可选）</p>
+<p>服务器地址：域名，IPV4，IPV6</p>
+<p>查询字符串：针对文件路径内的资源传入任意参数（可选）</p>
+<p>片段标识符：标识以获取资源中的子资源（文档中的某个位置）</p>
 
           
         
@@ -1774,6 +1644,152 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/26/浏览器模式和文档模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/26/浏览器模式和文档模式/" itemprop="url">浏览器模式和文档模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-26T19:45:22+08:00">
+                2018-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="浏览器模式和文档模式"><a href="#浏览器模式和文档模式" class="headerlink" title="浏览器模式和文档模式"></a>浏览器模式和文档模式</h1><h2 id="浏览器模式决定内容："><a href="#浏览器模式决定内容：" class="headerlink" title="浏览器模式决定内容："></a>浏览器模式决定内容：</h2><ul>
+<li><p>发送给服务端的 userAgent</p>
+</li>
+<li><p>默认的文档模式</p>
+</li>
+<li><p>如何解析条件注释</p>
+</li>
+<li><p>它在请求发送前就已经确定，且不受服务端控制</p>
+</li>
+</ul>
+<h2 id="文档模式决定内容"><a href="#文档模式决定内容" class="headerlink" title="文档模式决定内容:"></a>文档模式决定内容:</h2><ul>
+<li><p>排版引擎</p>
+</li>
+<li><p>JS引擎</p>
+</li>
+<li><p>在浏览器得到响应后最终决定，服务端可通过<code>doctype</code>或<code>X-UA-Compatible</code>决定</p>
+</li>
+</ul>
+<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=7"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/1517139153717.png" alt="image"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=7Esge"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/1517139197584.png" alt="image"></p>
+<p>在 IE8/9 中X-UA-Compatible对文本模式的改变会导致浏览器模式的改变，也就是说服务端可以间接控制浏览器模式。 </p>
+<p>在IE8中，JS获取的UA是浏览器模式初始状态。这样会导致用JS获取UA得到的浏览器版本，与实际渲染的浏览器版本不符，这会对基于UA的浏览器检测造成干扰。</p>
+<p>对于IE9，只有一点与IE8不同：JS获取到的是新文本模式对应的浏览器模式的UA。这会导致用JS获取UA得到的浏览器版本，与请求头发送给服务器UA里标识的浏览器版本不符，这可能对统计有影响。</p>
+<p>参考资料：</p>
+<p>(关于浏览器模式和文本模式的困惑)[<a href="https://imququ.com/post/browser-mode-and-document-mode-in-ie.html" target="_blank" rel="noopener">https://imququ.com/post/browser-mode-and-document-mode-in-ie.html</a>]</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
@@ -1824,7 +1840,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -79,22 +79,20 @@
 
 
 
-<meta name="description" content="HTTPSHTTP缺点：（未加密的协议也会存在） 通信时使用明文，内容可能会被窃听 不验证通信方的身份，所以可能遭遇伪装 无法证明报文的完整性，所有可能已遭篡改  缺点一： 原因：TCP/IP 是可能被窃听的网络（TCP/IP协议族的工作机制所致） 解决：加密处理防止被窃听  通信的加密：使用SSL或TLS形成安全的通信线路。 内容的加密： 对报文主体加密，报文首部不加密 客户端和服务器同时具备加">
+<meta name="description" content="Web 攻击转义不完全跨站脚本攻击（XSS）在浏览器内运行非法的 HTML 标签和 JS 原因：动态创建 HTML SQL 注入攻击将 SQL 语句改成开发者意想不到的形式 例子：123select * from bookTb1 where author = &apos;$q&apos; and flag = 1select * from bookTb1 where author = &apos;上野&apos;--‘and flag">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《图解HTTP》(七)">
 <meta property="og:url" content="http://yoursite.com/2018/03/10/《图解HTTP》(七)/index.html">
 <meta property="og:site_name" content="LENZAKON">
-<meta property="og:description" content="HTTPSHTTP缺点：（未加密的协议也会存在） 通信时使用明文，内容可能会被窃听 不验证通信方的身份，所以可能遭遇伪装 无法证明报文的完整性，所有可能已遭篡改  缺点一： 原因：TCP/IP 是可能被窃听的网络（TCP/IP协议族的工作机制所致） 解决：加密处理防止被窃听  通信的加密：使用SSL或TLS形成安全的通信线路。 内容的加密： 对报文主体加密，报文首部不加密 客户端和服务器同时具备加">
+<meta property="og:description" content="Web 攻击转义不完全跨站脚本攻击（XSS）在浏览器内运行非法的 HTML 标签和 JS 原因：动态创建 HTML SQL 注入攻击将 SQL 语句改成开发者意想不到的形式 例子：123select * from bookTb1 where author = &apos;$q&apos; and flag = 1select * from bookTb1 where author = &apos;上野&apos;--‘and flag">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/1520660482076.png">
-<meta property="og:image" content="http://yoursite.com/images/1520660537442.png">
-<meta property="og:image" content="http://yoursite.com/images/1520662036331.png">
-<meta property="og:image" content="http://yoursite.com/images/1520664253167.png">
-<meta property="og:updated_time" content="2018-03-10T06:44:23.897Z">
+<meta property="og:image" content="http://yoursite.com/images/1520666308048.png">
+<meta property="og:image" content="http://yoursite.com/images/1520666394263.png">
+<meta property="og:updated_time" content="2018-03-10T07:29:02.070Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《图解HTTP》(七)">
-<meta name="twitter:description" content="HTTPSHTTP缺点：（未加密的协议也会存在） 通信时使用明文，内容可能会被窃听 不验证通信方的身份，所以可能遭遇伪装 无法证明报文的完整性，所有可能已遭篡改  缺点一： 原因：TCP/IP 是可能被窃听的网络（TCP/IP协议族的工作机制所致） 解决：加密处理防止被窃听  通信的加密：使用SSL或TLS形成安全的通信线路。 内容的加密： 对报文主体加密，报文首部不加密 客户端和服务器同时具备加">
-<meta name="twitter:image" content="http://yoursite.com/images/1520660482076.png">
+<meta name="twitter:description" content="Web 攻击转义不完全跨站脚本攻击（XSS）在浏览器内运行非法的 HTML 标签和 JS 原因：动态创建 HTML SQL 注入攻击将 SQL 语句改成开发者意想不到的形式 例子：123select * from bookTb1 where author = &apos;$q&apos; and flag = 1select * from bookTb1 where author = &apos;上野&apos;--‘and flag">
+<meta name="twitter:image" content="http://yoursite.com/images/1520666308048.png">
 
 
 
@@ -266,7 +264,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T19:08:18+08:00">
                 2018-03-10
               </time>
             
@@ -304,102 +302,63 @@
       
 
       
-        <h1 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h1><h2 id="HTTP缺点：（未加密的协议也会存在）"><a href="#HTTP缺点：（未加密的协议也会存在）" class="headerlink" title="HTTP缺点：（未加密的协议也会存在）"></a>HTTP缺点：（未加密的协议也会存在）</h2><ul>
-<li>通信时使用明文，内容可能会被窃听</li>
-<li>不验证通信方的身份，所以可能遭遇伪装</li>
-<li>无法证明报文的完整性，所有可能已遭篡改</li>
+        <h1 id="Web-攻击"><a href="#Web-攻击" class="headerlink" title="Web 攻击"></a>Web 攻击</h1><h2 id="转义不完全"><a href="#转义不完全" class="headerlink" title="转义不完全"></a>转义不完全</h2><h3 id="跨站脚本攻击（XSS）"><a href="#跨站脚本攻击（XSS）" class="headerlink" title="跨站脚本攻击（XSS）"></a>跨站脚本攻击（XSS）</h3><p>在浏览器内运行非法的 <code>HTML</code> 标签和 <code>JS</code></p>
+<p>原因：动态创建 <code>HTML</code></p>
+<h3 id="SQL-注入攻击"><a href="#SQL-注入攻击" class="headerlink" title="SQL 注入攻击"></a>SQL 注入攻击</h3><p>将 <code>SQL</code> 语句改成开发者意想不到的形式</p>
+<p>例子：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> bookTb1 <span class="keyword">where</span> author = <span class="string">'$q'</span> <span class="keyword">and</span> flag = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> bookTb1 <span class="keyword">where</span> author = <span class="string">'上野'</span><span class="comment">--‘and flag = 1</span></span><br></pre></td></tr></table></figure></p>
+<p>输入<code>’上野‘--</code>导致<code>and</code>后面被当成注释省略。</p>
+<h3 id="OS-注入攻击"><a href="#OS-注入攻击" class="headerlink" title="OS 注入攻击"></a>OS 注入攻击</h3><ul>
+<li>向 <code>shell</code> 发送命令，让命令行启动程序</li>
+<li>调用 <code>shell</code> 函数的地方就有被攻击的风险， web 应用中可以通过 <code>shell</code> 来调用操作系统命令，存在疏忽时会执行插入的非法<code>OS</code>命令。</li>
 </ul>
-<p>缺点一：</p>
-<p>原因：TCP/IP 是可能被窃听的网络（TCP/IP协议族的工作机制所致）</p>
-<p>解决：加密处理防止被窃听</p>
-<ul>
-<li>通信的加密：使用<code>SSL</code>或<code>TLS</code>形成安全的通信线路。</li>
-<li>内容的加密：<ul>
-<li>对报文主体加密，报文首部不加密</li>
-<li>客户端和服务器同时具备加密和解密机制</li>
-<li>扔有被篡改的风险</li>
+<h3 id="HTTP-首部注入攻击"><a href="#HTTP-首部注入攻击" class="headerlink" title="HTTP 首部注入攻击"></a>HTTP 首部注入攻击</h3><ul>
+<li>指攻击者通过在响应首部字段中插入换行，添加任意响应首部或主体的一种攻击。</li>
+<li>向首部主体内添加内容的统计成为 HTTP响应截断攻击。</li>
 </ul>
-</li>
-</ul>
-<p>缺点二：</p>
-<p>原因：任何人都可发出请求</p>
-<pre><code>- 服务器是否为伪装的
-- 客户端是否为伪装的
-- 正在通信的对方是否有访问权限
-- 无法判断请求来自何方
-- 无意义的请求也会收下（海量请求下在DoS攻击）
-</code></pre><p>解决：查明对手证书</p>
-<p>SSL作用：</p>
+<p>例子：</p>
+<p>将一个 <code>ID</code> 值反映在响应内的 <code>Location</code> 首部字段内实现重定向。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Location: http://example.com/?cat=101</span><br><span class="line">101 替换成 101%OD%OASet-Cookie: +SID=12345</span><br><span class="line">Location: http://example.com/?cat=101(换行符%OD%OA)</span><br><span class="line">Set-Cookie: +SID=12345</span><br></pre></td></tr></table></figure></p>
+<p>攻击者修改了 <code>cookie</code> 的信息。</p>
+<p>响应截断攻击例子：</p>
+<p>使用两个<code>%OD%OA</code>做出<code>HTTP</code>首部与主体分割所需的空行，会使伪造的主体返回一个伪造的页面，再让用户输入个人信息，达到和跨站脚本攻击相同的效果。</p>
+<h3 id="邮件首部注入攻击"><a href="#邮件首部注入攻击" class="headerlink" title="邮件首部注入攻击"></a>邮件首部注入攻击</h3><p>相邮件首部 <code>To</code> 或 <code>Subject</code> 内添加非法内容。</p>
+<p>例子：</p>
 <ol>
-<li>加密处理<br>2.确认对方证书。证书由第三方机构颁发，用以证明服务器和客户端是实际存在的。</li>
-</ol>
-<p>缺点三：</p>
-<p>接受到的内容有误，中途可能被篡改</p>
-<p>防止篡改：<br>SSL：</p>
-<ul>
-<li>认证</li>
-<li>加密处理</li>
-<li>摘要功能 </li>
-</ul>
-<h2 id="HTTP-加密-认证-完整保护-HTTPS"><a href="#HTTP-加密-认证-完整保护-HTTPS" class="headerlink" title="HTTP + 加密 + 认证 + 完整保护 = HTTPS"></a>HTTP + 加密 + 认证 + 完整保护 = HTTPS</h2><p><img src="/images/1520660482076.png" alt="image"><br><img src="/images/1520660537442.png" alt="image"></p>
-<h3 id="相互交换密钥的公开密钥加密技术"><a href="#相互交换密钥的公开密钥加密技术" class="headerlink" title="相互交换密钥的公开密钥加密技术"></a>相互交换密钥的公开密钥加密技术</h3><ul>
-<li><p>SSL 加密处理方式：公开密钥加密</p>
-</li>
-<li><p>公开密钥加密</p>
-<ul>
-<li>私钥（解密）</li>
-<li>公钥（加密）</li>
-</ul>
-</li>
-<li><p>HTTPS 采用混合加密：在交换密钥环节使用公开密钥加密方式，确定密钥安全后，之后加你爱的通信交换报文阶段则使用共享密钥加密方式。</p>
-</li>
-<li><p>公开密钥证书：</p>
-<ul>
-<li>作用：证明公开密钥正确性（即公钥为服务器想要发行的公钥）</li>
-<li>数字证书认证机构的业务流程<ul>
-<li>服务器把自己的公钥给数字证书认证机构</li>
-<li>数字证书认证机构用自己的私钥进行数字签名并颁发公钥证书</li>
-<li>客户端拿到公钥证书后，使用原本就已植入在浏览器里的数字证书认证技工的公钥，验证功能规约证书上的数字签名</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>EV SSL证书：证明对方服务器背后运营的企业是否真实存在</p>
-</li>
-<li><p>客户端证书：证明服务器正在通信的对方始终是预料中的客户端</p>
-</li>
-<li><p>自签名证书：用<code>openSSL</code>构建自己的认证机构，不过在互联网上无效。</p>
-</li>
-</ul>
-<h2 id="HTTPS通信步骤："><a href="#HTTPS通信步骤：" class="headerlink" title="HTTPS通信步骤："></a>HTTPS通信步骤：</h2><p><img src="/images/1520662036331.png" alt="image">        </p>
-<ol>
-<li><p>客户端通过发送 <code>Client Hello</code> 报文开始 <code>SLL</code> 通信。报文中包含客户端支持的 <code>SSL</code> 的指定版本，加密组件（ <code>Cipher Suite</code> ）列表（所使用的加密算法及密钥长度等）</p>
-</li>
-<li><p>服务器可进行 <code>SSL</code> 通信时，会以 <code>Server Hello</code> 报文作为应答，和客户端一样，在报文中包含 <code>SSL</code> 版本以及加密组件。服务器的加密组件内容是从接受到的客户端加密组件中筛选出来的。</p>
-</li>
-<li><p>之后服务器发送 <code>Certificate</code> 报文。报文中包含公开密钥证书。</p>
-</li>
-<li><p>最后服务器发送 <code>Server Hello Done</code> 报文通知客户端，最初阶段的 <code>SSL</code> 握手协商部分结束</p>
-</li>
-<li><p><code>SSL</code> 第一次握手结束之后，客户端以 <code>Client Key Exchange</code> 报文作为回应。报文中包含通信加密中使用的一种称为 <code>Pre-master secret</code> 的随机字符串。该报文用步骤3中的公开密钥进行加密。</p>
-</li>
-<li><p>接着客户端继续发送 <code>Change Cipher Spec</code> 报文。该报文之后的通信会采用 <code>Pre-master secret</code> 密钥加密</p>
-</li>
-<li><p>客户端发送 <code>Finished</code> 报文，该报文包含连接至今全部报文的整体校验值。这次握手协商是否能够成功，要以服务器是否能够正确解密该报文作为判定标准。</p>
-</li>
-<li><p>服务器同样发送 <code>Change Cipher Spec</code> 报文。</p>
-</li>
-<li><p>服务器同样发送 <code>Finished</code> 报文。</p>
-</li>
-<li><p>服务器和客户端的 <code>Finished</code> 报文交换完毕之后， <code>SSL</code> 连接就算建立完成。当然，通信会收到 <code>SSL</code> 保护。从此处开始进行应用层协议的通信，即发送<code>HTTP</code>请求。</p>
-</li>
-<li><p>应用层协议通信，即发送<code>HTTP</code>响应。</p>
-</li>
-<li><p>最后由客户端断开连接。断开连接时，发送 <code>close_notify</code> 报文。上图做了一些省略，这步之后再发送 <code>TCP FIN</code> 报文来关闭与 <code>TCP</code> 的通信。</p>
+<li>改写 <code>To</code> 和 <code>Subject</code> 等邮件首部<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bob@hackr.jp%OD%OABcc: user@example.com</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>在以上流程中,应用层发送数据时会附加一种叫做 <code>MAC</code>(Message Authentication Code)的报文摘要。<code>MAC</code> 能够查知报文是否遭到篡改,从而保护报文的完整性。</p>
-<p><img src="/images/1520664253167.png" alt="image"></p>
+<p>向Bcc邮箱地址追加发送了邮件。</p>
+<ol>
+<li>篡改邮件文本，向文本添加附件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bob@hackr.jp%OD%OA%OD%OA Test Message</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="目录遍历攻击"><a href="#目录遍历攻击" class="headerlink" title="目录遍历攻击"></a>目录遍历攻击</h3><p>使用”../“相对路径定位到本不该被访问到的服务器上的路径</p>
+<p>解决：</p>
+<ol>
+<li>转义</li>
+<li>关闭指定对任意文件名的访问权限。</li>
+</ol>
+<h2 id="因设置或设计上的缺陷引发的安全漏洞"><a href="#因设置或设计上的缺陷引发的安全漏洞" class="headerlink" title="因设置或设计上的缺陷引发的安全漏洞"></a>因设置或设计上的缺陷引发的安全漏洞</h2><h3 id="强制浏览"><a href="#强制浏览" class="headerlink" title="强制浏览"></a>强制浏览</h3><p>例子：虽然没哟权限访问某一页面，却可以直接通过输入一个 <code>url</code> 访问页面中的某一图片</p>
+<h3 id="不正确的错误消息处理"><a href="#不正确的错误消息处理" class="headerlink" title="不正确的错误消息处理"></a>不正确的错误消息处理</h3><p>web应用的错误消息内包含对攻击者有用的消息</p>
+<p>例子：登录时提供“账号未注册”，这也能为攻击者提供有用信息。</p>
+<h3 id="开发重定向"><a href="#开发重定向" class="headerlink" title="开发重定向"></a>开发重定向</h3><p>是一种对指定的任意 <code>URL</code> 作重定向跳转的功能。</p>
+<p>例子：指定的重定向 <code>URL</code> 到某个恶意的 web 网站</p>
+<h2 id="因会话管理疏忽引发的安全漏洞"><a href="#因会话管理疏忽引发的安全漏洞" class="headerlink" title="因会话管理疏忽引发的安全漏洞"></a>因会话管理疏忽引发的安全漏洞</h2><p>会话管理：管理用户状态的必备功能。</p>
+<p>在会话管理上有所疏忽会导致用户的认证状态被盗取等</p>
+<h3 id="会话挟持"><a href="#会话挟持" class="headerlink" title="会话挟持"></a>会话挟持</h3><p>攻击者拿到用户会话ID伪装成用户<br>攻击者获得会话ID的途径</p>
+<ul>
+<li>推测会话ID</li>
+<li>使用窃听或XSS</li>
+<li>使用会话固定攻击</li>
+</ul>
+<h3 id="会话固定攻击"><a href="#会话固定攻击" class="headerlink" title="会话固定攻击"></a>会话固定攻击</h3><p><img src="/images/1520666308048.png" alt="image"></p>
+<h3 id="跨站点请求伪造"><a href="#跨站点请求伪造" class="headerlink" title="跨站点请求伪造"></a>跨站点请求伪造</h3><p><img src="/images/1520666394263.png" alt="image"></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="点击劫持"><a href="#点击劫持" class="headerlink" title="点击劫持"></a>点击劫持</h3><p>加透明按钮做成陷阱覆盖在web上</p>
+<h3 id="DoS攻击"><a href="#DoS攻击" class="headerlink" title="DoS攻击"></a>DoS攻击</h3><p>让运行中的服务呈停止状态</p>
+<ul>
+<li>海量请求</li>
+<li>攻击安全漏洞是服务停止</li>
+</ul>
+<h3 id="后门程序"><a href="#后门程序" class="headerlink" title="后门程序"></a>后门程序</h3><p>开发设置的隐藏入口，可不按正常步骤使用受限功能</p>
 
       
     </div>
@@ -424,8 +383,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/10/《图解HTTP》(一)/" rel="next" title="《图解HTTP》(一)">
-                <i class="fa fa-chevron-left"></i> 《图解HTTP》(一)
+              <a href="/2018/03/10/《图解HTTP》(六)/" rel="next" title="《图解HTTP》(六)">
+                <i class="fa fa-chevron-left"></i> 《图解HTTP》(六)
               </a>
             
           </div>
@@ -433,10 +392,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/10/《图解HTTP》(四)/" rel="prev" title="《图解HTTP》(四)">
-                《图解HTTP》(四) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -513,7 +468,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">56</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -552,7 +507,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTPS"><span class="nav-number">1.</span> <span class="nav-text">HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP缺点：（未加密的协议也会存在）"><span class="nav-number">1.1.</span> <span class="nav-text">HTTP缺点：（未加密的协议也会存在）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP-加密-认证-完整保护-HTTPS"><span class="nav-number">1.2.</span> <span class="nav-text">HTTP + 加密 + 认证 + 完整保护 = HTTPS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#相互交换密钥的公开密钥加密技术"><span class="nav-number">1.2.1.</span> <span class="nav-text">相互交换密钥的公开密钥加密技术</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTPS通信步骤："><span class="nav-number">1.3.</span> <span class="nav-text">HTTPS通信步骤：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Web-攻击"><span class="nav-number">1.</span> <span class="nav-text">Web 攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#转义不完全"><span class="nav-number">1.1.</span> <span class="nav-text">转义不完全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#跨站脚本攻击（XSS）"><span class="nav-number">1.1.1.</span> <span class="nav-text">跨站脚本攻击（XSS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL-注入攻击"><span class="nav-number">1.1.2.</span> <span class="nav-text">SQL 注入攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OS-注入攻击"><span class="nav-number">1.1.3.</span> <span class="nav-text">OS 注入攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-首部注入攻击"><span class="nav-number">1.1.4.</span> <span class="nav-text">HTTP 首部注入攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#邮件首部注入攻击"><span class="nav-number">1.1.5.</span> <span class="nav-text">邮件首部注入攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录遍历攻击"><span class="nav-number">1.1.6.</span> <span class="nav-text">目录遍历攻击</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#因设置或设计上的缺陷引发的安全漏洞"><span class="nav-number">1.2.</span> <span class="nav-text">因设置或设计上的缺陷引发的安全漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#强制浏览"><span class="nav-number">1.2.1.</span> <span class="nav-text">强制浏览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不正确的错误消息处理"><span class="nav-number">1.2.2.</span> <span class="nav-text">不正确的错误消息处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发重定向"><span class="nav-number">1.2.3.</span> <span class="nav-text">开发重定向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#因会话管理疏忽引发的安全漏洞"><span class="nav-number">1.3.</span> <span class="nav-text">因会话管理疏忽引发的安全漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#会话挟持"><span class="nav-number">1.3.1.</span> <span class="nav-text">会话挟持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话固定攻击"><span class="nav-number">1.3.2.</span> <span class="nav-text">会话固定攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨站点请求伪造"><span class="nav-number">1.3.3.</span> <span class="nav-text">跨站点请求伪造</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">1.4.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点击劫持"><span class="nav-number">1.4.1.</span> <span class="nav-text">点击劫持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DoS攻击"><span class="nav-number">1.4.2.</span> <span class="nav-text">DoS攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后门程序"><span class="nav-number">1.4.3.</span> <span class="nav-text">后门程序</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
