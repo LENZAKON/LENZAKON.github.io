@@ -229,6 +229,1302 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(五)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(五)/" itemprop="url">《图解HTTP》(五)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="与HTTP协作的Web服务器"><a href="#与HTTP协作的Web服务器" class="headerlink" title="与HTTP协作的Web服务器"></a>与HTTP协作的Web服务器</h1><h2 id="单台虚拟主机实现多个域名"><a href="#单台虚拟主机实现多个域名" class="headerlink" title="单台虚拟主机实现多个域名"></a>单台虚拟主机实现多个域名</h2><h2 id="通信数据转发程序"><a href="#通信数据转发程序" class="headerlink" title="通信数据转发程序"></a>通信数据转发程序</h2><h3 id="代理："><a href="#代理：" class="headerlink" title="代理："></a>代理：</h3><ul>
+<li><p>代理服务器转发请求或响应时，可以追加写入<code>Via</code>首部字段，<code>Via</code>首部字段可以标记出经过的主机信息。</p>
+</li>
+<li><p>作用：</p>
+<ul>
+<li>利用缓存技术减少带宽</li>
+<li>组织内部针对特定网站的访问控制</li>
+<li>以获取访问日志为主要目的</li>
+</ul>
+</li>
+<li><p>分类：</p>
+<ul>
+<li>是否使用缓存</li>
+<li>是否会修改报文</li>
+<li>缓存代理：转发响应时，把资源缓存在代理服务器上，再次请求相同资源时直接把缓存返回</li>
+<li>透明代理：不对报文进行任何加工</li>
+</ul>
+</li>
+</ul>
+<h3 id="网关："><a href="#网关：" class="headerlink" title="网关："></a>网关：</h3><p>作用：</p>
+<ul>
+<li>能使通信线路上的服务器提供非HTTP协议服务</li>
+<li>能提高通信安全性，可以在客户端与网关之间的通信线路上加密</li>
+</ul>
+<h3 id="隧道："><a href="#隧道：" class="headerlink" title="隧道："></a>隧道：</h3><p>作用：<br>和远距离的服务器安全通信。</p>
+<h2 id="保存资源的缓存"><a href="#保存资源的缓存" class="headerlink" title="保存资源的缓存"></a>保存资源的缓存</h2><blockquote>
+<p>缓存是指代理服务器或客户端本地磁盘内保存的资源副本。利用缓存可减少对源服务器的访问,因此也就节省了通信流量和通信时间。</p>
+<p>缓存服务器是代理服务器的一种,并归类在缓存代理类型中。换句话说,当代理转发从服务器返回的响应时,代理服务器将会保存一份资源的副本。    </p>
+</blockquote>
+<h3 id="缓存资源的有效期限"><a href="#缓存资源的有效期限" class="headerlink" title="缓存资源的有效期限"></a>缓存资源的有效期限</h3><p>即使存在缓存，也会因为客户端的要求、缓存的有效期等因素，向源服务器确认资源的有效性。若判断缓存失效，缓存服务器将会再次从源服务器上获取“新”资源。</p>
+<h3 id="客户端的缓存"><a href="#客户端的缓存" class="headerlink" title="客户端的缓存"></a>客户端的缓存</h3><p>缓存不仅可以存在于缓存服务器内，还可以存在客户端浏览器内。和缓存服务器相同的一点是,当判定缓存过期后,会向源服务器确认资源的有效性。若判断浏览器缓存失效,浏览器会再次请求新资源。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(四)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(四)/" itemprop="url">《图解HTTP》(四)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="3xx状态码"><a href="#3xx状态码" class="headerlink" title="3xx状态码"></a>3xx状态码</h1><p>例子：假设要方位一个 url, 该 url 没有尾部斜杠，认为请求的是文件</p>
+<ul>
+<li>如果文件存在，发送文件</li>
+<li>如果文件不存在，判断同名的目录是否存在<ul>
+<li>若存在，返回301，并在原来 url 添加上 “/“ 作为要跳转到的 location</li>
+<li>若不存在目录，返回404</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location = url + <span class="string">'/'</span></span><br><span class="line">request.writeHead(<span class="number">301</span>, &#123;</span><br><span class="line">    <span class="string">'Location'</span>: location</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>浏览器收到301响应时，会根据头部指定的 location 字段值，向服务器发一个新请求。        </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(七)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(七)/" itemprop="url">《图解HTTP》(七)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h1><h2 id="HTTP缺点：（未加密的协议也会存在）"><a href="#HTTP缺点：（未加密的协议也会存在）" class="headerlink" title="HTTP缺点：（未加密的协议也会存在）"></a>HTTP缺点：（未加密的协议也会存在）</h2><ul>
+<li>通信时使用明文，内容可能会被窃听</li>
+<li>不验证通信方的身份，所以可能遭遇伪装</li>
+<li>无法证明报文的完整性，所有可能已遭篡改</li>
+</ul>
+<p>缺点一：</p>
+<p>原因：TCP/IP 是可能被窃听的网络（TCP/IP协议族的工作机制所致）</p>
+<p>解决：加密处理防止被窃听</p>
+<ul>
+<li>通信的加密：使用<code>SSL</code>或<code>TLS</code>形成安全的通信线路。</li>
+<li>内容的加密：<ul>
+<li>对报文主体加密，报文首部不加密</li>
+<li>客户端和服务器同时具备加密和解密机制</li>
+<li>扔有被篡改的风险</li>
+</ul>
+</li>
+</ul>
+<p>缺点二：</p>
+<p>原因：任何人都可发出请求</p>
+<pre><code>- 服务器是否为伪装的
+- 客户端是否为伪装的
+- 正在通信的对方是否有访问权限
+- 无法判断请求来自何方
+- 无意义的请求也会收下（海量请求下在DoS攻击）
+</code></pre><p>解决：查明对手证书</p>
+<p>SSL作用：</p>
+<ol>
+<li>加密处理<br>2.确认对方证书。证书由第三方机构颁发，用以证明服务器和客户端是实际存在的。</li>
+</ol>
+<p>缺点三：</p>
+<p>接受到的内容有误，中途可能被篡改</p>
+<p>防止篡改：<br>SSL：</p>
+<ul>
+<li>认证</li>
+<li>加密处理</li>
+<li>摘要功能 </li>
+</ul>
+<h2 id="HTTP-加密-认证-完整保护-HTTPS"><a href="#HTTP-加密-认证-完整保护-HTTPS" class="headerlink" title="HTTP + 加密 + 认证 + 完整保护 = HTTPS"></a>HTTP + 加密 + 认证 + 完整保护 = HTTPS</h2><p><img src="/images/1520660482076.png" alt="image"><br><img src="/images/1520660537442.png" alt="image"></p>
+<h3 id="相互交换密钥的公开密钥加密技术"><a href="#相互交换密钥的公开密钥加密技术" class="headerlink" title="相互交换密钥的公开密钥加密技术"></a>相互交换密钥的公开密钥加密技术</h3><ul>
+<li><p>SSL 加密处理方式：公开密钥加密</p>
+</li>
+<li><p>公开密钥加密</p>
+<ul>
+<li>私钥（解密）</li>
+<li>公钥（加密）</li>
+</ul>
+</li>
+<li><p>HTTPS 采用混合加密：在交换密钥环节使用公开密钥加密方式，确定密钥安全后，之后加你爱的通信交换报文阶段则使用共享密钥加密方式。</p>
+</li>
+<li><p>公开密钥证书：</p>
+<ul>
+<li>作用：证明公开密钥正确性（即公钥为服务器想要发行的公钥）</li>
+<li>数字证书认证机构的业务流程<ul>
+<li>服务器把自己的公钥给数字证书认证机构</li>
+<li>数字证书认证机构用自己的私钥进行数字签名并颁发公钥证书</li>
+<li>客户端拿到公钥证书后，使用原本就已植入在浏览器里的数字证书认证技工的公钥，验证功能规约证书上的数字签名</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>EV SSL证书：证明对方服务器背后运营的企业是否真实存在</p>
+</li>
+<li><p>客户端证书：证明服务器正在通信的对方始终是预料中的客户端</p>
+</li>
+<li><p>自签名证书：用<code>openSSL</code>构建自己的认证机构，不过在互联网上无效。</p>
+</li>
+</ul>
+<h2 id="HTTPS通信步骤："><a href="#HTTPS通信步骤：" class="headerlink" title="HTTPS通信步骤："></a>HTTPS通信步骤：</h2><p><img src="/images/1520662036331.png" alt="image">        </p>
+<ol>
+<li><p>客户端通过发送 <code>Client Hello</code> 报文开始 <code>SLL</code> 通信。报文中包含客户端支持的 <code>SSL</code> 的指定版本，加密组件（ <code>Cipher Suite</code> ）列表（所使用的加密算法及密钥长度等）</p>
+</li>
+<li><p>服务器可进行 <code>SSL</code> 通信时，会以 <code>Server Hello</code> 报文作为应答，和客户端一样，在报文中包含 <code>SSL</code> 版本以及加密组件。服务器的加密组件内容是从接受到的客户端加密组件中筛选出来的。</p>
+</li>
+<li><p>之后服务器发送 <code>Certificate</code> 报文。报文中包含公开密钥证书。</p>
+</li>
+<li><p>最后服务器发送 <code>Server Hello Done</code> 报文通知客户端，最初阶段的 <code>SSL</code> 握手协商部分结束</p>
+</li>
+<li><p><code>SSL</code> 第一次握手结束之后，客户端以 <code>Client Key Exchange</code> 报文作为回应。报文中包含通信加密中使用的一种称为 <code>Pre-master secret</code> 的随机字符串。该报文用步骤3中的公开密钥进行加密。</p>
+</li>
+<li><p>接着客户端继续发送 <code>Change Cipher Spec</code> 报文。该报文之后的通信会采用 <code>Pre-master secret</code> 密钥加密</p>
+</li>
+<li><p>客户端发送 <code>Finished</code> 报文，该报文包含连接至今全部报文的整体校验值。这次握手协商是否能够成功，要以服务器是否能够正确解密该报文作为判定标准。</p>
+</li>
+<li><p>服务器同样发送 <code>Change Cipher Spec</code> 报文。</p>
+</li>
+<li><p>服务器同样发送 <code>Finished</code> 报文。</p>
+</li>
+<li><p>服务器和客户端的 <code>Finished</code> 报文交换完毕之后， <code>SSL</code> 连接就算建立完成。当然，通信会收到 <code>SSL</code> 保护。从此处开始进行应用层协议的通信，即发送<code>HTTP</code>请求。</p>
+</li>
+<li><p>应用层协议通信，即发送<code>HTTP</code>响应。</p>
+</li>
+<li><p>最后由客户端断开连接。断开连接时，发送 <code>close_notify</code> 报文。上图做了一些省略，这步之后再发送 <code>TCP FIN</code> 报文来关闭与 <code>TCP</code> 的通信。</p>
+</li>
+</ol>
+<p>在以上流程中,应用层发送数据时会附加一种叫做 <code>MAC</code>(Message Authentication Code)的报文摘要。<code>MAC</code> 能够查知报文是否遭到篡改,从而保护报文的完整性。</p>
+<p><img src="/images/1520664253167.png" alt="image"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(一)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(一)/" itemprop="url">《图解HTTP》(一)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="TCP-IP-协议族"><a href="#TCP-IP-协议族" class="headerlink" title="TCP/IP 协议族"></a>TCP/IP 协议族</h1><p><img src="/images/1520647771114.png" alt="image"></p>
+<h2 id="与HTTP协议密切相关的"><a href="#与HTTP协议密切相关的" class="headerlink" title="与HTTP协议密切相关的"></a>与HTTP协议密切相关的</h2><ul>
+<li><p>IP协议（网络层）负责传输</p>
+<p>  使用ARP协议，实现通过IP地址查找MAC地址</p>
+</li>
+<li><p>TCP协议（传输层）负责可靠性</p>
+<p>  将大数据分割，通过三次握手确保成功送达，握手的过程使用了TCP的标志 ——— SYN，ACK</p>
+<p>  握手过程：<br>  <img src="/images/1520648427858.png" alt="image"></p>
+</li>
+<li><p>DNS服务（应用层）负责域名解析</p>
+<p>  把域名转成IP地址</p>
+</li>
+</ul>
+<h2 id="各协议与HTTP协议的关系"><a href="#各协议与HTTP协议的关系" class="headerlink" title="各协议与HTTP协议的关系"></a>各协议与HTTP协议的关系</h2><p><img src="/images/1520648598468.png" alt="image"></p>
+<h2 id="URL-和-URI"><a href="#URL-和-URI" class="headerlink" title="URL 和 URI"></a>URL 和 URI</h2><p>URI：由某个协议方案表示的资源的定位标识符</p>
+<p>URI用字符串标识某一互联网资源，URL标识资源的地址（互联网上所处的位置）URL 是 URI 的子集</p>
+<p>URI格式：<br><img src="/images/1520649180281.png" alt="image"></p>
+<p>登录信息：指定用户名和密码，作为从服务端获取资源时必要的登录信息（可选）</p>
+<p>服务器地址：域名，IPV4，IPV6</p>
+<p>查询字符串：针对文件路径内的资源传入任意参数（可选）</p>
+<p>片段标识符：标识以获取资源中的子资源（文档中的某个位置）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(二)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(二)/" itemprop="url">《图解HTTP》(二)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><h2 id="请求-响应报文"><a href="#请求-响应报文" class="headerlink" title="请求/响应报文"></a>请求/响应报文</h2><h3 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h3><p><img src="/images/1520649781882.png" alt="image"></p>
+<h3 id="响应报文"><a href="#响应报文" class="headerlink" title="响应报文"></a>响应报文</h3><p><img src="/images/1520649817709.png" alt="image"></p>
+<h2 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h2><ul>
+<li>完整URI</li>
+<li>在首部Host写明域名或IP地址</li>
+<li>* 不是访问特定资源，而是对服务器本身发请求</li>
+</ul>
+<h2 id="不保存状态（无状态，cookie-实现保存状态）"><a href="#不保存状态（无状态，cookie-实现保存状态）" class="headerlink" title="不保存状态（无状态，cookie 实现保存状态）"></a>不保存状态（无状态，cookie 实现保存状态）</h2><h2 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h2><ul>
+<li><p>GET：获取资源</p>
+</li>
+<li><p>POST：传输实体的主体</p>
+</li>
+<li><p>PUT：传输文件</p>
+</li>
+<li><p>HEAD：获得报文首部，不返回报文主体部分，用于确认 URI 的有效性和资源更新的日期时间</p>
+</li>
+<li><p>DELETE：删除文件</p>
+</li>
+<li><p>OPTIONS：询问请求 URI 指定的资源支持的方法</p>
+</li>
+<li><p>TRACE：追踪路径，让web服务端将之前的通信环回给客户端（引发XST攻击）从代理服务器罗中转时，请求可能被篡改。<br><img src="/images/1520650427605.png" alt="image"></p>
+</li>
+<li><p>CONNECT：要求用隧道协议连接代理。与代理服务器通信建立隧道，用隧道协议进行TCP通信（使用SSL和 TLS把通信内容加密后在网络隧道传输）</p>
+</li>
+</ul>
+<h2 id="持久连接"><a href="#持久连接" class="headerlink" title="持久连接"></a>持久连接</h2><p>概念：只要任意一端没有明确提出断开连接，则保持TCP连接状态</p>
+<p>管线化：同时并发发送多个请求</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(八)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(八)/" itemprop="url">《图解HTTP》(八)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Web-攻击"><a href="#Web-攻击" class="headerlink" title="Web 攻击"></a>Web 攻击</h1><h2 id="转义不完全"><a href="#转义不完全" class="headerlink" title="转义不完全"></a>转义不完全</h2><h3 id="跨站脚本攻击（XSS）"><a href="#跨站脚本攻击（XSS）" class="headerlink" title="跨站脚本攻击（XSS）"></a>跨站脚本攻击（XSS）</h3><p>在浏览器内运行非法的 <code>HTML</code> 标签和 <code>JS</code></p>
+<p>原因：动态创建 <code>HTML</code></p>
+<h3 id="SQL-注入攻击"><a href="#SQL-注入攻击" class="headerlink" title="SQL 注入攻击"></a>SQL 注入攻击</h3><p>将 <code>SQL</code> 语句改成开发者意想不到的形式</p>
+<p>例子：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> bookTb1 <span class="keyword">where</span> author = <span class="string">'$q'</span> <span class="keyword">and</span> flag = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> bookTb1 <span class="keyword">where</span> author = <span class="string">'上野'</span><span class="comment">--‘and flag = 1</span></span><br></pre></td></tr></table></figure></p>
+<p>输入<code>’上野‘--</code>导致<code>and</code>后面被当成注释省略。</p>
+<h3 id="OS-注入攻击"><a href="#OS-注入攻击" class="headerlink" title="OS 注入攻击"></a>OS 注入攻击</h3><ul>
+<li>向 <code>shell</code> 发送命令，让命令行启动程序</li>
+<li>调用 <code>shell</code> 函数的地方就有被攻击的风险， web 应用中可以通过 <code>shell</code> 来调用操作系统命令，存在疏忽时会执行插入的非法<code>OS</code>命令。</li>
+</ul>
+<h3 id="HTTP-首部注入攻击"><a href="#HTTP-首部注入攻击" class="headerlink" title="HTTP 首部注入攻击"></a>HTTP 首部注入攻击</h3><ul>
+<li>指攻击者通过在响应首部字段中插入换行，添加任意响应首部或主体的一种攻击。</li>
+<li>向首部主体内添加内容的统计成为 HTTP响应截断攻击。</li>
+</ul>
+<p>例子：</p>
+<p>将一个 <code>ID</code> 值反映在响应内的 <code>Location</code> 首部字段内实现重定向。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Location: http://example.com/?cat=101</span><br><span class="line">101 替换成 101%OD%OASet-Cookie: +SID=12345</span><br><span class="line">Location: http://example.com/?cat=101(换行符%OD%OA)</span><br><span class="line">Set-Cookie: +SID=12345</span><br></pre></td></tr></table></figure></p>
+<p>攻击者修改了 <code>cookie</code> 的信息。</p>
+<p>响应截断攻击例子：</p>
+<p>使用两个<code>%OD%OA</code>做出<code>HTTP</code>首部与主体分割所需的空行，会使伪造的主体返回一个伪造的页面，再让用户输入个人信息，达到和跨站脚本攻击相同的效果。</p>
+<h3 id="邮件首部注入攻击"><a href="#邮件首部注入攻击" class="headerlink" title="邮件首部注入攻击"></a>邮件首部注入攻击</h3><p>相邮件首部 <code>To</code> 或 <code>Subject</code> 内添加非法内容。</p>
+<p>例子：</p>
+<ol>
+<li>改写 <code>To</code> 和 <code>Subject</code> 等邮件首部<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bob@hackr.jp%OD%OABcc: user@example.com</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>向Bcc邮箱地址追加发送了邮件。</p>
+<ol>
+<li>篡改邮件文本，向文本添加附件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bob@hackr.jp%OD%OA%OD%OA Test Message</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="目录遍历攻击"><a href="#目录遍历攻击" class="headerlink" title="目录遍历攻击"></a>目录遍历攻击</h3><p>使用”../“相对路径定位到本不该被访问到的服务器上的路径</p>
+<p>解决：</p>
+<ol>
+<li>转义</li>
+<li>关闭指定对任意文件名的访问权限。</li>
+</ol>
+<h2 id="因设置或设计上的缺陷引发的安全漏洞"><a href="#因设置或设计上的缺陷引发的安全漏洞" class="headerlink" title="因设置或设计上的缺陷引发的安全漏洞"></a>因设置或设计上的缺陷引发的安全漏洞</h2><h3 id="强制浏览"><a href="#强制浏览" class="headerlink" title="强制浏览"></a>强制浏览</h3><p>例子：虽然没哟权限访问某一页面，却可以直接通过输入一个 <code>url</code> 访问页面中的某一图片</p>
+<h3 id="不正确的错误消息处理"><a href="#不正确的错误消息处理" class="headerlink" title="不正确的错误消息处理"></a>不正确的错误消息处理</h3><p>web应用的错误消息内包含对攻击者有用的消息</p>
+<p>例子：登录时提供“账号未注册”，这也能为攻击者提供有用信息。</p>
+<h3 id="开发重定向"><a href="#开发重定向" class="headerlink" title="开发重定向"></a>开发重定向</h3><p>是一种对指定的任意 <code>URL</code> 作重定向跳转的功能。</p>
+<p>例子：指定的重定向 <code>URL</code> 到某个恶意的 web 网站</p>
+<h2 id="因会话管理疏忽引发的安全漏洞"><a href="#因会话管理疏忽引发的安全漏洞" class="headerlink" title="因会话管理疏忽引发的安全漏洞"></a>因会话管理疏忽引发的安全漏洞</h2><p>会话管理：管理用户状态的必备功能。</p>
+<p>在会话管理上有所疏忽会导致用户的认证状态被盗取等</p>
+<h3 id="会话挟持"><a href="#会话挟持" class="headerlink" title="会话挟持"></a>会话挟持</h3><p>攻击者拿到用户会话ID伪装成用户<br>攻击者获得会话ID的途径</p>
+<ul>
+<li>推测会话ID</li>
+<li>使用窃听或XSS</li>
+<li>使用会话固定攻击</li>
+</ul>
+<h3 id="会话固定攻击"><a href="#会话固定攻击" class="headerlink" title="会话固定攻击"></a>会话固定攻击</h3><p><img src="/images/1520666308048.png" alt="image"></p>
+<h3 id="跨站点请求伪造"><a href="#跨站点请求伪造" class="headerlink" title="跨站点请求伪造"></a>跨站点请求伪造</h3><p><img src="/images/1520666394263.png" alt="image"></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="点击劫持"><a href="#点击劫持" class="headerlink" title="点击劫持"></a>点击劫持</h3><p>加透明按钮做成陷阱覆盖在web上</p>
+<h3 id="DoS攻击"><a href="#DoS攻击" class="headerlink" title="DoS攻击"></a>DoS攻击</h3><p>让运行中的服务呈停止状态</p>
+<ul>
+<li>海量请求</li>
+<li>攻击安全漏洞是服务停止</li>
+</ul>
+<h3 id="后门程序"><a href="#后门程序" class="headerlink" title="后门程序"></a>后门程序</h3><p>开发设置的隐藏入口，可不按正常步骤使用受限功能</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(六)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(六)/" itemprop="url">《图解HTTP》(六)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="HTTP首部"><a href="#HTTP首部" class="headerlink" title="HTTP首部"></a>HTTP首部</h1><h2 id="HTTP报文首部"><a href="#HTTP报文首部" class="headerlink" title="HTTP报文首部"></a>HTTP报文首部</h2><p>作用：为客户端和服务器分别出路请求和响应提供所需要的信息。</p>
+<p>分类：</p>
+<ul>
+<li>HTTP请求报文首部</li>
+<li>HTTP响应报文首部</li>
+</ul>
+<p>组成：</p>
+<ul>
+<li>方法，URL，HTTP版本  /  HTTP版本，状态码</li>
+<li>首部字段<ul>
+<li>组成：<ul>
+<li>通用首部字段</li>
+<li>请求首部字段</li>
+<li>响应首部字段</li>
+<li>实体首部字段</li>
+</ul>
+</li>
+<li>分类：<ul>
+<li>端到端首部：会转发到最终目标</li>
+<li>逐跳首部<ul>
+<li>只对单次转发有效</li>
+<li>必须提供<code>Connection</code>首部字段</li>
+<li>包含：（其他都为端到端）<ul>
+<li><code>Connection</code></li>
+<li><code>Keep-Alive</code></li>
+<li><code>Proxy-Authenticate</code></li>
+<li><code>Proxy-Authorization</code></li>
+<li><code>Trailer</code></li>
+<li><code>TE</code></li>
+<li><code>Transfer-Encoding</code></li>
+<li><code>Upgrade</code>    </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(三)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/10/《图解HTTP》(三)/" itemprop="url">《图解HTTP》(三)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="HTTP报文内的HTTP信息"><a href="#HTTP报文内的HTTP信息" class="headerlink" title="HTTP报文内的HTTP信息"></a>HTTP报文内的HTTP信息</h1><h2 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h2><ul>
+<li><p>报文首部：</p>
+<ul>
+<li>请求行（状态行）</li>
+<li>请求首部字段（响应首部字段）</li>
+<li>通用首部字段</li>
+<li>实体首部字段</li>
+</ul>
+</li>
+<li><p>报文主体：</p>
+</li>
+</ul>
+<h2 id="编码提升传输效率"><a href="#编码提升传输效率" class="headerlink" title="编码提升传输效率"></a>编码提升传输效率</h2><ul>
+<li>优点：能有效处理大量的访问请求</li>
+<li>缺点：消耗CPU资源</li>
+</ul>
+<h3 id="报文和实体"><a href="#报文和实体" class="headerlink" title="报文和实体"></a>报文和实体</h3><ul>
+<li>报文：HTTP通信的基本单位</li>
+<li>实体：作为请求或响应的有效载荷数据(补充项)被传输,其内容由实体首部和实体主体组成。</li>
+</ul>
+<p>HTTP 报文的主体用于传输请求或响应的实体主体。</p>
+<p>通常报文主体 = 实体主体，编码会导致实体主体改变。</p>
+<p>实体可用内容编码进行压缩，服务器压缩，客户端解码。内容编码有：gzip, compress, deflate, identify(不进行编码)</p>
+<p>分块传输编码：将实体主体分块，客户端解码，让浏览器逐步显示页面。</p>
+<h2 id="发送多种数据的多部分对象集合"><a href="#发送多种数据的多部分对象集合" class="headerlink" title="发送多种数据的多部分对象集合"></a>发送多种数据的多部分对象集合</h2><p>在首部字段加上 <code>Content-type</code></p>
+<ul>
+<li><p>Web表单文件上传：</p>
+<p>  Content-type: multipart/form-data; boundary=AaB03x<br><img src="/images/1520653437010.png" alt="image"></p>
+</li>
+<li><p>状态码206（部分内容）响应报文包含多个范围的内容：</p>
+<p>  Content-Type: multipart/byteranges; boundary=THIS_STRING_SEPARATES<br><img src="/images/1520653482049.png" alt="image">    </p>
+</li>
+<li><p>boundary 划分多部分对象集合指明的各类实体</p>
+</li>
+</ul>
+<h2 id="获取部分内容的范围请求"><a href="#获取部分内容的范围请求" class="headerlink" title="获取部分内容的范围请求"></a>获取部分内容的范围请求</h2><ul>
+<li><p>概念：指定范围发送的请求</p>
+</li>
+<li><p>使用：请求首部字段的 Range</p>
+<ul>
+<li>Range: bytes=5001-10000</li>
+<li>Range: bytes=5001-</li>
+<li>Range: bytes=-3000, 5000-7000</li>
+</ul>
+</li>
+<li><p>响应的状态码为206 Partial Content，对于多范围的范围请求（bytes=-3000, 5000-7000），响应在首部字段：Content-Type: multipart/byteranges</p>
+</li>
+<li><p>如果服务器无法响应范围请求，返回200和完整实体。</p>
+</li>
+</ul>
+<h2 id="协商返回最合适的内容"><a href="#协商返回最合适的内容" class="headerlink" title="协商返回最合适的内容"></a>协商返回最合适的内容</h2><ul>
+<li><p>根据首部字段：Accept, Accept-Charset, Accept-Encoding, Accept-Language, Content-Language</p>
+</li>
+<li><p>内容协商技术</p>
+<ul>
+<li>服务器驱动协商</li>
+<li>客户端驱动协商</li>
+<li>透明协商           </li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/05/状态码3xx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -478,1096 +1774,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/26/浏览器模式和文档模式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/26/浏览器模式和文档模式/" itemprop="url">浏览器模式和文档模式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-26T19:45:22+08:00">
-                2018-01-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="浏览器模式和文档模式"><a href="#浏览器模式和文档模式" class="headerlink" title="浏览器模式和文档模式"></a>浏览器模式和文档模式</h1><h2 id="浏览器模式决定内容："><a href="#浏览器模式决定内容：" class="headerlink" title="浏览器模式决定内容："></a>浏览器模式决定内容：</h2><ul>
-<li><p>发送给服务端的 userAgent</p>
-</li>
-<li><p>默认的文档模式</p>
-</li>
-<li><p>如何解析条件注释</p>
-</li>
-<li><p>它在请求发送前就已经确定，且不受服务端控制</p>
-</li>
-</ul>
-<h2 id="文档模式决定内容"><a href="#文档模式决定内容" class="headerlink" title="文档模式决定内容:"></a>文档模式决定内容:</h2><ul>
-<li><p>排版引擎</p>
-</li>
-<li><p>JS引擎</p>
-</li>
-<li><p>在浏览器得到响应后最终决定，服务端可通过<code>doctype</code>或<code>X-UA-Compatible</code>决定</p>
-</li>
-</ul>
-<h2 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=7"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/1517139153717.png" alt="image"></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=7Esge"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/1517139197584.png" alt="image"></p>
-<p>在 IE8/9 中X-UA-Compatible对文本模式的改变会导致浏览器模式的改变，也就是说服务端可以间接控制浏览器模式。 </p>
-<p>在IE8中，JS获取的UA是浏览器模式初始状态。这样会导致用JS获取UA得到的浏览器版本，与实际渲染的浏览器版本不符，这会对基于UA的浏览器检测造成干扰。</p>
-<p>对于IE9，只有一点与IE8不同：JS获取到的是新文本模式对应的浏览器模式的UA。这会导致用JS获取UA得到的浏览器版本，与请求头发送给服务器UA里标识的浏览器版本不符，这可能对统计有影响。</p>
-<p>参考资料：</p>
-<p>(关于浏览器模式和文本模式的困惑)[<a href="https://imququ.com/post/browser-mode-and-document-mode-in-ie.html" target="_blank" rel="noopener">https://imququ.com/post/browser-mode-and-document-mode-in-ie.html</a>]</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/26/浏览器的标准模式和怪异模式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/26/浏览器的标准模式和怪异模式/" itemprop="url">浏览器的标准模式和怪异模式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-26T19:45:22+08:00">
-                2018-01-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="标准模式和怪异模式"><a href="#标准模式和怪异模式" class="headerlink" title="标准模式和怪异模式"></a>标准模式和怪异模式</h1><p>是指浏览器对 <code>HTML</code> 和 <code>CSS</code> 的渲染方式</p>
-<h2 id="标准模式"><a href="#标准模式" class="headerlink" title="标准模式"></a>标准模式</h2><p>浏览器按照 <code>HTML</code> 和 <code>CSS</code> 标准对文档进行渲染和解析</p>
-<h2 id="怪异模式"><a href="#怪异模式" class="headerlink" title="怪异模式"></a>怪异模式</h2><p>浏览器按照旧标准（非标准）对文档进行渲染和解析</p>
-<h2 id="浏览器切换这两个模式的依据"><a href="#浏览器切换这两个模式的依据" class="headerlink" title="浏览器切换这两个模式的依据"></a>浏览器切换这两个模式的依据</h2><p>文档类型声明<code>DOCTYPE</code>。</p>
-<h2 id="标准模式和怪异模式渲染方式的区别"><a href="#标准模式和怪异模式渲染方式的区别" class="headerlink" title="标准模式和怪异模式渲染方式的区别"></a>标准模式和怪异模式渲染方式的区别</h2><p>1.盒模型<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">box-sizing</span>: <span class="selector-tag">border-box</span></span><br></pre></td></tr></table></figure></p>
-<p>标准模式下 <code>width</code> 不包含 <code>padding</code> 和 <code>border</code></p>
-<p>2.行内元素垂直对齐</p>
-<p>标准模式下，图片是按基线对齐的，所以图片底边和其父元素会有间隙。</p>
-<p>原理：</p>
-<p><code>vertical-align</code> 和 <code>line-heigh</code></p>
-<p><code>vertical-align</code> 的值为百分比的时候，是按照 <code>line-heigh</code> 计算的。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-color:#e5edff;"</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"mm1.jpg"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/1516967230577.png" alt="image"></p>
-<p>文字默认对齐 <code>vertical-align</code> 是基于基线对齐的。而文字的高度又是由行高 <code>line-heigh</code> 决定的。</p>
-<p><img src="/images/1516968205033.png" alt="image"></p>
-<p>解决方法：</p>
-<ol>
-<li><p>让 <code>vertical-align</code> 失效。 <code>vertical-align</code> 对于块级元素无效。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123; <span class="attribute">display</span>: block; &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用别的 <code>vertical-align</code> 值</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">vertical-align</span>: bottom/middle/top</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改 <code>line-heigh</code></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">line-heigh</span>: <span class="number">5px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>修改 <code>font-size</code></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>应用：</p>
-<ol>
-<li>完全垂直居中<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123; <span class="attribute">line-height</span>: <span class="number">240px</span>; <span class="attribute">font-size</span>: <span class="number">0</span>; &#125;</span><br><span class="line"><span class="selector-tag">img</span> &#123; <span class="attribute">vertical-align</span>: middle; &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>参考资料：</p>
-<p><a href="http://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/" target="_blank" rel="noopener">CSS深入理解vertical-align和line-heigh</a></p>
-<p><a href="https://www.jianshu.com/p/dcab7cde8c04" target="_blank" rel="noopener">浏览器的标准模式和怪异模式</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/25/继承/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/25/继承/" itemprop="url">继承</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-25T13:38:52+08:00">
-                2018-01-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h1><h2 id="寄生组合式继承"><a href="#寄生组合式继承" class="headerlink" title="寄生组合式继承"></a>寄生组合式继承</h2><h3 id="new-操作符调用构造函数的步骤"><a href="#new-操作符调用构造函数的步骤" class="headerlink" title="new 操作符调用构造函数的步骤"></a><code>new</code> 操作符调用构造函数的步骤</h3><ol>
-<li>创建一个新对象</li>
-<li>将构造函数的作用域赋给新对象（因此this就指向了这个对象）</li>
-<li>执行构造函数中的代码（为这个新对象添加属性）</li>
-<li>返回新对象</li>
-</ol>
-<h3 id="组合继承例子"><a href="#组合继承例子" class="headerlink" title="组合继承例子"></a>组合继承例子</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.color = [<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    SuperType.call(<span class="keyword">this</span>, name)  <span class="comment">// 第二次调用SuperType()</span></span><br><span class="line">    <span class="keyword">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType()  <span class="comment">// 第一次调用SuperType</span></span><br><span class="line"></span><br><span class="line">SubType.prototype.constructor = SubType</span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.age)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/1516858846713.png" alt="image"></p>
-<h3 id="造成性能浪费的原因："><a href="#造成性能浪费的原因：" class="headerlink" title="造成性能浪费的原因："></a>造成性能浪费的原因：</h3><p>在第一次调用 <code>new SuperType()</code> 的时候，我们所要达到的目的只是让 <code>SubType Prototype</code> 中的<code>[[prototype]]</code>属性指向<code>SuperType Protype</code>，但在通过<code>new SuperType()</code>实现的时候，执行<code>new</code>的过程会执行构造函数中的代码，所以，会在<code>SubType Prototype</code> 中添加了<code>name</code>和<code>color</code>属性。（由于<code>new SuperType()</code>中没有参数，所以<code>name</code>和<code>colors</code>为<code>undefined</code>）。</p>
-<h3 id="使用寄生组合式继承的原因："><a href="#使用寄生组合式继承的原因：" class="headerlink" title="使用寄生组合式继承的原因："></a>使用寄生组合式继承的原因：</h3><p>就是为了不让<code>SubType Prototype</code>中有<code>name</code>和<code>color</code>属性</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    F.prototype = o</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritProtype</span>(<span class="params">subType, superType</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> prototype = object(superType.prototype)     <span class="comment">// 创建对象</span></span><br><span class="line"></span><br><span class="line">    prototype.constructor = subType     <span class="comment">// 增强对象，任何一个prototype对象都有一个constructor属性，指向它的构造函数。</span></span><br><span class="line"></span><br><span class="line">    subType.prototype = prototype       <span class="comment">// 指定对象</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.color = [<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    SuperType.call(<span class="keyword">this</span>, name)  <span class="comment">// 第二次调用SuperType()</span></span><br><span class="line">    <span class="keyword">this</span>.age = age</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">inherutPrototype(SubType, SuperType)</span><br><span class="line"></span><br><span class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.age)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在函数内部，第一步是创建超类原型的一副本，第二步是为创建的副本添加<code>constructor</code>属性，从而弥补因从写原型而失去的默认的<code>constructor</code>属性。将创建的对象（即副本）赋值给子类型的原型。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/关于浏览器渲染的博文/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/23/关于浏览器渲染的博文/" itemprop="url">浏览器渲染</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T20:52:33+08:00">
-                2018-01-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="浏览器渲染"><a href="#浏览器渲染" class="headerlink" title="浏览器渲染"></a>浏览器渲染</h1><p><a href="https://segmentfault.com/a/1190000008015671" target="_blank" rel="noopener">一篇文章说清浏览器解析和CSS（GPU）动画优化</a></p>
-<p><a href="https://segmentfault.com/a/1190000012925872#articleHeader7" target="_blank" rel="noopener">从浏览器多进程到JS单线程，JS运行机制最全面的一次梳理</a></p>
-<p><a href="https://www.cnblogs.com/lhb25/p/how-browsers-work.html" target="_blank" rel="noopener">前端文摘：深入解析浏览器的幕后工作原理</a></p>
-<p><a href="http://web.jobbole.com/83575/" target="_blank" rel="noopener">CSS3硬件加速也有坑</a></p>
-<p><a href="https://segmentfault.com/n/1330000012948539" target="_blank" rel="noopener">浏览器执行顺序</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/23/apply和call/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/23/apply和call/" itemprop="url">apply 和 call</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-23T13:15:54+08:00">
-                2018-01-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="apply-和-call"><a href="#apply-和-call" class="headerlink" title="apply() 和 call()"></a>apply() 和 call()</h1><p>区别：<code>apply()</code>第二个参数是数组，<code>call()</code>是若干个参数的列表</p>
-<h2 id="apply"><a href="#apply" class="headerlink" title="apply()"></a>apply()</h2><p>是把使用<code>apply()</code>的函数中的<code>this</code>指定为第一个参数，把使用<code>apply()</code>函数的参数设置为数组中的元素。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> values = [<span class="number">1</span>, <span class="string">'12'</span>, <span class="number">3</span>, <span class="string">'4'</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">var</span> max = <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, values)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> max = <span class="built_in">Math</span>.max(<span class="number">1</span>, <span class="string">'12'</span>, <span class="number">3</span>, <span class="string">'4'</span>, <span class="number">5</span>)</span><br><span class="line"><span class="comment">// 由于在Math.max函数中不依赖于'this'，所以第一个参数可以为任意值。</span></span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/js中的浅拷贝和深拷贝/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/22/js中的浅拷贝和深拷贝/" itemprop="url">js中的浅拷贝和深拷贝</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T19:42:50+08:00">
-                2018-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="js中的浅拷贝和深拷贝"><a href="#js中的浅拷贝和深拷贝" class="headerlink" title="js中的浅拷贝和深拷贝"></a>js中的浅拷贝和深拷贝</h1><p>浅拷贝和深拷贝只针对<code>Object</code>,<code>Array</code>这样的复杂对象。</p>
-<p>浅拷贝只复制一层对象的属性，而深拷贝则递归复制了所有层级。</p>
-<h2 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h2><p>实现方法一：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">arr</span>: [<span class="number">2</span>, <span class="number">3</span>]&#125;</span><br><span class="line"><span class="keyword">var</span> shadowObj = shallowCopy(obj)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">shallowCopy</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> dst = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> src) &#123;</span><br><span class="line">        <span class="keyword">if</span>(obj.hasOwnProperty(prop)) &#123;</span><br><span class="line">            dst[prop] = src[prop]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> dist</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><img src="/images/1516621449118.png" alt="image"></p>
-<p>由于只是对对象的各个属性进行复制，不会进行递归复制。对于js而言。存储对象是存地址的。所以<code>obj.arr</code>和<code>shadowObj.arr</code>指向同一块内存地址。</p>
-<p>实现方法二：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>: <span class="number">1</span>, <span class="attr">arr</span>: [<span class="number">2</span>, <span class="number">3</span>]&#125;</span><br><span class="line"><span class="keyword">var</span> obj2 = <span class="built_in">Object</span>.assign(&#123;&#125;, obj)</span><br></pre></td></tr></table></figure></p>
-<h2 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>:<span class="number">1</span>, <span class="attr">arr</span>: [<span class="number">1</span>,<span class="number">2</span>] &#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = deepCopy(obj);</span><br></pre></td></tr></table></figure>
-<p>深拷贝把每一层的对象都递归复制到一个新对象上，<code>obj.arr</code>和<code>obj2.arr</code>指向的不是一块内存地址。</p>
-<p><img src="/images/1516621639405.png" alt="image"></p>
-<p>实现方法一：</p>
-<p>使用<code>JSON.stringfy</code>把对象转化成字符串，再通过<code>JSON.parse</code>把字符串转成新的对象。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cloneObj = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> str, newObj = obj.constructor === <span class="built_in">Array</span> ? [] : &#123;&#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> obj !== <span class="string">'object'</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.JSON) &#123;</span><br><span class="line">        str = <span class="built_in">JSON</span>.stringfy(obj)</span><br><span class="line">        newObj = <span class="built_in">JSON</span>.parse(str)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> obj) &#123;</span><br><span class="line">            newObj[i] = <span class="keyword">typeof</span> obj[i] == <span class="string">'object'</span> ? cloneObj(obj[i]) : obj[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newObj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>实现方法二：</p>
-<p>递归拷贝<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepClone</span>(<span class="params">initalObj, finalObj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = finalObj || &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> initalObj) &#123;</span><br><span class="line">        <span class="keyword">var</span> prop = initalObj[i] <span class="comment">// 避免相互引用对象导致死循环，如initalObj.a = initalObj的情况</span></span><br><span class="line">        <span class="keyword">if</span> (prop == obj) &#123;</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (type prop === <span class="string">'object'</span>) &#123;</span><br><span class="line">            obj[i] = (prop.constructor === <span class="built_in">Array</span>) ? [] : &#123;&#125;</span><br><span class="line">            deepClone(prop, obj[i])</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            obj[i] = prop</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>参考资料：</p>
-<p><a href="https://www.zhihu.com/question/23031215" target="_blank" rel="noopener">知乎用户：星海微尘</a></p>
-<p><a href="http://www.haorooms.com/post/js_copy_sq" target="_blank" rel="noopener">什么是js深拷贝和浅拷贝</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/理解Array.sort()/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/22/理解Array.sort()/" itemprop="url">理解Arrat.sort()</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T19:18:18+08:00">
-                2018-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Array-sort-comparefn"><a href="#Array-sort-comparefn" class="headerlink" title="Array.sort((comparefn))"></a>Array.sort((comparefn))</h1><p>以v8引擎源码为例</p>
-<p>在有比较函数的时候，当数组的长度大于22时，采用快速排序，否则采用插入排序。</p>
-<h2 id="没有比较函数"><a href="#没有比较函数" class="headerlink" title="没有比较函数"></a>没有比较函数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!IS_CALLABLE(comparefn)) &#123;</span><br><span class="line">    comparefn = <span class="function"><span class="keyword">function</span> (<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (x === y) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">if</span> (%_IsSmi(x) &amp;&amp; %_IsSmi(y)) &#123;</span><br><span class="line">        <span class="keyword">return</span> %SmiLexicographicCompare(x, y);</span><br><span class="line">      &#125;</span><br><span class="line">      x = TO_STRING(x);</span><br><span class="line">      y = TO_STRING(y);</span><br><span class="line">      <span class="keyword">if</span> (x == y) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">return</span> x &lt; y ? <span class="number">-1</span> : <span class="number">1</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p>在源码中可以看出，如果没有比较函数，是直接转化成字符串进行比较。</p>
-<h2 id="有比较函数"><a href="#有比较函数" class="headerlink" title="有比较函数"></a>有比较函数</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> InsertionSort = <span class="function"><span class="keyword">function</span> <span class="title">InsertionSort</span>(<span class="params">a, from, to</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="keyword">from</span> + <span class="number">1</span>; i &lt; to; i++) &#123;</span><br><span class="line">      <span class="keyword">var</span> element = a[i];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> j = i - <span class="number">1</span>; j &gt;= <span class="keyword">from</span>; j--) &#123;</span><br><span class="line">        <span class="keyword">var</span> tmp = a[j];</span><br><span class="line">        <span class="keyword">var</span> order = comparefn(tmp, element);</span><br><span class="line">        <span class="keyword">if</span> (order &gt; <span class="number">0</span>) &#123;</span><br><span class="line">          a[j + <span class="number">1</span>] = tmp;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      a[j + <span class="number">1</span>] = element;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-<p>以插入排序为例，其中的<code>comparefn</code>就是传入的比较函数。<br>所以，在比较函数返回的是正值的时候，就要交换两个数组项。</p>
-<h2 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare2</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a, b, b - a);</span><br><span class="line">    <span class="keyword">return</span> b - a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(array.sort(compare2));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1 20 19</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1 10 9</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 20 10 -10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1 2 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 10 2 -8</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1 5 4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2 5 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 10 5 -5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// [20, 10, 5, 2, 1]</span></span><br></pre></td></tr></table></figure>
-<p>第一行：把数组的前两个元素1、20依次传给compare()函数的a和b，返回值为19，&gt;0,元素1和20位置互换，现在数组array = [20, 1, 10, 2, 5]；</p>
-<p>第二行：将新数组的第二个元素1和第三个元素10依次传给a和b，返回值为9，&gt;0，元素1和10位置互换，现在数组array = [20, 10, 1, 2, 5]；</p>
-<p>第三行：这次不是继续向下对比了，而是将已经比过并换过位置的元素20和10相互比较，返回值为-10， &lt;0，元素20和10位置保持不变；</p>
-<p>第四行：将新数组的第三个元素1和第四个元素2依次传给a和b，返回值为1，&gt;0，元素1和2位置互换，现在数组array = [20, 10, 2, 1, 5]；</p>
-<p>第五行：将最新换过位置的元素2与前面排好序的元素10对比，返回值-8，&lt;0，元素10和2位置保持不变；</p>
-<p>第六行：将新数组的第四个元素1和第五个元素5依次传给a和b，返回值为4，&gt;0，元素1和5位置互换，现在数组array = [20, 10, 2, 5, 1]；</p>
-<p>第七行：将最新换过位置的元素5与前面排好序的元素2对比，返回值3，&gt;0，元素5和2位置互换，现在数组array = [20, 10, 5, 2, 1]；</p>
-<p>第八行：将最新换过位置的元素5与前面排好序的元素10对比，返回值-5，&lt;0，元素5和10位置保持不变；</p>
-<p>排序结束，最终返回数组array = [20, 10, 5, 2, 1]。</p>
-<p>参考资料：</p>
-<p><a href="http://blog.csdn.net/jiatong0913/article/details/53148016" target="_blank" rel="noopener">javascript中数组的sort()方法原理研究</a></p>
-<p><a href="https://github.com/v8/v8/blob/ad82a40509c5b5b4680d4299c8f08d6c6d31af3c/src/js/array.js" target="_blank" rel="noopener">v8中关于数组的源码</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/22/函数中的传递参数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LENZAKON">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LENZAKON">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/22/函数中的传递参数/" itemprop="url">函数中的传递参数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-22T13:15:15+08:00">
-                2018-01-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="函数中的传递参数"><a href="#函数中的传递参数" class="headerlink" title="函数中的传递参数"></a>函数中的传递参数</h1><p><strong>在js中，所有函数的参数都是按值传递的</strong></p>
-<p>对于基本类型，传递的是基本类型的值。</p>
-<p>对于引用类型，传递的是这个值在内存中的地址。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">v</span>) </span>&#123;</span><br><span class="line">    v = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(v); <span class="comment">//2</span></span><br><span class="line">&#125;</span><br><span class="line">foo(value);</span><br><span class="line"><span class="built_in">console</span>.log(value) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/1516598925742.png" alt="image"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    value: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">    o.value = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(o.value); <span class="comment">//2</span></span><br><span class="line">&#125;</span><br><span class="line">foo(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj.value) <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/1516598970164.png" alt="image"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    value: <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">    o = <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(o); <span class="comment">//2</span></span><br><span class="line">&#125;</span><br><span class="line">foo(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj.value) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/1516598994300.png" alt="image"></p>
-<h2 id="另外参考理解"><a href="#另外参考理解" class="headerlink" title="另外参考理解"></a>另外参考理解</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">n</span>:<span class="number">1</span>&#125;; </span><br><span class="line"><span class="keyword">var</span> b = a;  </span><br><span class="line">a.x = a = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;; </span><br><span class="line"><span class="built_in">console</span>.log(a.x);<span class="comment">// --&gt; undefined </span></span><br><span class="line"><span class="built_in">console</span>.log(b.x);<span class="comment">// --&gt; [object Object]</span></span><br></pre></td></tr></table></figure>
-<p>答案：<a href="http://www.cnblogs.com/huaan011/p/4381703.html" target="_blank" rel="noopener">连续赋值与求值顺序</a></p>
-<p>参考资料：</p>
-<p><a href="https://github.com/mqyqingfeng/Blog/issues/10" target="_blank" rel="noopener">js深入之参数按值传递</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1613,7 +1824,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

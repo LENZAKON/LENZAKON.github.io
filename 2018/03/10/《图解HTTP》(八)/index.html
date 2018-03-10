@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Web 攻击转义不完全跨站脚本攻击（XSS）在浏览器内运行非法的 HTML 标签和 JS 原因：动态创建 HTML SQL 注入攻击将 SQL 语句改成开发者意想不到的形式 例子：123select * from bookTb1 where author = &apos;$q&apos; and flag = 1select * from bookTb1 where author = &apos;上野&apos;--‘and flag">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《图解HTTP》(八)">
+<meta property="og:url" content="http://yoursite.com/2018/03/10/《图解HTTP》(八)/index.html">
+<meta property="og:site_name" content="LENZAKON">
+<meta property="og:description" content="Web 攻击转义不完全跨站脚本攻击（XSS）在浏览器内运行非法的 HTML 标签和 JS 原因：动态创建 HTML SQL 注入攻击将 SQL 语句改成开发者意想不到的形式 例子：123select * from bookTb1 where author = &apos;$q&apos; and flag = 1select * from bookTb1 where author = &apos;上野&apos;--‘and flag">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/1520666308048.png">
+<meta property="og:image" content="http://yoursite.com/images/1520666394263.png">
+<meta property="og:updated_time" content="2018-03-10T07:22:46.127Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《图解HTTP》(八)">
+<meta name="twitter:description" content="Web 攻击转义不完全跨站脚本攻击（XSS）在浏览器内运行非法的 HTML 标签和 JS 原因：动态创建 HTML SQL 注入攻击将 SQL 语句改成开发者意想不到的形式 例子：123select * from bookTb1 where author = &apos;$q&apos; and flag = 1select * from bookTb1 where author = &apos;上野&apos;--‘and flag">
+<meta name="twitter:image" content="http://yoursite.com/images/1520666308048.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/10/《图解HTTP》(八)/"/>
+
+
+
+
+
+  <title>《图解HTTP》(八) | LENZAKON</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LENZAKON</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-主页"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-归档页"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/10/《图解HTTP》(八)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LENZAKON">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LENZAKON">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《图解HTTP》(八)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-10T10:08:18+08:00">
+                2018-03-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Web-攻击"><a href="#Web-攻击" class="headerlink" title="Web 攻击"></a>Web 攻击</h1><h2 id="转义不完全"><a href="#转义不完全" class="headerlink" title="转义不完全"></a>转义不完全</h2><h3 id="跨站脚本攻击（XSS）"><a href="#跨站脚本攻击（XSS）" class="headerlink" title="跨站脚本攻击（XSS）"></a>跨站脚本攻击（XSS）</h3><p>在浏览器内运行非法的 <code>HTML</code> 标签和 <code>JS</code></p>
+<p>原因：动态创建 <code>HTML</code></p>
+<h3 id="SQL-注入攻击"><a href="#SQL-注入攻击" class="headerlink" title="SQL 注入攻击"></a>SQL 注入攻击</h3><p>将 <code>SQL</code> 语句改成开发者意想不到的形式</p>
+<p>例子：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> bookTb1 <span class="keyword">where</span> author = <span class="string">'$q'</span> <span class="keyword">and</span> flag = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> bookTb1 <span class="keyword">where</span> author = <span class="string">'上野'</span><span class="comment">--‘and flag = 1</span></span><br></pre></td></tr></table></figure></p>
+<p>输入<code>’上野‘--</code>导致<code>and</code>后面被当成注释省略。</p>
+<h3 id="OS-注入攻击"><a href="#OS-注入攻击" class="headerlink" title="OS 注入攻击"></a>OS 注入攻击</h3><ul>
+<li>向 <code>shell</code> 发送命令，让命令行启动程序</li>
+<li>调用 <code>shell</code> 函数的地方就有被攻击的风险， web 应用中可以通过 <code>shell</code> 来调用操作系统命令，存在疏忽时会执行插入的非法<code>OS</code>命令。</li>
+</ul>
+<h3 id="HTTP-首部注入攻击"><a href="#HTTP-首部注入攻击" class="headerlink" title="HTTP 首部注入攻击"></a>HTTP 首部注入攻击</h3><ul>
+<li>指攻击者通过在响应首部字段中插入换行，添加任意响应首部或主体的一种攻击。</li>
+<li>向首部主体内添加内容的统计成为 HTTP响应截断攻击。</li>
+</ul>
+<p>例子：</p>
+<p>将一个 <code>ID</code> 值反映在响应内的 <code>Location</code> 首部字段内实现重定向。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Location: http://example.com/?cat=101</span><br><span class="line">101 替换成 101%OD%OASet-Cookie: +SID=12345</span><br><span class="line">Location: http://example.com/?cat=101(换行符%OD%OA)</span><br><span class="line">Set-Cookie: +SID=12345</span><br></pre></td></tr></table></figure></p>
+<p>攻击者修改了 <code>cookie</code> 的信息。</p>
+<p>响应截断攻击例子：</p>
+<p>使用两个<code>%OD%OA</code>做出<code>HTTP</code>首部与主体分割所需的空行，会使伪造的主体返回一个伪造的页面，再让用户输入个人信息，达到和跨站脚本攻击相同的效果。</p>
+<h3 id="邮件首部注入攻击"><a href="#邮件首部注入攻击" class="headerlink" title="邮件首部注入攻击"></a>邮件首部注入攻击</h3><p>相邮件首部 <code>To</code> 或 <code>Subject</code> 内添加非法内容。</p>
+<p>例子：</p>
+<ol>
+<li>改写 <code>To</code> 和 <code>Subject</code> 等邮件首部<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bob@hackr.jp%OD%OABcc: user@example.com</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>向Bcc邮箱地址追加发送了邮件。</p>
+<ol>
+<li>篡改邮件文本，向文本添加附件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bob@hackr.jp%OD%OA%OD%OA Test Message</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="目录遍历攻击"><a href="#目录遍历攻击" class="headerlink" title="目录遍历攻击"></a>目录遍历攻击</h3><p>使用”../“相对路径定位到本不该被访问到的服务器上的路径</p>
+<p>解决：</p>
+<ol>
+<li>转义</li>
+<li>关闭指定对任意文件名的访问权限。</li>
+</ol>
+<h2 id="因设置或设计上的缺陷引发的安全漏洞"><a href="#因设置或设计上的缺陷引发的安全漏洞" class="headerlink" title="因设置或设计上的缺陷引发的安全漏洞"></a>因设置或设计上的缺陷引发的安全漏洞</h2><h3 id="强制浏览"><a href="#强制浏览" class="headerlink" title="强制浏览"></a>强制浏览</h3><p>例子：虽然没哟权限访问某一页面，却可以直接通过输入一个 <code>url</code> 访问页面中的某一图片</p>
+<h3 id="不正确的错误消息处理"><a href="#不正确的错误消息处理" class="headerlink" title="不正确的错误消息处理"></a>不正确的错误消息处理</h3><p>web应用的错误消息内包含对攻击者有用的消息</p>
+<p>例子：登录时提供“账号未注册”，这也能为攻击者提供有用信息。</p>
+<h3 id="开发重定向"><a href="#开发重定向" class="headerlink" title="开发重定向"></a>开发重定向</h3><p>是一种对指定的任意 <code>URL</code> 作重定向跳转的功能。</p>
+<p>例子：指定的重定向 <code>URL</code> 到某个恶意的 web 网站</p>
+<h2 id="因会话管理疏忽引发的安全漏洞"><a href="#因会话管理疏忽引发的安全漏洞" class="headerlink" title="因会话管理疏忽引发的安全漏洞"></a>因会话管理疏忽引发的安全漏洞</h2><p>会话管理：管理用户状态的必备功能。</p>
+<p>在会话管理上有所疏忽会导致用户的认证状态被盗取等</p>
+<h3 id="会话挟持"><a href="#会话挟持" class="headerlink" title="会话挟持"></a>会话挟持</h3><p>攻击者拿到用户会话ID伪装成用户<br>攻击者获得会话ID的途径</p>
+<ul>
+<li>推测会话ID</li>
+<li>使用窃听或XSS</li>
+<li>使用会话固定攻击</li>
+</ul>
+<h3 id="会话固定攻击"><a href="#会话固定攻击" class="headerlink" title="会话固定攻击"></a>会话固定攻击</h3><p><img src="/images/1520666308048.png" alt="image"></p>
+<h3 id="跨站点请求伪造"><a href="#跨站点请求伪造" class="headerlink" title="跨站点请求伪造"></a>跨站点请求伪造</h3><p><img src="/images/1520666394263.png" alt="image"></p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="点击劫持"><a href="#点击劫持" class="headerlink" title="点击劫持"></a>点击劫持</h3><p>加透明按钮做成陷阱覆盖在web上</p>
+<h3 id="DoS攻击"><a href="#DoS攻击" class="headerlink" title="DoS攻击"></a>DoS攻击</h3><p>让运行中的服务呈停止状态</p>
+<ul>
+<li>海量请求</li>
+<li>攻击安全漏洞是服务停止</li>
+</ul>
+<h3 id="后门程序"><a href="#后门程序" class="headerlink" title="后门程序"></a>后门程序</h3><p>开发设置的隐藏入口，可不按正常步骤使用受限功能</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/10/《图解HTTP》(六)/" rel="next" title="《图解HTTP》(六)">
+                <i class="fa fa-chevron-left"></i> 《图解HTTP》(六)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/10/《图解HTTP》(二)/" rel="prev" title="《图解HTTP》(二)">
+                《图解HTTP》(二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">LENZAKON</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Web-攻击"><span class="nav-number">1.</span> <span class="nav-text">Web 攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#转义不完全"><span class="nav-number">1.1.</span> <span class="nav-text">转义不完全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#跨站脚本攻击（XSS）"><span class="nav-number">1.1.1.</span> <span class="nav-text">跨站脚本攻击（XSS）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL-注入攻击"><span class="nav-number">1.1.2.</span> <span class="nav-text">SQL 注入攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OS-注入攻击"><span class="nav-number">1.1.3.</span> <span class="nav-text">OS 注入攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP-首部注入攻击"><span class="nav-number">1.1.4.</span> <span class="nav-text">HTTP 首部注入攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#邮件首部注入攻击"><span class="nav-number">1.1.5.</span> <span class="nav-text">邮件首部注入攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录遍历攻击"><span class="nav-number">1.1.6.</span> <span class="nav-text">目录遍历攻击</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#因设置或设计上的缺陷引发的安全漏洞"><span class="nav-number">1.2.</span> <span class="nav-text">因设置或设计上的缺陷引发的安全漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#强制浏览"><span class="nav-number">1.2.1.</span> <span class="nav-text">强制浏览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不正确的错误消息处理"><span class="nav-number">1.2.2.</span> <span class="nav-text">不正确的错误消息处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发重定向"><span class="nav-number">1.2.3.</span> <span class="nav-text">开发重定向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#因会话管理疏忽引发的安全漏洞"><span class="nav-number">1.3.</span> <span class="nav-text">因会话管理疏忽引发的安全漏洞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#会话挟持"><span class="nav-number">1.3.1.</span> <span class="nav-text">会话挟持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#会话固定攻击"><span class="nav-number">1.3.2.</span> <span class="nav-text">会话固定攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨站点请求伪造"><span class="nav-number">1.3.3.</span> <span class="nav-text">跨站点请求伪造</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">1.4.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点击劫持"><span class="nav-number">1.4.1.</span> <span class="nav-text">点击劫持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DoS攻击"><span class="nav-number">1.4.2.</span> <span class="nav-text">DoS攻击</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后门程序"><span class="nav-number">1.4.3.</span> <span class="nav-text">后门程序</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LENZAKON</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
